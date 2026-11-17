@@ -35,6 +35,9 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Installer NSIS (Windows)
+        if: runner.os == 'Windows'
+        run: choco install nsis -y --no-progress
       - name: Fabriquer
         run: ${{ matrix.commande }}
         env:
