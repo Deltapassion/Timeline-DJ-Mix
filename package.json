@@ -1,0 +1,149 @@
+{
+  "name": "timeline-dj-mix",
+  "productName": "TIMELINE DJ MIX",
+  "version": "0.3.0",
+  "description": "Mix DJ monté sur timeline : enchaînements calés, Auto DJ par styles, effets, contrôleurs MIDI et mappings Mixxx",
+  "author": {
+    "name": "Jacques Branas",
+    "email": "deltapassion@gmx.com"
+  },
+  "main": "main.js",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "electron": "44.9.3",
+    "electron-builder": "26.17.0",
+    "resedit": "2.0.3"
+  },
+  "build": {
+    "appId": "fr.jacques.timelinedjmix",
+    "productName": "TIMELINE DJ MIX",
+    "copyright": "© 2026 DJ LATIN JAZZ & DJ CRISLATINO, en collaboration avec Claude.ai — GNU GPL v2+",
+    "files": [
+      "main.js",
+      "app/**",
+      "build/icon.png"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "afterPack": "./afterPack.js",
+    "publish": null,
+    "extraResources": [
+      {
+        "from": "build/linux/69-timeline-dj-mix-usb.rules",
+        "to": "69-timeline-dj-mix-usb.rules"
+      },
+      {
+        "from": "LICENSE-GPL-2.0.txt",
+        "to": "LICENSE.txt"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon-512.png",
+      "category": "Audio",
+      "executableName": "timeline-dj-mix",
+      "synopsis": "Mix DJ monté sur timeline",
+      "description": "Enchaînements calés sur timeline, Auto DJ par styles, effets, pré-écoute au casque, export MP3, FLAC, WAV et AIFF, contrôleurs MIDI et mappings Mixxx.",
+      "maintainer": "Jacques Branas <deltapassion@gmx.com>",
+      "desktop": {
+        "entry": {
+          "Name": "TIMELINE DJ MIX",
+          "Comment": "Mix DJ monté sur timeline",
+          "Categories": "AudioVideo;Audio;Music;",
+          "Keywords": "DJ;mix;timeline;MIDI;"
+        }
+      }
+    },
+    "deb": {
+      "afterInstall": "build/linux/after-install.sh",
+      "afterRemove": "build/linux/after-remove.sh",
+      "depends": [
+        "libgtk-3-0",
+        "libnotify4",
+        "libnss3",
+        "libxss1",
+        "libxtst6",
+        "xdg-utils",
+        "libatspi2.0-0",
+        "libuuid1",
+        "libsecret-1-0",
+        "libasound2 | libasound2t64"
+      ],
+      "artifactName": "timeline-dj-mix_amd64.deb"
+    },
+    "appImage": {
+      "artifactName": "Timeline-DJ-Mix-x86_64.AppImage"
+    },
+    "electronFuses": {
+      "runAsNode": false,
+      "enableNodeOptionsEnvironmentVariable": false,
+      "enableNodeCliInspectArguments": false,
+      "enableCookieEncryption": true
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "category": "public.app-category.music",
+      "identity": null,
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "minimumSystemVersion": "12.0",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "TIMELINE DJ MIX demande l’accès audio uniquement pour afficher le nom de vos cartes son (sortie générale et casque). Rien n’est enregistré.",
+        "CFBundleDisplayName": "TIMELINE DJ MIX",
+        "NSHumanReadableCopyright": "© 2026 DJ LATIN JAZZ & DJ CRISLATINO, en collaboration avec Claude.ai — GNU GPL v2+",
+        "LSApplicationCategoryType": "public.app-category.music"
+      }
+    }
+  },
+  "homepage": "https://deltapassion.github.io/Timeline-DJ-Mix/",
+  "desktopName": "timeline-dj-mix.desktop",
+  "scripts": {
+    "assembler": "node scripts/assembler.js",
+    "start": "node scripts/assembler.js && electron .",
+    "dist:linux": "node scripts/assembler.js && electron-builder --linux deb AppImage --x64",
+    "dist:win": "node scripts/assembler.js && electron-builder --win dir --x64 && node scripts/installeur-windows.js",
+    "dist:mac": "node scripts/assembler.js && electron-builder --mac dir --arm64 --x64 && node build/mac/sign.js",
+    "dist:mac-arm64": "node scripts/assembler.js && electron-builder --mac dir --arm64 && node build/mac/sign.js",
+    "dist:mac-intel": "node scripts/assembler.js && electron-builder --mac dir --x64 && node build/mac/sign.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Deltapassion/Timeline-DJ-Mix.git"
+  }
+}
