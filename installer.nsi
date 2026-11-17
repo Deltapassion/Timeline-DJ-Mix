@@ -12,7 +12,7 @@ SetCompressor /SOLID lzma
 !define UNINSTKEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\TimelineDjMix"
 
 Name "${APPNAME}"
-OutFile "dist/Timeline-DJ-Mix-Windows-Setup.exe"
+OutFile "dist\Timeline-DJ-Mix-Windows-Setup.exe"
 InstallDir "$LOCALAPPDATA\Programs\${APPNAME}"
 InstallDirRegKey HKCU "Software\TimelineDjMix" "InstallDir"
 RequestExecutionLevel user
@@ -26,8 +26,8 @@ VIAddVersionKey /LANG=1036 "ProductVersion" "${VERSION}"
 VIAddVersionKey /LANG=1036 "CompanyName" "DJ LATIN JAZZ & DJ CRISLATINO"
 VIAddVersionKey /LANG=1036 "LegalCopyright" "© 2026 DJ LATIN JAZZ & DJ CRISLATINO, en collaboration avec Claude.ai — GNU GPL v2+"
 
-!define MUI_ICON "build/icon.ico"
-!define MUI_UNICON "build/icon.ico"
+!define MUI_ICON "build\icon.ico"
+!define MUI_UNICON "build\icon.ico"
 !define MUI_ABORTWARNING
 !define MUI_WELCOMEPAGE_TITLE "Installation de ${APPNAME}"
 !define MUI_WELCOMEPAGE_TEXT "TIMELINE DJ MIX, par DJ LATIN JAZZ && DJ CRISLATINO en collaboration avec Claude.ai, monte votre mix sur une timeline : enchaînements calés, Auto DJ par styles, effets, pré-écoute au casque et contrôleurs MIDI.$\r$\n$\r$\nCliquez sur Suivant pour continuer."
@@ -52,7 +52,7 @@ Section "TIMELINE DJ MIX" SecMain
   nsExec::Exec 'taskkill /IM "${EXENAME}" /F /T'
   Sleep 1000
   SetOutPath "$INSTDIR"
-  File /r "dist/win-unpacked/*.*"
+  File /r "dist\win-unpacked\*.*"
   WriteUninstaller "$INSTDIR\Désinstaller ${APPNAME}.exe"
   CreateDirectory "$SMPROGRAMS\${APPNAME}"
   CreateShortcut "$SMPROGRAMS\${APPNAME}\${APPNAME}.lnk" "$INSTDIR\${EXENAME}" "" "$INSTDIR\${EXENAME}" 0
