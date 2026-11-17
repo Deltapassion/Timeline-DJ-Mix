@@ -1,0 +1,341 @@
+0	by DJ LATIN JAZZ & DJ CRISLATINO
+1	Import tracks
+2	New mix
+3	Open a project
+4	Save the project
+5	Export the mix
+6	MIDI controller
+7	Colours
+8	Help
+9	Library
+10	preview
+11	Title
+12	Artist
+13	Style
+14	Key
+15	Length
+16	Import audio files, or drop them here. Tempo and key are analysed automatically.
+17	Auto DJ off
+18	Party by styles
+19	Sort
+20	Listen
+21	Incoming transition
+22	Start
+23	Double-click a track in the library, or drag it here, to add it to the mix.
+24	▶ Preview
+25	Curve
+26	Volume
+27	Bass
+28	Treble
+29	Snap
+30	Bar
+31	Beat
+32	Show all
+33	Sound and effects
+34	Undo
+35	Ready
+36	TIMELINE DJ MIX 0.3, by DJ LATIN JAZZ & DJ CRISLATINO, in collaboration with Claude.ai. Free software, GNU GPL v2 or later. MP3 encoding: lamejs (LGPL). Controller mappings: Mixxx project (GPL).
+37	FLAC, lossless, 16-bit
+38	FLAC, lossless, 24-bit
+39	WAV, 16-bit
+40	WAV, 24-bit
+41	AIFF, 16-bit
+42	Track list (.txt)
+43	Close
+44	Export
+45	Auto DJ and party by styles
+46	The Auto DJ fills the playlist and mixes the tracks on its own. With one folder per style, it plays sets: for example 3 salsas, 3 bachatas, 3 kizombas, then it starts again. Without folders, it picks from the library the track closest in tempo and key.
+47	Order
+48	On
+49	Folder
+50	Tracks
+51	Per set
+52	+ Add a style
+53	Random order within each style
+54	Length to add
+55	Build the mix
+56	Continuous Auto DJ: during playback, adds the next track before the mix ends
+57	For tango, set 3 or 4 tracks per set. The browser does not keep access to folders: you have to choose them again each time you open it.
+58	Load
+59	Import a Mixxx mapping
+60	Connect over USB HID
+61	Remove
+62	Mappings come from the Mixxx project and are read as they are. Decks 1 and 3 control channel A, decks 2 and 4 channel B: volume, EQ, filter, crossfader, playback, jog, browsing and loading. A known controller is recognised when plugged in.
+63	To add or replace a command: click "Learn" on a row, then move the button, knob or fader. A learned assignment takes priority over the mapping.
+64	Command
+65	Type
+66	Assignment
+67	Background colour of the software. Panels, lines and text adapt on their own, including on a light background.
+68	Custom colour
+69	Button colour
+70	Default
+71	Main button colour
+72	(Import, Play, Export, Close)
+73	How it works
+74	Preview
+75	: the ▶ button on each row, in the library as in the playlist, plays the track without stopping the mix. The ⇄ button plays a transition as it will sound. The
+76	green line
+77	on the timeline shows where the preview is: place it wherever you like by clicking in the bottom strip, Shift+click or right-click. Outputs (headphones on channels 3-4 or on another sound card) are set in "Sound and effects".
+78	: volume, EQ and filter per channel, crossfader, echo, flanger and reverb. Editing a waiting track never cuts the one that is playing.
+79	: import your files. BPM, beat grid and key are calculated. The green dot marks a key compatible with the track selected in the playlist, a green BPM a tempo within 6 %.
+80	: double-click or drag and drop to add, drag rows to change the order. Each track is beat-matched and mixed automatically with the previous one.
+81	: drag a block to lengthen or shorten the overlap, pull its edges to cut the start or the end. Click the ruler to place the playhead.
+82	Curves
+83	: select a block, then click the curve to add a point and drag it. Double-click a point to delete it. Volume, bass and treble each have their own curve.
+84	Tempo
+85	: during a transition, the tempo glides from one track to the other and both stay in sync. Pitch follows tempo, as on a vinyl turntable.
+86	If a track is off-beat
+87	: correct its BPM (÷2, ×2 or exact value) and shift its grid in the strip above the timeline.
+88	Shortcuts
+89	Space
+90	play,
+91	Del
+92	remove the selected track,
+93	undo,
+94	+wheel zoom.
+95	Your audio files stay on your computer. The saved project contains the mix settings, not the audio: when you reopen it, import the same files again and they relink on their own.
+96	Search
+97	Search the library
+98	Preview position
+99	Stop the preview
+100	During playback, the Auto DJ adds the next track on its own before the mix ends
+101	Go to the next style
+102	Reorders the tracks by compatible tempo and key, starting from the first one
+103	Back to the start (Home)
+104	Back to the start
+105	Play / pause (Space)
+106	Play or pause
+107	Headphone preview of the mix from the green line. To place the green line: click in the bottom strip of the timeline, Shift+click or right-click anywhere.
+108	Show or hide the Sound and effects panel
+109	Undo (Ctrl+Z)
+110	Drag to set the height of the panel
+111	Night blue
+112	Black
+113	Anthracite
+114	Navy blue
+115	Burgundy
+116	Fir green
+117	Purple
+118	Brown
+119	Light sand
+120	Light grey
+121	Default
+122	Default button colour
+123	Steel blue
+124	Graphite
+125	Red
+126	Green
+127	Bronze
+128	Default main button colour
+129	Bright green
+130	Bright red
+131	Bright blue
+132	Mauve
+133	Yellow
+134	Pink
+135	White
+136	Beat-matched fade
+137	Bass swap
+138	Hard entry
+139	Simple fade, no beat-matching
+140	Cut
+141	The browser no longer has enough space to keep all the files: some will need to be imported again next time.
+142	The browser could not keep this file: it will need to be imported again next time.
+143	No new audio file recognised.
+144	This track is still being analysed.
+145	This file is not a TIMELINE DJ MIX project.
+146	Demo
+147	Glides from one to the other
+148	Keeps the outgoing one
+149	Takes the incoming one
+150	■ Stop
+151	⇄ Listen to the transition
+152	Master on 1-2, headphones on 3-4.
+153	Headphones on 1-2, master on 3-4.
+154	4 are needed to separate the headphones: set the card to "Quadraphonic" in the system.
+155	The chosen headphone output is not available: headphones go back to the mix output.
+156	Headphones sent to the other sound card.
+157	Headphones heard with the mix.
+158	First add tracks to the playlist.
+159	The browser refused to start the sound.
+160	■ Preview
+161	unreadable file
+162	(file to import again)
+163	The timeline fills up as you add tracks to the playlist.
+164	Saving cancelled.
+165	Saving files is not available in this view.
+166	The playlist is empty.
+167	On this page, the audio file is delivered in a .zip archive, with the track list.
+168	Saving files is not available in this view. Use the HTML file version of the software.
+169	File handed to the browser.
+170	Save the file
+171	Export cancelled.
+172	Auto DJ: no more tracks available, it stops.
+173	Auto DJ on
+174	Auto DJ: all the tracks in the library are already in the mix. Import more or choose style folders.
+175	Mids
+176	Filter
+177	Echo
+178	Reverb
+179	Channel A
+180	Channel B
+181	Effects
+182	This browser does not allow choosing outputs.
+183	Click "List sound cards" to see their names.
+184	Without this permission, the browser does not give the list of sound cards.
+185	The mapping XML file is unreadable.
+186	This browser does not support USB HID: use Chrome or Edge, with the HTML file version.
+187	Mapping too large to be remembered: you will have to import it again.
+188	This mapping could not be loaded.
+189	Back to the start
+190	Previous transition
+191	Next transition
+192	Move through the mix (jog, encoder)
+193	Browse the library (encoder)
+194	Load the chosen track into the mix (channel A button)
+195	Load the chosen track into the mix (channel B button)
+196	Play / pause (channel B button)
+197	Preview the chosen track (channel A headphones)
+198	Preview the chosen track (channel B headphones)
+199	Preview the mix from the green line
+200	Move the green line (encoder)
+201	Preview the next transition
+202	Auto DJ on / off
+203	Next style
+204	Listening volume
+205	Preview volume
+206	First choose a track in the library.
+207	This browser does not offer MIDI. Use Chrome or Edge.
+208	MIDI access was refused or is not possible in this view. Open the HTML file version in Chrome or Edge.
+209	No controller detected. Plug it in, put it in MIDI mode, then reopen this window.
+210	Mixers and fader surfaces
+211	Controllers
+212	No mapping loaded. Choose your device, or import a Mixxx mapping: the .xml file with its .js files.
+213	knob, fader
+214	Learn
+215	Project opened. Import again the audio files marked "to import again".
+216	Unreadable project.
+217	Click "New mix" once more to clear everything.
+218	At least three tracks are needed to reorder.
+219	Automatic curves restored for this track.
+220	This track already has its automatic curves: nothing to restore.
+221	The next track added by the Auto DJ will change style.
+222	First import tracks or choose a folder per style.
+223	No track available: they are all already in the mix, or no folder is loaded.
+224	This output is not available.
+225	Select the mapping .xml file, with its .js files.
+226	Add to the playlist
+227	Remove from the library
+228	Preview this track without stopping the mix
+229	Remove from the mix
+230	Transition
+231	Overlap
+232	Tempo during the transition
+233	Tempo in the mix
+234	Original
+235	Back to the track's original tempo
+236	Track BPM
+237	Grid
+238	Bar −1 beat
+239	+1 beat
+240	Move the grid 10 ms earlier
+241	Move the grid 10 ms later
+242	The first beat of the bar is one beat earlier
+243	The first beat of the bar is one beat later
+244	Headphone preview, without stopping the mix
+245	Restore the automatic curves
+246	Clears the points placed by hand on this track and restores the automatic fades
+247	Style name
+248	Choose the folder
+249	Tracks per set
+250	Headphones
+251	Outputs
+252	Master output
+253	Routing
+254	Stereo
+255	4-channel card: master 1-2, headphones 3-4
+256	4-channel card: headphones 1-2, master 3-4
+257	Headphones on another sound card
+258	Off
+259	List sound cards
+260	Apply these settings to the export
+261	Reset everything
+262	Simple view
+263	Switch between the DJ controller view and the original simple view
+264	Clear
+265	Preview the incoming transition without stopping the mix
+266	Double-click: reset
+267	DJ controller view
+268	Drag to set the height of the lists
+269	Drag to set the width
+270	Rendering the mix…
+271	Play / pause
+272	Add a style
+273	Tempo ±8 %
+274	analysing…
+275	waiting
+276	file to import again
+277	unreadable
+278	demo
+279	Opening
+280	button
+281	encoder
+282	beats
+283	10 ms
+284	Move the control…
+285	Effect
+286	Language
+287	Analysing: {t}…
+288	{n} tracks
+289	{n} track
+290	{n} tracks, {t}
+291	{n} track, {t}
+292	{n} tracks could not be found: import again the files marked "to import again" to listen to them.
+293	{n} track could not be found: import again the files marked "to import again" to listen to it.
+294	This browser cannot read this format: {t}
+295	Channels available on the master output: {n}. {x}
+296	Channels available on the master output: {n}.
+297	"{t}" is silent: its file must be imported again.
+298	The file of "{t}" is no longer accessible: import it again ("Import tracks" button) to listen to it.
+299	Preview impossible: {x}.
+300	Saving impossible ({t}).
+301	Mix made with TIMELINE DJ MIX, length {t}
+302	{n} track(s) without a file will be replaced by silence. Import them again first for a complete mix.
+303	Mix length: {t}.
+304	Rendering the mix… {n} %
+305	Mix ready: {n} MB.
+306	The export failed: {t}
+307	{n} tracks placed, {t}…
+308	Current style: {t}. Go to the next style
+309	{t} connected.
+310	HID connection impossible: {t}
+311	Mapping "{t}" loaded.
+312	Mapping "{t}" loaded (missing files: {u}).
+313	Controllers detected: {t}.
+314	Active mapping: {t}, {n} commands.
+315	Active mapping: {t} (USB HID, device connected).
+316	Active mapping: {t} (USB HID, click "Connect over USB HID").
+317	{t}: {n} tracks. Tempo analysis runs in the background, little by little.
+318	{n} tracks added. Mix length: {t}.
+319	Channel A: {x}
+320	Channel B: {x}
+321	Effect: {x}
+322	Note {n}, channel {c}
+323	CC {n}, channel {c}
+324	Pitch bend, channel {c}
+325	{n} beats
+326	Playlist
+327	Zoom
+328	Drag up / down, mouse wheel. Double-click: reset
+329	The browser asks for microphone access to give the names of the sound cards; nothing is recorded
+330	: "Party by styles" builds the mix in sets of styles; "Auto DJ" adds the next track on its own during playback.
+331	Preview {t}
+332	Add {t} to the playlist
+333	Remove {t} from the library
+334	Preview {t}
+335	Remove {t} from the mix
+336	Preview the transition into {t}
+337	Incoming transition of track {n}
+338	Select a track in the timeline to set its transition, tempo, grid and curves.
+339	Mapping
+340	Full user guide

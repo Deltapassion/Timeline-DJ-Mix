@@ -1,0 +1,241 @@
+{
+ "bibliotheques": [
+  "common-controller-scripts.js",
+  "midi-components-0.0.js",
+  "lodash.mixxx.js",
+  "common-hid-packet-parser.js"
+ ],
+ "controleurs": [
+  {
+   "id": "z1",
+   "label": "Native Instruments Traktor Kontrol Z1 (USB HID)",
+   "match": "kontrol z1",
+   "kind": "mixer",
+   "xml": "Traktor Kontrol Z1.hid.xml",
+   "files": [
+    "Traktor Kontrol Z1.hid.xml",
+    "Traktor-Kontrol-Z1-scripts.js"
+   ]
+  },
+  {
+   "id": "xone-k2",
+   "label": "Allen & Heath Xone:K1 / K2 / K3",
+   "match": "xone",
+   "kind": "mixer",
+   "xml": "Allen and Heath Xone K2.midi.xml",
+   "files": [
+    "Allen and Heath Xone K2.midi.xml",
+    "Allen-and-Heath-Xone-K2-scripts.js"
+   ]
+  },
+  {
+   "id": "numark-scratch",
+   "label": "Numark Scratch",
+   "match": "numark scratch",
+   "kind": "mixer",
+   "xml": "Numark-Scratch.midi.xml",
+   "files": [
+    "Numark-Scratch.midi.xml",
+    "Numark-Scratch-scripts.js"
+   ]
+  },
+  {
+   "id": "nanokontrol2",
+   "label": "Korg nanoKONTROL2",
+   "match": "nanokontrol ?2",
+   "kind": "mixer",
+   "xml": "Korg nanoKONTROL 2.midi.xml",
+   "files": [
+    "Korg nanoKONTROL 2.midi.xml",
+    "Korg-nanoKONTROL-2-scripts.js"
+   ]
+  },
+  {
+   "id": "ddj-flx4",
+   "label": "Pioneer DDJ-FLX4",
+   "match": "flx ?4",
+   "kind": "ctrl",
+   "xml": "Pioneer-DDJ-FLX4.midi.xml",
+   "files": [
+    "Pioneer-DDJ-FLX4.midi.xml",
+    "Pioneer-DDJ-FLX4-script.js"
+   ]
+  },
+  {
+   "id": "ddj-400",
+   "label": "Pioneer DDJ-400",
+   "match": "ddj-?400",
+   "kind": "ctrl",
+   "xml": "Pioneer-DDJ-400.midi.xml",
+   "files": [
+    "Pioneer-DDJ-400.midi.xml",
+    "Pioneer-DDJ-400-script.js"
+   ]
+  },
+  {
+   "id": "ddj-sb3",
+   "label": "Pioneer DDJ-SB3",
+   "match": "ddj-?sb3",
+   "kind": "ctrl",
+   "xml": "Pioneer-DDJ-SB3.midi.xml",
+   "files": [
+    "Pioneer-DDJ-SB3.midi.xml",
+    "Pioneer-DDJ-SB3-scripts.js"
+   ]
+  },
+  {
+   "id": "ddj-sb2",
+   "label": "Pioneer DDJ-SB2",
+   "match": "ddj-?sb2",
+   "kind": "ctrl",
+   "xml": "Pioneer-DDJ-SB2.midi.xml",
+   "files": [
+    "Pioneer-DDJ-SB2.midi.xml",
+    "Pioneer-DDJ-SB2-scripts.js"
+   ]
+  },
+  {
+   "id": "ddj-200",
+   "label": "Pioneer DDJ-200",
+   "match": "ddj-?200",
+   "kind": "ctrl",
+   "xml": "Pioneer DDJ-200.midi.xml",
+   "files": [
+    "Pioneer DDJ-200.midi.xml",
+    "Pioneer-DDJ-200-scripts.js"
+   ]
+  },
+  {
+   "id": "dj-505",
+   "label": "Roland DJ-505",
+   "match": "dj-?505",
+   "kind": "ctrl",
+   "xml": "Roland_DJ-505.midi.xml",
+   "files": [
+    "Roland_DJ-505.midi.xml",
+    "Roland_DJ-505-scripts.js"
+   ]
+  },
+  {
+   "id": "mixtrack-pro-fx",
+   "label": "Numark Mixtrack Pro FX",
+   "match": "mixtrack pro fx",
+   "kind": "ctrl",
+   "xml": "Numark Mixtrack Pro FX.midi.xml",
+   "files": [
+    "Numark Mixtrack Pro FX.midi.xml",
+    "Numark-Mixtrack-Pro-FX-scripts.js"
+   ]
+  },
+  {
+   "id": "mixtrack-plat-fx",
+   "label": "Numark Mixtrack Platinum FX",
+   "match": "mixtrack platinum fx",
+   "kind": "ctrl",
+   "xml": "Numark Mixtrack Platinum FX.midi.xml",
+   "files": [
+    "Numark Mixtrack Platinum FX.midi.xml",
+    "Numark-Mixtrack-Platinum-FX-scripts.js"
+   ]
+  },
+  {
+   "id": "mixtrack-3",
+   "label": "Numark Mixtrack 3 / Pro 3",
+   "match": "mixtrack (pro )?3",
+   "kind": "ctrl",
+   "xml": "Numark-Mixtrack-3.midi.xml",
+   "files": [
+    "Numark-Mixtrack-3.midi.xml",
+    "Numark-Mixtrack-3-scripts.js"
+   ]
+  },
+  {
+   "id": "party-mix",
+   "label": "Numark Party Mix",
+   "match": "party ?mix",
+   "kind": "ctrl",
+   "xml": "Numark-Party-Mix.midi.xml",
+   "files": [
+    "Numark-Party-Mix.midi.xml",
+    "Numark-Party-Mix.scripts.js"
+   ]
+  },
+  {
+   "id": "dj2go2",
+   "label": "Numark DJ2GO2 Touch",
+   "match": "dj2go2",
+   "kind": "ctrl",
+   "xml": "Numark_DJ2GO2_Touch.midi.xml",
+   "files": [
+    "Numark_DJ2GO2_Touch.midi.xml",
+    "Numark_DJ2GO2_Touch_scripts.js"
+   ]
+  },
+  {
+   "id": "inpulse-500",
+   "label": "Hercules DJControl Inpulse 500",
+   "match": "inpulse ?500",
+   "kind": "ctrl",
+   "xml": "Hercules_DJControl_Inpulse_500.midi.xml",
+   "files": [
+    "Hercules_DJControl_Inpulse_500.midi.xml",
+    "Hercules-DJControl-Inpulse-500-script.js"
+   ]
+  },
+  {
+   "id": "inpulse-200",
+   "label": "Hercules DJControl Inpulse 200",
+   "match": "inpulse ?200",
+   "kind": "ctrl",
+   "xml": "Hercules_DJControl_Inpulse_200.midi.xml",
+   "files": [
+    "Hercules_DJControl_Inpulse_200.midi.xml",
+    "Hercules-DJControl-Inpulse-200-script.js"
+   ]
+  },
+  {
+   "id": "starlight",
+   "label": "Hercules DJControl Starlight",
+   "match": "starlight",
+   "kind": "ctrl",
+   "xml": "Hercules DJControl Starlight.midi.xml",
+   "files": [
+    "Hercules DJControl Starlight.midi.xml",
+    "Hercules-DJControl-Starlight-scripts.js"
+   ]
+  },
+  {
+   "id": "beatpad",
+   "label": "Reloop Beatpad",
+   "match": "beat ?pad",
+   "kind": "ctrl",
+   "xml": "Reloop Beatpad.midi.xml",
+   "files": [
+    "Reloop Beatpad.midi.xml",
+    "Reloop-Beatpad-scripts.js"
+   ]
+  },
+  {
+   "id": "tm-24",
+   "label": "Reloop Terminal Mix 2 / 4",
+   "match": "terminal ?mix",
+   "kind": "ctrl",
+   "xml": "Reloop Terminal Mix 2-4.midi.xml",
+   "files": [
+    "Reloop Terminal Mix 2-4.midi.xml",
+    "Reloop Terminal Mix 2-4.js"
+   ]
+  },
+  {
+   "id": "gmx-midi",
+   "label": "Gemini GMX (MIDI)",
+   "match": "gmx|gemini",
+   "kind": "ctrl",
+   "xml": "Gemini GMX v2 MIDI.midi.xml",
+   "files": [
+    "Gemini GMX v2 MIDI.midi.xml",
+    "Gemini-GMX-v2-MIDI.js"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,157 @@
+{
+ "title": "Manuale d'uso",
+ "sub": "Il mix DJ montato su una timeline — software libero",
+ "intro": "TIMELINE DJ MIX costruisce un mix completo su una linea del tempo: ogni brano viene portato al tempo del precedente, le transizioni si regolano con il mouse, poi l'intera serata si esporta in un solo file audio. I numeri rossi nelle immagini rimandano agli elenchi sottostanti.",
+ "toc": "Indice",
+ "back": "Torna al sito",
+ "pdf": "Scarica il PDF",
+ "ver": "Versione 0.3.0",
+ "s": [
+  {
+   "t": "Installazione",
+   "p": [
+    "<b>Windows</b>: avvia <code>Timeline-DJ-Mix-Windows-Setup.exe</code>. Se Windows mostra «PC protetto da Windows», fai clic su <i>Ulteriori informazioni</i> e poi su <i>Esegui comunque</i>.",
+    "<b>macOS</b>: scegli la versione Apple Silicon (M1, M2…) o Intel, decomprimi il .zip e trascina <b>TIMELINE DJ MIX</b> in Applicazioni. Al primo avvio, apri <i>Impostazioni di Sistema › Privacy e sicurezza</i> e fai clic su <i>Apri comunque</i>.",
+    "<b>Linux</b>: installa <code>timeline-dj-mix_amd64.deb</code> (Debian, Ubuntu, Mint) con un doppio clic, oppure rendi eseguibile l'AppImage e avviala.",
+    "<b>Senza installazione</b>: il file <code>Timeline-DJ-Mix.html</code> si apre in Chrome o Edge. Fa tutto, tranne conservare l'accesso alle cartelle da una sessione all'altra."
+   ]
+  },
+  {
+   "t": "La schermata",
+   "p": [
+    "In alto, la libreria (a sinistra) e la playlist (a destra). Al centro, la barra di riproduzione e poi le impostazioni del brano selezionato. In basso, la timeline. Il pulsante <b>Suono ed effetti</b> mostra o nasconde il mixer. I bordi tra le zone si spostano con il mouse."
+   ],
+   "cap": "La finestra di TIMELINE DJ MIX",
+   "leg": [
+    "Importa, nuovo mix, apri e salva un progetto, esporta",
+    "Controller MIDI, colori e aiuto",
+    "Scelta della lingua",
+    "Libreria: i tuoi brani analizzati",
+    "Playlist: l'ordine del mix e le transizioni",
+    "Riproduzione, preascolto, tempo e velocità del mix",
+    "Impostazioni del brano selezionato",
+    "La timeline"
+   ]
+  },
+  {
+   "t": "Importare e analizzare i brani",
+   "p": [
+    "Fai clic su <b>Importa brani</b> o trascina dei file sulla libreria: MP3, WAV, FLAC, OGG, Opus, M4A/AAC e AIFF. Il programma calcola il <b>BPM</b>, la <b>griglia dei battiti</b> e la <b>tonalità</b>, mostrata con il codice della ruota armonica (8A, 9B…).",
+    "Un <b>pallino verde</b> indica una tonalità compatibile con il brano selezionato nella playlist; un <b>BPM in verde</b>, un tempo entro il 6 %. Fai clic sul titolo di una colonna per ordinare e usa la ricerca per filtrare.",
+    "I file restano sul tuo computer; il programma ne conserva una copia per ritrovarli alla prossima apertura."
+   ],
+   "cap": "La libreria"
+  },
+  {
+   "t": "Costruire il mix",
+   "p": [
+    "Fai doppio clic su un brano, fai clic su <b>+</b> o trascinalo nella playlist. Trascina le righe per cambiare l'ordine; <b>Ordina</b> dispone i brani per tempo e tonalità compatibili.",
+    "Ogni brano ha la sua <b>transizione d'ingresso</b>: <b>dissolvenza sincronizzata</b> (i due brani allo stesso tempo), <b>scambio dei bassi</b> (i bassi passano da un brano all'altro a metà), <b>entrata secca</b>, <b>dissolvenza semplice, senza sincronia</b> (scelta da sola quando i tempi sono troppo distanti) o <b>taglio</b>."
+   ],
+   "cap": "La playlist e le transizioni"
+  },
+  {
+   "t": "La timeline",
+   "p": [
+    "I brani si alternano su due vie, A (arancione) e B (blu). Trascina un blocco per allungare o accorciare la <b>sovrapposizione</b>; tira i suoi bordi per tagliare l'inizio o la fine. La <b>calamita</b> aggancia gli spostamenti alla battuta o al battito.",
+    "Fai clic sul righello per posizionare la testina. <b>Zoom</b> e <b>Mostra tutto</b> regolano la scala; Ctrl + rotella ingrandisce dove si trova il mouse. La linea arancione in basso mostra il tempo del mix, che scivola da un brano all'altro durante le transizioni."
+   ],
+   "cap": "La timeline: due vie, sovrapposizioni e curva del tempo"
+  },
+  {
+   "t": "Curve di volume, bassi e alti",
+   "p": [
+    "Scegli la curva (<b>Volume</b>, <b>Bassi</b> o <b>Alti</b>), seleziona un blocco, poi fai clic sulla curva per aggiungere un punto e trascinalo. Un doppio clic elimina un punto. <b>Ripristina le curve automatiche</b> cancella i punti posati a mano."
+   ],
+   "cap": "Curva dei bassi durante uno scambio dei bassi"
+  },
+  {
+   "t": "Tempo e griglia del brano",
+   "p": [
+    "Nelle impostazioni del brano: la <b>sovrapposizione</b> in battiti, il <b>tempo durante la transizione</b> (scivola dall'uno all'altro, mantiene quello in uscita, prende quello in entrata) e il <b>tempo nel mix</b>.",
+    "Se un brano non è ben allineato, correggi il suo <b>BPM</b> (÷2, ×2 o valore esatto), sposta la <b>griglia</b> di 10 ms o sposta di un battito il primo battito della battuta. L'intonazione segue il tempo, come su un giradischi in vinile."
+   ],
+   "cap": "Le impostazioni del brano selezionato"
+  },
+  {
+   "t": "Preascolto in cuffia",
+   "p": [
+    "Il pulsante ▶ di ogni riga fa ascoltare il brano in cuffia <b>senza fermare il mix</b>, nella libreria come nella playlist; un cursore permette di andare in qualsiasi punto del brano. Il pulsante ⇄ fa ascoltare la transizione così come suonerà.",
+    "La <b>linea verde</b> della timeline mostra dove si trova il preascolto del mix. Posizionala con un clic nella fascia in basso, Maiusc + clic o clic destro, poi avvia <b>Preascolto</b>.",
+    "Uscite: per impostazione predefinita, scheda a 4 canali, uscita generale su 1-2 e cuffie su 3-4. Con una scheda stereo, scegli <b>Stereo</b> oppure invia le cuffie a un'altra scheda audio."
+   ],
+   "cap": "Preascolto di un brano della libreria e linea verde",
+   "leg": [
+    "Pulsante di preascolto del mix",
+    "Brano in cuffia e sua posizione",
+    "Linea verde del preascolto"
+   ]
+  },
+  {
+   "t": "Suono ed effetti",
+   "p": [
+    "Per ogni via: volume, bassi, medi, alti, filtro e <b>tempo ±8 %</b>. Al centro il crossfader; a destra l'eco (a tempo), il flanger e il riverbero. Un doppio clic azzera un controllo.",
+    "La <b>vista semplice</b> sostituisce le manopole con dei cursori; un <b>cerchio verde</b> si accende quando il controllo è al centro. Spunta <i>Applica queste impostazioni all'esportazione</i> per mantenerle nel file esportato."
+   ],
+   "cap": "Il mixer in vista controller DJ",
+   "leg": [
+    "Via A",
+    "Crossfader",
+    "Via B",
+    "Effetti"
+   ],
+   "cap2": "La vista semplice, con il cerchio verde al centro"
+  },
+  {
+   "t": "Auto DJ e serata per stili",
+   "p": [
+    "<b>Serata per stili</b>: aggiungi uno stile per riga, scegli la sua cartella e il numero di brani per serie. L'Auto DJ suona per esempio 3 salse, 3 bachate, 3 kizombe, poi ricomincia. <b>Costruisci il mix</b> aggiunge in una volta la durata desiderata.",
+    "<b>Auto DJ in funzione</b> aggiunge il brano successivo durante la riproduzione, prima della fine del mix; il pulsante ⏭ passa allo stile successivo. Senza cartelle, l'Auto DJ sceglie il brano più vicino per tempo e tonalità."
+   ],
+   "cap": "Auto DJ e serata per stili"
+  },
+  {
+   "t": "Controller MIDI",
+   "p": [
+    "Scegli il tuo apparecchio e fai clic su <b>Carica</b>: le mappature del progetto Mixxx vengono lette così come sono (Pioneer DDJ, Numark, Hercules, Reloop, Allen &amp; Heath, Traktor Kontrol Z1…). I deck 1 e 3 comandano la via A, i deck 2 e 4 la via B, compreso il fader del tempo. <b>Importa una mappatura Mixxx</b> accetta qualsiasi altro file .xml con i suoi .js.",
+    "Per aggiungere un comando: fai clic su <b>Impara</b> su una riga, poi muovi il pulsante, la manopola o il fader. Un comando appreso ha la precedenza sulla mappatura. Il MIDI funziona nelle versioni installate e in Chrome o Edge."
+   ],
+   "cap": "Mappature e apprendimento MIDI"
+  },
+  {
+   "t": "Esportare il mix",
+   "p": [
+    "<b>Esporta il mix</b> calcola l'intera serata in un file: MP3 a 128, 192 o 320 kbit/s, FLAC a 16 o 24 bit, WAV a 16 o 24 bit, AIFF. <b>Elenco dei brani</b> salva l'elenco con i tempi, pronto da pubblicare con il mix."
+   ],
+   "cap": "I formati di esportazione"
+  },
+  {
+   "t": "Progetti",
+   "p": [
+    "<b>Salva il progetto</b> conserva ordine, transizioni, curve e correzioni di tempo in un file .json. <b>Apri un progetto</b> lo ricarica. Il programma conserva anche da solo l'ultimo mix.",
+    "<b>Annulla</b> (Ctrl + Z) torna indietro. Modificare un brano in attesa non interrompe mai quello in riproduzione."
+   ]
+  },
+  {
+   "t": "Colori e lingue",
+   "p": [
+    "<b>Colori</b>: colore dello sfondo (testo e pannelli si adattano, anche su sfondo chiaro), colore dei pulsanti e colore dei pulsanti principali.",
+    "La <b>lingua</b> si sceglie in alto a destra: francese, inglese, spagnolo, portoghese, italiano, tedesco, greco, russo, cinese o giapponese. Il cambio è immediato e viene conservato per la volta successiva. I titoli dei tuoi brani non vengono mai tradotti."
+   ],
+   "cap": "I colori del programma"
+  },
+  {
+   "t": "Scorciatoie da tastiera",
+   "p": [
+    "<b>Spazio</b>: riproduci / pausa · <b>Canc</b>: rimuovi dal mix il brano selezionato · <b>Ctrl + Z</b>: annulla · <b>Home</b>: torna all'inizio · <b>← →</b>: indietro o avanti di 5 secondi · <b>Ctrl + rotella</b>: zoom della timeline.",
+    "<b>F1</b>: apre questo manuale nella lingua del programma. Si apre anche da <b>Aiuto</b> › <b>Manuale d'uso completo</b>."
+   ]
+  },
+  {
+   "t": "Sostenere il progetto",
+   "p": [
+    "TIMELINE DJ MIX è software libero e gratuito (GNU GPL v2 o successiva), creato da DJ LATIN JAZZ &amp; DJ CRISLATINO in collaborazione con Claude.ai. Una donazione su <a href=\"https://ko-fi.com/djlatinjazz\">ko-fi.com/djlatinjazz</a> aiuta a farlo crescere. Le mappature dei controller provengono dal progetto Mixxx (GPL); la codifica MP3 usa lamejs (LGPL)."
+   ]
+  }
+ ]
+}

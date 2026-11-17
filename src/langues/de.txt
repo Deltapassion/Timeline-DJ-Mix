@@ -1,0 +1,341 @@
+0	von DJ LATIN JAZZ & DJ CRISLATINO
+1	Titel importieren
+2	Neuer Mix
+3	Projekt öffnen
+4	Projekt speichern
+5	Mix exportieren
+6	MIDI-Controller
+7	Farben
+8	Hilfe
+9	Bibliothek
+10	Vorhören
+11	Titel
+12	Interpret
+13	Stil
+14	Tonart
+15	Dauer
+16	Audiodateien importieren oder hier ablegen. Tempo und Tonart werden automatisch analysiert.
+17	Auto-DJ aus
+18	Party nach Stilen
+19	Sortieren
+20	Hören
+21	Eingangsübergang
+22	Beginn
+23	Doppelklicken Sie auf einen Titel in der Bibliothek oder ziehen Sie ihn hierher, um ihn zum Mix hinzuzufügen.
+24	▶ Vorhören
+25	Kurve
+26	Lautstärke
+27	Bässe
+28	Höhen
+29	Magnet
+30	Takt
+31	Schlag
+32	Alles zeigen
+33	Klang und Effekte
+34	Rückgängig
+35	Bereit
+36	TIMELINE DJ MIX 0.3, von DJ LATIN JAZZ & DJ CRISLATINO, in Zusammenarbeit mit Claude.ai. Freie Software, GNU GPL v2 oder später. MP3-Kodierung: lamejs (LGPL). Controller-Mappings: Mixxx-Projekt (GPL).
+37	FLAC, verlustfrei, 16 Bit
+38	FLAC, verlustfrei, 24 Bit
+39	WAV, 16 Bit
+40	WAV, 24 Bit
+41	AIFF, 16 Bit
+42	Titelliste (.txt)
+43	Schließen
+44	Exportieren
+45	Auto-DJ und Party nach Stilen
+46	Der Auto-DJ füllt die Playlist und mischt die Titel selbstständig. Mit einem Ordner pro Stil spielt er Serien: zum Beispiel 3 Salsas, 3 Bachatas, 3 Kizombas, dann beginnt er von vorn. Ohne Ordner wählt er aus der Bibliothek den Titel, der in Tempo und Tonart am nächsten liegt.
+47	Reihenfolge
+48	Aktiv
+49	Ordner
+50	Titel
+51	Pro Serie
+52	+ Stil hinzufügen
+53	Zufällige Reihenfolge innerhalb jedes Stils
+54	Hinzuzufügende Dauer
+55	Mix erstellen
+56	Auto-DJ im Dauerbetrieb: fügt während der Wiedergabe den nächsten Titel vor dem Ende des Mixes hinzu
+57	Für Tango 3 oder 4 Titel pro Serie einstellen. Der Browser behält den Zugriff auf Ordner nicht: Sie müssen sie bei jedem Öffnen neu auswählen.
+58	Laden
+59	Mixxx-Mapping importieren
+60	Über USB HID verbinden
+61	Entfernen
+62	Die Mappings stammen aus dem Mixxx-Projekt und werden unverändert gelesen. Decks 1 und 3 steuern Kanal A, Decks 2 und 4 Kanal B: Lautstärke, EQ, Filter, Crossfader, Wiedergabe, Jog, Navigation und Laden. Ein bekannter Controller wird beim Anschließen erkannt.
+63	Um einen Befehl zu ergänzen oder zu ersetzen: Klicken Sie in einer Zeile auf „Lernen“ und bewegen Sie dann die Taste, den Drehregler oder den Fader. Eine gelernte Zuweisung hat Vorrang vor dem Mapping.
+64	Befehl
+65	Typ
+66	Zuweisung
+67	Hintergrundfarbe der Software. Bereiche, Linien und Text passen sich von selbst an, auch auf hellem Hintergrund.
+68	Eigene Farbe
+69	Farbe der Schaltflächen
+70	Standard
+71	Farbe der Hauptschaltflächen
+72	(Importieren, Wiedergabe, Exportieren, Schließen)
+73	So funktioniert es
+74	Vorhören
+75	: Die Taste ▶ jeder Zeile spielt den Titel in der Bibliothek wie in der Playlist ab, ohne den Mix anzuhalten. Die Taste ⇄ spielt einen Übergang so ab, wie er klingen wird. Die
+76	grüne Linie
+77	in der Zeitleiste zeigt, wo das Vorhören steht: Setzen Sie sie mit einem Klick in den unteren Streifen, Umschalt+Klick oder Rechtsklick an jede beliebige Stelle. Die Ausgänge (Kopfhörer auf Kanal 3-4 oder auf einer anderen Soundkarte) werden unter „Klang und Effekte“ eingestellt.
+78	: Lautstärke, EQ und Filter pro Kanal, Crossfader, Echo, Flanger und Hall. Das Ändern eines wartenden Titels unterbricht nie den laufenden.
+79	: Importieren Sie Ihre Dateien. BPM, Beatgrid und Tonart werden berechnet. Der grüne Punkt zeigt eine Tonart, die zum in der Playlist ausgewählten Titel passt, die grüne BPM-Zahl ein Tempo innerhalb von 6 %.
+80	: Doppelklick oder Ziehen und Ablegen zum Hinzufügen, Zeilen ziehen, um die Reihenfolge zu ändern. Jeder Titel wird im Tempo angeglichen und automatisch an den vorherigen angeschlossen.
+81	: Ziehen Sie einen Block, um die Überlappung zu verlängern oder zu verkürzen, ziehen Sie an seinen Rändern, um Anfang oder Ende abzuschneiden. Klicken Sie auf das Lineal, um den Abspielkopf zu setzen.
+82	Kurven
+83	: Wählen Sie einen Block, klicken Sie dann auf die Kurve, um einen Punkt zu setzen, und ziehen Sie ihn. Doppelklick auf einen Punkt löscht ihn. Lautstärke, Bässe und Höhen haben jeweils ihre eigene Kurve.
+84	Tempo
+85	: Während eines Übergangs gleitet das Tempo von einem Titel zum anderen und beide bleiben synchron. Die Tonhöhe folgt dem Tempo, wie bei einem Plattenspieler.
+86	Wenn ein Titel verschoben ist
+87	: Korrigieren Sie seine BPM (÷2, ×2 oder genauer Wert) und verschieben Sie sein Raster im Streifen über der Zeitleiste.
+88	Tastenkürzel
+89	Leertaste
+90	Wiedergabe,
+91	Entf
+92	ausgewählten Titel entfernen,
+93	rückgängig,
+94	+Mausrad Zoom.
+95	Ihre Audiodateien bleiben auf Ihrem Computer. Das gespeicherte Projekt enthält die Mix-Einstellungen, nicht den Ton: Importieren Sie beim erneuten Öffnen dieselben Dateien, sie werden automatisch wieder verknüpft.
+96	Suchen
+97	In der Bibliothek suchen
+98	Position des Vorhörens
+99	Vorhören beenden
+100	Während der Wiedergabe fügt der Auto-DJ den nächsten Titel selbst vor dem Ende des Mixes hinzu
+101	Zum nächsten Stil wechseln
+102	Ordnet die Titel nach passendem Tempo und passender Tonart neu, beginnend mit dem ersten
+103	Zurück zum Anfang (Pos1)
+104	Zurück zum Anfang
+105	Wiedergabe / Pause (Leertaste)
+106	Wiedergabe oder Pause
+107	Vorhören des Mixes im Kopfhörer ab der grünen Linie. Zum Setzen der grünen Linie: Klick in den unteren Streifen der Zeitleiste, Umschalt+Klick oder Rechtsklick an beliebiger Stelle.
+108	Bereich Klang und Effekte ein- oder ausblenden
+109	Rückgängig (Strg+Z)
+110	Ziehen, um die Höhe des Bereichs einzustellen
+111	Nachtblau
+112	Schwarz
+113	Anthrazit
+114	Marineblau
+115	Bordeaux
+116	Tannengrün
+117	Violett
+118	Braun
+119	Hellsand
+120	Hellgrau
+121	Standard
+122	Standardfarbe der Schaltflächen
+123	Stahlblau
+124	Graphit
+125	Rot
+126	Grün
+127	Bronze
+128	Standardfarbe der Hauptschaltflächen
+129	Leuchtgrün
+130	Leuchtrot
+131	Leuchtblau
+132	Mauve
+133	Gelb
+134	Rosa
+135	Weiß
+136	Synchronisierte Blende
+137	Bass-Tausch
+138	Harter Einstieg
+139	Einfache Blende, ohne Synchronisierung
+140	Schnitt
+141	Der Browser hat nicht mehr genug Platz, um alle Dateien zu behalten: Einige müssen beim nächsten Öffnen erneut importiert werden.
+142	Der Browser konnte diese Datei nicht behalten: Sie muss beim nächsten Öffnen erneut importiert werden.
+143	Keine neue Audiodatei erkannt.
+144	Dieser Titel wird noch analysiert.
+145	Diese Datei ist kein TIMELINE DJ MIX-Projekt.
+146	Demo
+147	Gleitet vom einen zum anderen
+148	Behält das des auslaufenden Titels
+149	Übernimmt das des einlaufenden Titels
+150	■ Stopp
+151	⇄ Übergang anhören
+152	Master auf 1-2, Kopfhörer auf 3-4.
+153	Kopfhörer auf 1-2, Master auf 3-4.
+154	Für getrennte Kopfhörer sind 4 nötig: Stellen Sie die Karte im System auf „Quadrofonie“.
+155	Der gewählte Kopfhörerausgang ist nicht verfügbar: Der Kopfhörer läuft wieder über den Mix-Ausgang.
+156	Kopfhörer auf die andere Soundkarte geleitet.
+157	Kopfhörer mit dem Mix zu hören.
+158	Fügen Sie zuerst Titel zur Playlist hinzu.
+159	Der Browser hat den Start des Tons verweigert.
+160	■ Vorhören
+161	unlesbare Datei
+162	(Datei neu importieren)
+163	Die Zeitleiste füllt sich, wenn Sie Titel zur Playlist hinzufügen.
+164	Speichern abgebrochen.
+165	Das Speichern von Dateien ist in dieser Ansicht nicht verfügbar.
+166	Die Playlist ist leer.
+167	Auf dieser Seite wird die Audiodatei in einem .zip-Archiv mit der Titelliste geliefert.
+168	Das Speichern von Dateien ist in dieser Ansicht nicht verfügbar. Verwenden Sie die HTML-Dateiversion der Software.
+169	Datei an den Browser übergeben.
+170	Datei speichern
+171	Export abgebrochen.
+172	Auto-DJ: keine Titel mehr verfügbar, er hält an.
+173	Auto-DJ an
+174	Auto-DJ: Alle Titel der Bibliothek sind bereits im Mix. Importieren Sie weitere oder wählen Sie Stil-Ordner.
+175	Mitten
+176	Filter
+177	Echo
+178	Hall
+179	Kanal A
+180	Kanal B
+181	Effekte
+182	Dieser Browser erlaubt keine Auswahl der Ausgänge.
+183	Klicken Sie auf „Soundkarten auflisten“, um ihre Namen zu sehen.
+184	Ohne diese Erlaubnis liefert der Browser keine Liste der Soundkarten.
+185	Die XML-Datei des Mappings ist unlesbar.
+186	Dieser Browser unterstützt kein USB HID: Verwenden Sie Chrome oder Edge mit der HTML-Dateiversion.
+187	Mapping zu groß zum Speichern: Sie müssen es erneut importieren.
+188	Dieses Mapping konnte nicht geladen werden.
+189	Zurück zum Anfang
+190	Vorheriger Übergang
+191	Nächster Übergang
+192	Im Mix bewegen (Jog, Encoder)
+193	Bibliothek durchblättern (Encoder)
+194	Gewählten Titel in den Mix laden (Taste Kanal A)
+195	Gewählten Titel in den Mix laden (Taste Kanal B)
+196	Wiedergabe / Pause (Taste Kanal B)
+197	Gewählten Titel vorhören (Kopfhörer Kanal A)
+198	Gewählten Titel vorhören (Kopfhörer Kanal B)
+199	Vorhören des Mixes ab der grünen Linie
+200	Grüne Linie verschieben (Encoder)
+201	Nächsten Übergang vorhören
+202	Auto-DJ an / aus
+203	Nächster Stil
+204	Abhörlautstärke
+205	Vorhörlautstärke
+206	Wählen Sie zuerst einen Titel in der Bibliothek.
+207	Dieser Browser bietet kein MIDI. Verwenden Sie Chrome oder Edge.
+208	Der MIDI-Zugriff wurde verweigert oder ist in dieser Ansicht nicht möglich. Öffnen Sie die HTML-Dateiversion in Chrome oder Edge.
+209	Kein Controller erkannt. Schließen Sie ihn an, schalten Sie ihn in den MIDI-Modus und öffnen Sie dieses Fenster erneut.
+210	Mischpulte und Fader-Oberflächen
+211	Controller
+212	Kein Mapping geladen. Wählen Sie Ihr Gerät oder importieren Sie ein Mixxx-Mapping: die .xml-Datei mit ihren .js-Dateien.
+213	Drehregler, Fader
+214	Lernen
+215	Projekt geöffnet. Importieren Sie die als „neu importieren“ markierten Audiodateien erneut.
+216	Unlesbares Projekt.
+217	Klicken Sie noch einmal auf „Neuer Mix“, um alles zu leeren.
+218	Zum Neuordnen sind mindestens drei Titel nötig.
+219	Automatische Kurven für diesen Titel wiederhergestellt.
+220	Dieser Titel hat bereits seine automatischen Kurven: nichts wiederherzustellen.
+221	Der nächste vom Auto-DJ hinzugefügte Titel wechselt den Stil.
+222	Importieren Sie zuerst Titel oder wählen Sie einen Ordner pro Stil.
+223	Kein Titel verfügbar: Alle sind bereits im Mix, oder es ist kein Ordner geladen.
+224	Dieser Ausgang ist nicht verfügbar.
+225	Wählen Sie die .xml-Datei des Mappings mit ihren .js-Dateien.
+226	Zur Playlist hinzufügen
+227	Aus der Bibliothek entfernen
+228	Diesen Titel vorhören, ohne den Mix anzuhalten
+229	Aus dem Mix entfernen
+230	Übergang
+231	Überlappung
+232	Tempo während des Übergangs
+233	Tempo im Mix
+234	Original
+235	Zurück zum Originaltempo des Titels
+236	BPM des Titels
+237	Raster
+238	Takt −1 Schlag
+239	+1 Schlag
+240	Raster 10 ms vorziehen
+241	Raster 10 ms verzögern
+242	Der erste Schlag des Takts liegt einen Schlag früher
+243	Der erste Schlag des Takts liegt einen Schlag später
+244	Vorhören im Kopfhörer, ohne den Mix anzuhalten
+245	Automatische Kurven wiederherstellen
+246	Löscht die von Hand gesetzten Punkte dieses Titels und stellt die automatischen Blenden wieder her
+247	Name des Stils
+248	Ordner wählen
+249	Titel pro Serie
+250	Kopfhörer
+251	Ausgänge
+252	Hauptausgang
+253	Aufteilung
+254	Stereo
+255	4-Kanal-Karte: Master 1-2, Kopfhörer 3-4
+256	4-Kanal-Karte: Kopfhörer 1-2, Master 3-4
+257	Kopfhörer auf einer anderen Soundkarte
+258	Aus
+259	Soundkarten auflisten
+260	Diese Einstellungen auf den Export anwenden
+261	Alles zurücksetzen
+262	Einfache Ansicht
+263	Zwischen DJ-Controller-Ansicht und ursprünglicher einfacher Ansicht wechseln
+264	Löschen
+265	Eingangsübergang vorhören, ohne den Mix anzuhalten
+266	Doppelklick: zurücksetzen
+267	DJ-Controller-Ansicht
+268	Ziehen, um die Höhe der Listen einzustellen
+269	Ziehen, um die Breite einzustellen
+270	Mix wird berechnet…
+271	Wiedergabe / Pause
+272	Stil hinzufügen
+273	Tempo ±8 %
+274	Analyse…
+275	wartet
+276	Datei neu importieren
+277	unlesbar
+278	Demo
+279	Eröffnung
+280	Taste
+281	Encoder
+282	Schläge
+283	10 ms
+284	Bewegen Sie das Bedienelement…
+285	Effekt
+286	Sprache
+287	Analyse: {t}…
+288	{n} Titel
+289	{n} Titel
+290	{n} Titel, {t}
+291	{n} Titel, {t}
+292	{n} Titel wurden nicht gefunden: Importieren Sie die als „neu importieren“ markierten Dateien erneut, um sie zu hören.
+293	{n} Titel wurde nicht gefunden: Importieren Sie die als „neu importieren“ markierte Datei erneut, um ihn zu hören.
+294	Dieser Browser kann dieses Format nicht lesen: {t}
+295	Verfügbare Kanäle am Hauptausgang: {n}. {x}
+296	Verfügbare Kanäle am Hauptausgang: {n}.
+297	„{t}“ bleibt stumm: Die Datei muss erneut importiert werden.
+298	Die Datei von „{t}“ ist nicht mehr zugänglich: Importieren Sie sie erneut (Schaltfläche „Titel importieren“), um sie zu hören.
+299	Vorhören nicht möglich: {x}.
+300	Speichern nicht möglich ({t}).
+301	Mix erstellt mit TIMELINE DJ MIX, Dauer {t}
+302	{n} Titel ohne Datei werden durch Stille ersetzt. Importieren Sie sie zuerst erneut für einen vollständigen Mix.
+303	Dauer des Mixes: {t}.
+304	Mix wird berechnet… {n} %
+305	Mix fertig: {n} MB.
+306	Der Export ist fehlgeschlagen: {t}
+307	{n} Titel platziert, {t}…
+308	Aktueller Stil: {t}. Zum nächsten Stil wechseln
+309	{t} verbunden.
+310	HID-Verbindung nicht möglich: {t}
+311	Mapping „{t}“ geladen.
+312	Mapping „{t}“ geladen (fehlende Dateien: {u}).
+313	Erkannte Controller: {t}.
+314	Aktives Mapping: {t}, {n} Befehle.
+315	Aktives Mapping: {t} (USB HID, Gerät verbunden).
+316	Aktives Mapping: {t} (USB HID, auf „Über USB HID verbinden“ klicken).
+317	{t}: {n} Titel. Die Tempoanalyse läuft nach und nach im Hintergrund.
+318	{n} Titel hinzugefügt. Dauer des Mixes: {t}.
+319	Kanal A: {x}
+320	Kanal B: {x}
+321	Effekt: {x}
+322	Note {n}, Kanal {c}
+323	CC {n}, Kanal {c}
+324	Pitch-Bend, Kanal {c}
+325	{n} Schläge
+326	Playlist
+327	Zoom
+328	Nach oben / unten ziehen, Mausrad. Doppelklick: zurücksetzen
+329	Der Browser fragt nach dem Mikrofonzugriff, um die Namen der Soundkarten anzuzeigen; es wird nichts aufgenommen
+330	: „Party nach Stilen“ baut den Mix in Stil-Serien auf; „Auto-DJ“ fügt während der Wiedergabe selbst den nächsten Titel hinzu.
+331	{t} vorhören
+332	{t} zur Playlist hinzufügen
+333	{t} aus der Bibliothek entfernen
+334	{t} vorhören
+335	{t} aus dem Mix entfernen
+336	Übergang zu {t} vorhören
+337	Eingangsübergang von Titel {n}
+338	Wählen Sie einen Titel in der Zeitleiste, um Übergang, Tempo, Raster und Kurven einzustellen.
+339	Mapping
+340	Vollständige Bedienungsanleitung

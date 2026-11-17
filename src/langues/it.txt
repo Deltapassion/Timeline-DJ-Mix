@@ -1,0 +1,341 @@
+0	di DJ LATIN JAZZ & DJ CRISLATINO
+1	Importa brani
+2	Nuovo mix
+3	Apri un progetto
+4	Salva il progetto
+5	Esporta il mix
+6	Controller MIDI
+7	Colori
+8	Aiuto
+9	Libreria
+10	preascolto
+11	Titolo
+12	Artista
+13	Stile
+14	Tonalità
+15	Durata
+16	Importa file audio o trascinali qui. Tempo e tonalità vengono analizzati automaticamente.
+17	Auto DJ fermo
+18	Serata per stili
+19	Ordina
+20	Ascolto
+21	Transizione d'ingresso
+22	Inizio
+23	Fai doppio clic su un brano della libreria, o trascinalo qui, per aggiungerlo al mix.
+24	▶ Preascolto
+25	Curva
+26	Volume
+27	Bassi
+28	Alti
+29	Calamita
+30	Battuta
+31	Battito
+32	Mostra tutto
+33	Suono ed effetti
+34	Annulla
+35	Pronto
+36	TIMELINE DJ MIX 0.3, di DJ LATIN JAZZ & DJ CRISLATINO, in collaborazione con Claude.ai. Software libero, GNU GPL v2 o successiva. Codifica MP3: lamejs (LGPL). Mappature dei controller: progetto Mixxx (GPL).
+37	FLAC, senza perdita, 16 bit
+38	FLAC, senza perdita, 24 bit
+39	WAV, 16 bit
+40	WAV, 24 bit
+41	AIFF, 16 bit
+42	Elenco dei brani (.txt)
+43	Chiudi
+44	Esporta
+45	Auto DJ e serata per stili
+46	L'Auto DJ riempie la playlist e concatena i brani da solo. Con una cartella per stile suona serie: per esempio 3 salse, 3 bachate, 3 kizombe, poi ricomincia. Senza cartelle, sceglie dalla libreria il brano più vicino per tempo e tonalità.
+47	Ordine
+48	Attivo
+49	Cartella
+50	Brani
+51	Per serie
+52	+ Aggiungi uno stile
+53	Ordine casuale in ogni stile
+54	Durata da aggiungere
+55	Costruisci il mix
+56	Auto DJ continuo: durante la riproduzione, aggiunge il brano successivo prima della fine del mix
+57	Per il tango, imposta 3 o 4 brani per serie. Il browser non conserva l'accesso alle cartelle: bisogna sceglierle di nuovo a ogni apertura.
+58	Carica
+59	Importa una mappatura Mixxx
+60	Connetti via USB HID
+61	Rimuovi
+62	Le mappature sono quelle del progetto Mixxx, lette così come sono. I deck 1 e 3 comandano la via A, i deck 2 e 4 la via B: volume, equalizzatore, filtro, crossfader, riproduzione, jog, navigazione e caricamento. Un controller noto viene riconosciuto al collegamento.
+63	Per completare o sostituire un comando: fai clic su «Impara» su una riga, poi muovi il pulsante, la manopola o il fader. Un'assegnazione appresa ha la precedenza sulla mappatura.
+64	Comando
+65	Tipo
+66	Assegnazione
+67	Colore di sfondo del programma. Pannelli, linee e testo si adattano da soli, anche su uno sfondo chiaro.
+68	Colore personalizzato
+69	Colore dei pulsanti
+70	Predefinito
+71	Colore dei pulsanti principali
+72	(Importa, Riproduci, Esporta, Chiudi)
+73	Come funziona
+74	Preascolto
+75	: il pulsante ▶ di ogni riga, nella libreria come nella playlist, fa ascoltare il brano senza fermare il mix. Il pulsante ⇄ fa ascoltare una transizione così come suonerà. La
+76	linea verde
+77	della timeline mostra dove si trova il preascolto: posizionala dove vuoi con un clic nella fascia in basso, Maiusc+clic o clic destro. Le uscite (cuffie sui canali 3-4 o su un'altra scheda audio) si regolano in «Suono ed effetti».
+78	: volume, equalizzatore e filtro per via, crossfader, eco, flanger e riverbero. Modificare un brano in attesa non interrompe mai quello in riproduzione.
+79	: importa i tuoi file. Vengono calcolati BPM, griglia dei battiti e tonalità. Il pallino verde indica una tonalità compatibile con il brano selezionato nella playlist, il BPM in verde un tempo entro il 6 %.
+80	: doppio clic o trascina e rilascia per aggiungere, trascina le righe per cambiare l'ordine. Ogni brano viene sincronizzato e concatenato automaticamente con il precedente.
+81	: trascina un blocco per allungare o accorciare la sovrapposizione, tira i suoi bordi per tagliare l'inizio o la fine. Fai clic sul righello per posizionare la testina.
+82	Curve
+83	: seleziona un blocco, poi fai clic sulla curva per aggiungere un punto e trascinalo. Doppio clic su un punto per eliminarlo. Volume, bassi e alti hanno ciascuno la propria curva.
+84	Tempo
+85	: durante una transizione il tempo scivola da un brano all'altro e i due restano sincronizzati. L'intonazione segue il tempo, come su un giradischi in vinile.
+86	Se un brano è sfasato
+87	: correggi il suo BPM (÷2, ×2 o valore esatto) e sposta la sua griglia nella fascia sopra la timeline.
+88	Scorciatoie
+89	Spazio
+90	riproduci,
+91	Canc
+92	rimuovi il brano selezionato,
+93	annulla,
+94	+rotella zoom.
+95	I tuoi file audio restano sul tuo computer. Il progetto salvato contiene le impostazioni del mix, non l'audio: alla riapertura, importa di nuovo gli stessi file e si ricollegano da soli.
+96	Cerca
+97	Cerca nella libreria
+98	Posizione del preascolto
+99	Ferma il preascolto
+100	Durante la riproduzione, l'Auto DJ aggiunge da solo il brano successivo prima della fine del mix
+101	Passa allo stile successivo
+102	Riordina i brani per tempo e tonalità compatibili, a partire dal primo
+103	Torna all'inizio (Home)
+104	Torna all'inizio
+105	Riproduci / pausa (Spazio)
+106	Riproduci o metti in pausa
+107	Preascolto del mix in cuffia dalla linea verde. Per posizionare la linea verde: clic nella fascia in basso della timeline, Maiusc+clic o clic destro ovunque.
+108	Mostra o nascondi il pannello Suono ed effetti
+109	Annulla (Ctrl+Z)
+110	Trascina per regolare l'altezza del pannello
+111	Blu notte
+112	Nero
+113	Antracite
+114	Blu marina
+115	Bordeaux
+116	Verde abete
+117	Viola
+118	Marrone
+119	Sabbia chiaro
+120	Grigio chiaro
+121	Predefinito
+122	Colore dei pulsanti predefinito
+123	Blu acciaio
+124	Grafite
+125	Rosso
+126	Verde
+127	Bronzo
+128	Colore dei pulsanti principali predefinito
+129	Verde vivo
+130	Rosso vivo
+131	Blu vivo
+132	Malva
+133	Giallo
+134	Rosa
+135	Bianco
+136	Dissolvenza sincronizzata
+137	Scambio dei bassi
+138	Entrata secca
+139	Dissolvenza semplice, senza sincronia
+140	Taglio
+141	Il browser non ha più spazio sufficiente per conservare tutti i file: alcuni andranno reimportati alla prossima apertura.
+142	Il browser non è riuscito a conservare questo file: andrà reimportato alla prossima apertura.
+143	Nessun nuovo file audio riconosciuto.
+144	Questo brano è ancora in fase di analisi.
+145	Questo file non è un progetto TIMELINE DJ MIX.
+146	Demo
+147	Scivola dall'uno all'altro
+148	Mantiene quello in uscita
+149	Prende quello in entrata
+150	■ Ferma
+151	⇄ Ascolta la transizione
+152	Generale su 1-2, cuffie su 3-4.
+153	Cuffie su 1-2, generale su 3-4.
+154	Ne servono 4 per separare le cuffie: imposta la scheda su «Quadrifonico» nel sistema.
+155	L'uscita cuffie scelta non è disponibile: le cuffie tornano sull'uscita del mix.
+156	Cuffie inviate all'altra scheda audio.
+157	Cuffie ascoltate insieme al mix.
+158	Aggiungi prima dei brani alla playlist.
+159	Il browser ha rifiutato di avviare l'audio.
+160	■ Preascolto
+161	file illeggibile
+162	(file da reimportare)
+163	La timeline si riempie man mano che aggiungi brani alla playlist.
+164	Salvataggio annullato.
+165	Il salvataggio di file non è disponibile in questa vista.
+166	La playlist è vuota.
+167	In questa pagina il file audio viene consegnato in un archivio .zip, con l'elenco dei brani.
+168	Il salvataggio di file non è disponibile in questa vista. Usa la versione in file HTML del programma.
+169	File consegnato al browser.
+170	Salva il file
+171	Esportazione annullata.
+172	Auto DJ: nessun brano più disponibile, si ferma.
+173	Auto DJ in funzione
+174	Auto DJ: tutti i brani della libreria sono già nel mix. Importane altri o scegli delle cartelle di stili.
+175	Medi
+176	Filtro
+177	Eco
+178	Riverbero
+179	Via A
+180	Via B
+181	Effetti
+182	Questo browser non permette di scegliere le uscite.
+183	Fai clic su «Elenca le schede audio» per vederne i nomi.
+184	Senza questa autorizzazione, il browser non fornisce l'elenco delle schede audio.
+185	Il file XML della mappatura è illeggibile.
+186	Questo browser non supporta l'USB HID: usa Chrome o Edge, con la versione in file HTML.
+187	Mappatura troppo grande per essere memorizzata: bisognerà reimportarla.
+188	Impossibile caricare questa mappatura.
+189	Torna all'inizio
+190	Transizione precedente
+191	Transizione successiva
+192	Spostamento nel mix (jog, encoder)
+193	Scorri la libreria (encoder)
+194	Carica il brano scelto nel mix (pulsante via A)
+195	Carica il brano scelto nel mix (pulsante via B)
+196	Riproduci / pausa (pulsante via B)
+197	Preascolta il brano scelto (cuffia via A)
+198	Preascolta il brano scelto (cuffia via B)
+199	Preascolto del mix dalla linea verde
+200	Sposta la linea verde (encoder)
+201	Preascolta la prossima transizione
+202	Auto DJ avvio / arresto
+203	Stile successivo
+204	Volume d'ascolto
+205	Volume di preascolto
+206	Scegli prima un brano nella libreria.
+207	Questo browser non offre il MIDI. Usa Chrome o Edge.
+208	L'accesso MIDI è stato rifiutato o non è possibile in questa vista. Apri la versione in file HTML in Chrome o Edge.
+209	Nessun controller rilevato. Collegalo, mettilo in modalità MIDI, poi riapri questa finestra.
+210	Mixer e superfici a fader
+211	Controller
+212	Nessuna mappatura caricata. Scegli il tuo apparecchio o importa una mappatura Mixxx: il file .xml con i suoi file .js.
+213	manopola, fader
+214	Impara
+215	Progetto aperto. Reimporta i file audio contrassegnati «da reimportare».
+216	Progetto illeggibile.
+217	Fai clic ancora una volta su «Nuovo mix» per svuotare tutto.
+218	Servono almeno tre brani per riordinare.
+219	Curve automatiche ripristinate per questo brano.
+220	Questo brano ha già le sue curve automatiche: niente da ripristinare.
+221	Il prossimo brano aggiunto dall'Auto DJ cambierà stile.
+222	Importa prima dei brani o scegli una cartella per stile.
+223	Nessun brano disponibile: sono già tutti nel mix, oppure nessuna cartella è caricata.
+224	Questa uscita non è disponibile.
+225	Seleziona il file .xml della mappatura, con i suoi file .js.
+226	Aggiungi alla playlist
+227	Rimuovi dalla libreria
+228	Preascolta questo brano senza fermare il mix
+229	Rimuovi dal mix
+230	Transizione
+231	Sovrapposizione
+232	Tempo durante la transizione
+233	Tempo nel mix
+234	Originale
+235	Torna al tempo originale del brano
+236	BPM del brano
+237	Griglia
+238	Battuta −1 battito
+239	+1 battito
+240	Anticipa la griglia di 10 ms
+241	Ritarda la griglia di 10 ms
+242	Il primo battito della battuta è un battito prima
+243	Il primo battito della battuta è un battito dopo
+244	Preascolto in cuffia, senza fermare il mix
+245	Ripristina le curve automatiche
+246	Cancella i punti posati a mano su questo brano e ripristina le dissolvenze automatiche
+247	Nome dello stile
+248	Scegli la cartella
+249	Brani per serie
+250	Cuffie
+251	Uscite
+252	Uscita generale
+253	Ripartizione
+254	Stereo
+255	Scheda a 4 canali: generale 1-2, cuffie 3-4
+256	Scheda a 4 canali: cuffie 1-2, generale 3-4
+257	Cuffie su un'altra scheda audio
+258	Disattivato
+259	Elenca le schede audio
+260	Applica queste impostazioni all'esportazione
+261	Azzera tutto
+262	Vista semplice
+263	Passa dalla vista controller DJ alla vista semplice originale
+264	Cancella
+265	Preascolta la transizione d'ingresso senza fermare il mix
+266	Doppio clic: azzeramento
+267	Vista controller DJ
+268	Trascina per regolare l'altezza degli elenchi
+269	Trascina per regolare la larghezza
+270	Calcolo del mix…
+271	Riproduci / pausa
+272	Aggiungi uno stile
+273	Tempo ±8 %
+274	analisi…
+275	in attesa
+276	file da reimportare
+277	illeggibile
+278	demo
+279	Apertura
+280	pulsante
+281	encoder
+282	battiti
+283	10 ms
+284	Muovi il comando…
+285	Effetto
+286	Lingua
+287	Analisi: {t}…
+288	{n} brani
+289	{n} brano
+290	{n} brani, {t}
+291	{n} brano, {t}
+292	{n} brani non sono stati ritrovati: reimporta i file contrassegnati «da reimportare» per ascoltarli.
+293	{n} brano non è stato ritrovato: reimporta i file contrassegnati «da reimportare» per ascoltarlo.
+294	Questo browser non sa leggere questo formato: {t}
+295	Canali disponibili sull'uscita generale: {n}. {x}
+296	Canali disponibili sull'uscita generale: {n}.
+297	«{t}» è muto: il suo file va reimportato.
+298	Il file di «{t}» non è più accessibile: reimportalo (pulsante «Importa brani») per ascoltarlo.
+299	Preascolto impossibile: {x}.
+300	Salvataggio impossibile ({t}).
+301	Mix realizzato con TIMELINE DJ MIX, durata {t}
+302	{n} brano/i senza file saranno sostituiti da silenzio. Reimportali prima per un mix completo.
+303	Durata del mix: {t}.
+304	Calcolo del mix… {n} %
+305	Mix pronto: {n} MB.
+306	L'esportazione non è riuscita: {t}
+307	{n} brani posizionati, {t}…
+308	Stile in corso: {t}. Passa allo stile successivo
+309	{t} connesso.
+310	Connessione HID impossibile: {t}
+311	Mappatura «{t}» caricata.
+312	Mappatura «{t}» caricata (file mancanti: {u}).
+313	Controller rilevati: {t}.
+314	Mappatura attiva: {t}, {n} comandi.
+315	Mappatura attiva: {t} (USB HID, apparecchio connesso).
+316	Mappatura attiva: {t} (USB HID, fai clic su «Connetti via USB HID»).
+317	{t}: {n} brani. L'analisi del tempo avviene in background, poco a poco.
+318	{n} brani aggiunti. Durata del mix: {t}.
+319	Via A: {x}
+320	Via B: {x}
+321	Effetto: {x}
+322	Nota {n}, canale {c}
+323	CC {n}, canale {c}
+324	Pitch bend, canale {c}
+325	{n} battiti
+326	Playlist
+327	Zoom
+328	Trascina su / giù, rotella. Doppio clic: azzeramento
+329	Il browser chiede l'accesso al microfono per fornire i nomi delle schede audio; non viene registrato nulla
+330	: «Serata per stili» costruisce il mix per serie di stili; «Auto DJ» aggiunge da solo il brano successivo durante la riproduzione.
+331	Preascolto di {t}
+332	Aggiungi {t} alla playlist
+333	Rimuovi {t} dalla libreria
+334	Preascolta {t}
+335	Rimuovi {t} dal mix
+336	Preascolta la transizione verso {t}
+337	Transizione d'ingresso del brano {n}
+338	Seleziona un brano nella timeline per regolarne transizione, tempo, griglia e curve.
+339	Mappatura
+340	Manuale d'uso completo

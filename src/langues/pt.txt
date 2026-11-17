@@ -1,0 +1,341 @@
+0	por DJ LATIN JAZZ & DJ CRISLATINO
+1	Importar faixas
+2	Nova mixagem
+3	Abrir um projeto
+4	Guardar o projeto
+5	Exportar a mixagem
+6	Controlador MIDI
+7	Cores
+8	Ajuda
+9	Biblioteca
+10	pré-escuta
+11	Título
+12	Artista
+13	Estilo
+14	Tonalidade
+15	Duração
+16	Importe ficheiros de áudio ou largue-os aqui. O andamento e a tonalidade são analisados automaticamente.
+17	Auto DJ parado
+18	Festa por estilos
+19	Ordenar
+20	Escuta
+21	Transição de entrada
+22	Início
+23	Clique duas vezes numa faixa da biblioteca, ou arraste-a para aqui, para a juntar à mixagem.
+24	▶ Pré-escuta
+25	Curva
+26	Volume
+27	Graves
+28	Agudos
+29	Íman
+30	Compasso
+31	Tempo
+32	Ver tudo
+33	Som e efeitos
+34	Anular
+35	Pronto
+36	TIMELINE DJ MIX 0.3, por DJ LATIN JAZZ & DJ CRISLATINO, em colaboração com Claude.ai. Software livre, GNU GPL v2 ou posterior. Codificação MP3: lamejs (LGPL). Mapeamentos de controladores: projeto Mixxx (GPL).
+37	FLAC, sem perdas, 16 bits
+38	FLAC, sem perdas, 24 bits
+39	WAV, 16 bits
+40	WAV, 24 bits
+41	AIFF, 16 bits
+42	Lista de faixas (.txt)
+43	Fechar
+44	Exportar
+45	Auto DJ e festa por estilos
+46	O Auto DJ preenche a playlist e encadeia as faixas sozinho. Com uma pasta por estilo, toca séries: por exemplo 3 salsas, 3 bachatas, 3 kizombas, e depois recomeça. Sem pastas, escolhe na biblioteca a faixa mais próxima em andamento e tonalidade.
+47	Ordem
+48	Ativo
+49	Pasta
+50	Faixas
+51	Por série
+52	+ Adicionar um estilo
+53	Ordem aleatória dentro de cada estilo
+54	Duração a adicionar
+55	Construir a mixagem
+56	Auto DJ contínuo: durante a reprodução, adiciona a faixa seguinte antes do fim da mixagem
+57	Para o tango, defina 3 ou 4 faixas por série. O navegador não guarda o acesso às pastas: é preciso escolhê-las de novo sempre que o abre.
+58	Carregar
+59	Importar um mapeamento Mixxx
+60	Ligar por USB HID
+61	Remover
+62	Os mapeamentos são os do projeto Mixxx, lidos tal como estão. Os pratos 1 e 3 controlam a via A, os pratos 2 e 4 a via B: volume, equalizador, filtro, crossfader, reprodução, jog, navegação e carregamento. Um controlador conhecido é reconhecido ao ligá-lo.
+63	Para completar ou substituir um comando: clique em «Aprender» numa linha e mexa o botão, o potenciómetro ou o fader. Uma atribuição aprendida tem prioridade sobre o mapeamento.
+64	Comando
+65	Tipo
+66	Atribuição
+67	Cor de fundo do programa. Os painéis, as linhas e o texto adaptam-se sozinhos, mesmo num fundo claro.
+68	Cor personalizada
+69	Cor dos botões
+70	Predefinição
+71	Cor dos botões principais
+72	(Importar, Reproduzir, Exportar, Fechar)
+73	Como funciona
+74	Pré-escuta
+75	: o botão ▶ de cada linha, na biblioteca como na playlist, toca a faixa sem parar a mixagem. O botão ⇄ toca uma transição tal como vai soar. A
+76	linha verde
+77	da linha temporal mostra onde vai a pré-escuta: coloque-a onde quiser com um clique na faixa de baixo, Shift+clique ou clique direito. As saídas (auscultadores nos canais 3-4 ou noutra placa de som) regulam-se em «Som e efeitos».
+78	: volume, equalizador e filtro por via, crossfader, eco, flanger e reverb. Alterar uma faixa em espera nunca corta a que está a tocar.
+79	: importe os seus ficheiros. O BPM, a grelha de tempos e a tonalidade são calculados. O ponto verde indica uma tonalidade compatível com a faixa selecionada na playlist, o BPM a verde um andamento a menos de 6 %.
+80	: duplo clique ou arrastar e largar para adicionar, arrastar as linhas para mudar a ordem. Cada faixa é acertada no andamento e encadeada automaticamente com a anterior.
+81	: arraste um bloco para alongar ou encurtar a sobreposição, puxe as suas bordas para cortar o início ou o fim. Clique na régua para colocar a cabeça de leitura.
+82	Curvas
+83	: selecione um bloco e clique na curva para pôr um ponto e arrastá-lo. Duplo clique num ponto para o apagar. Volume, graves e agudos têm cada um a sua curva.
+84	Andamento
+85	: durante uma transição, o andamento desliza de uma faixa para a outra e ambas ficam acertadas. A altura segue o andamento, como num gira-discos de vinil.
+86	Se uma faixa estiver desfasada
+87	: corrija o seu BPM (÷2, ×2 ou valor exato) e desloque a sua grelha na faixa por cima da linha temporal.
+88	Atalhos
+89	Espaço
+90	reproduzir,
+91	Del
+92	remover a faixa selecionada,
+93	anular,
+94	+roda zoom.
+95	Os seus ficheiros de áudio ficam no seu computador. O projeto guardado contém as definições da mixagem, não o áudio: ao reabri-lo, importe os mesmos ficheiros e eles voltam a ligar-se sozinhos.
+96	Procurar
+97	Procurar na biblioteca
+98	Posição da pré-escuta
+99	Parar a pré-escuta
+100	Durante a reprodução, o Auto DJ adiciona sozinho a faixa seguinte antes do fim da mixagem
+101	Passar ao estilo seguinte
+102	Reordena as faixas por andamento e tonalidade compatíveis, a partir da primeira
+103	Voltar ao início (Início)
+104	Voltar ao início
+105	Reproduzir / pausa (Espaço)
+106	Reproduzir ou pausar
+107	Pré-escuta da mixagem nos auscultadores a partir da linha verde. Para colocar a linha verde: clique na faixa de baixo da linha temporal, Shift+clique ou clique direito em qualquer lado.
+108	Mostrar ou esconder o painel Som e efeitos
+109	Anular (Ctrl+Z)
+110	Arraste para regular a altura do painel
+111	Azul noite
+112	Preto
+113	Antracite
+114	Azul-marinho
+115	Bordô
+116	Verde-pinho
+117	Violeta
+118	Castanho
+119	Areia clara
+120	Cinzento claro
+121	Predefinição
+122	Cor dos botões predefinida
+123	Azul-aço
+124	Grafite
+125	Vermelho
+126	Verde
+127	Bronze
+128	Cor dos botões principais predefinida
+129	Verde vivo
+130	Vermelho vivo
+131	Azul vivo
+132	Malva
+133	Amarelo
+134	Rosa
+135	Branco
+136	Fundido acertado
+137	Troca de graves
+138	Entrada direta
+139	Fundido simples, sem acerto
+140	Corte
+141	O navegador já não tem espaço suficiente para guardar todos os ficheiros: alguns terão de ser reimportados na próxima abertura.
+142	O navegador não conseguiu guardar este ficheiro: terá de ser reimportado na próxima abertura.
+143	Nenhum ficheiro de áudio novo reconhecido.
+144	Esta faixa ainda está a ser analisada.
+145	Este ficheiro não é um projeto TIMELINE DJ MIX.
+146	Demo
+147	Desliza de uma para a outra
+148	Mantém o da que sai
+149	Usa o da que entra
+150	■ Parar
+151	⇄ Ouvir a transição
+152	Geral em 1-2, auscultadores em 3-4.
+153	Auscultadores em 1-2, geral em 3-4.
+154	São precisos 4 para separar os auscultadores: configure a placa em «Quadrifónico» no sistema.
+155	A saída de auscultadores escolhida não está disponível: os auscultadores voltam à saída da mixagem.
+156	Auscultadores enviados para a outra placa de som.
+157	Auscultadores ouvidos com a mixagem.
+158	Primeiro adicione faixas à playlist.
+159	O navegador recusou iniciar o som.
+160	■ Pré-escuta
+161	ficheiro ilegível
+162	(ficheiro a reimportar)
+163	A linha temporal enche-se à medida que adiciona faixas à playlist.
+164	Gravação cancelada.
+165	Guardar ficheiros não está disponível nesta vista.
+166	A playlist está vazia.
+167	Nesta página, o ficheiro de áudio é entregue num arquivo .zip, com a lista de faixas.
+168	Guardar ficheiros não está disponível nesta vista. Use a versão em ficheiro HTML do programa.
+169	Ficheiro entregue ao navegador.
+170	Guardar o ficheiro
+171	Exportação cancelada.
+172	Auto DJ: já não há faixas disponíveis, ele para.
+173	Auto DJ ligado
+174	Auto DJ: todas as faixas da biblioteca já estão na mixagem. Importe outras ou escolha pastas de estilos.
+175	Médios
+176	Filtro
+177	Eco
+178	Reverb
+179	Via A
+180	Via B
+181	Efeitos
+182	Este navegador não permite escolher as saídas.
+183	Clique em «Listar as placas de som» para ver os nomes.
+184	Sem esta autorização, o navegador não dá a lista das placas de som.
+185	O ficheiro XML do mapeamento é ilegível.
+186	Este navegador não suporta USB HID: use o Chrome ou o Edge, com a versão em ficheiro HTML.
+187	Mapeamento demasiado grande para ser memorizado: terá de o reimportar.
+188	Não foi possível carregar este mapeamento.
+189	Voltar ao início
+190	Transição anterior
+191	Transição seguinte
+192	Deslocar na mixagem (jog, codificador)
+193	Percorrer a biblioteca (codificador)
+194	Carregar a faixa escolhida na mixagem (botão via A)
+195	Carregar a faixa escolhida na mixagem (botão via B)
+196	Reproduzir / pausa (botão via B)
+197	Pré-escutar a faixa escolhida (auscultadores via A)
+198	Pré-escutar a faixa escolhida (auscultadores via B)
+199	Pré-escuta da mixagem a partir da linha verde
+200	Mover a linha verde (codificador)
+201	Pré-escutar a próxima transição
+202	Auto DJ ligar / desligar
+203	Estilo seguinte
+204	Volume de escuta
+205	Volume de pré-escuta
+206	Escolha primeiro uma faixa na biblioteca.
+207	Este navegador não oferece MIDI. Use o Chrome ou o Edge.
+208	O acesso MIDI foi recusado ou não é possível nesta vista. Abra a versão em ficheiro HTML no Chrome ou no Edge.
+209	Nenhum controlador detetado. Ligue-o, ponha-o em modo MIDI e volte a abrir esta janela.
+210	Mesas de mistura e superfícies de faders
+211	Controladores
+212	Nenhum mapeamento carregado. Escolha o seu aparelho ou importe um mapeamento Mixxx: o ficheiro .xml com os seus ficheiros .js.
+213	potenciómetro, fader
+214	Aprender
+215	Projeto aberto. Reimporte os ficheiros de áudio marcados «a reimportar».
+216	Projeto ilegível.
+217	Clique mais uma vez em «Nova mixagem» para limpar tudo.
+218	São precisas pelo menos três faixas para reordenar.
+219	Curvas automáticas repostas para esta faixa.
+220	Esta faixa já tem as curvas automáticas: nada a repor.
+221	A próxima faixa adicionada pelo Auto DJ vai mudar de estilo.
+222	Importe primeiro faixas ou escolha uma pasta por estilo.
+223	Nenhuma faixa disponível: já estão todas na mixagem, ou nenhuma pasta está carregada.
+224	Esta saída não está disponível.
+225	Selecione o ficheiro .xml do mapeamento, com os seus ficheiros .js.
+226	Adicionar à playlist
+227	Remover da biblioteca
+228	Pré-escutar esta faixa sem parar a mixagem
+229	Remover da mixagem
+230	Transição
+231	Sobreposição
+232	Andamento durante a transição
+233	Andamento na mixagem
+234	Original
+235	Voltar ao andamento original da faixa
+236	BPM da faixa
+237	Grelha
+238	Compasso −1 tempo
+239	+1 tempo
+240	Adiantar a grelha 10 ms
+241	Atrasar a grelha 10 ms
+242	O primeiro tempo do compasso está um tempo antes
+243	O primeiro tempo do compasso está um tempo depois
+244	Pré-escuta nos auscultadores, sem parar a mixagem
+245	Repor as curvas automáticas
+246	Apaga os pontos postos à mão nesta faixa e repõe os fundidos automáticos
+247	Nome do estilo
+248	Escolher a pasta
+249	Faixas por série
+250	Auscultadores
+251	Saídas
+252	Saída geral
+253	Repartição
+254	Estéreo
+255	Placa de 4 canais: geral 1-2, auscultadores 3-4
+256	Placa de 4 canais: auscultadores 1-2, geral 3-4
+257	Auscultadores noutra placa de som
+258	Desativado
+259	Listar as placas de som
+260	Aplicar estas definições à exportação
+261	Repor tudo a zero
+262	Vista simples
+263	Alternar entre a vista de controlador DJ e a vista simples original
+264	Apagar
+265	Pré-escutar a transição de entrada sem parar a mixagem
+266	Duplo clique: repor a zero
+267	Vista de controlador DJ
+268	Arraste para regular a altura das listas
+269	Arraste para regular a largura
+270	A calcular a mixagem…
+271	Reproduzir / pausa
+272	Adicionar um estilo
+273	Andamento ±8 %
+274	a analisar…
+275	em espera
+276	ficheiro a reimportar
+277	ilegível
+278	demo
+279	Abertura
+280	botão
+281	codificador
+282	tempos
+283	10 ms
+284	Mexa o comando…
+285	Efeito
+286	Idioma
+287	A analisar: {t}…
+288	{n} faixas
+289	{n} faixa
+290	{n} faixas, {t}
+291	{n} faixa, {t}
+292	{n} faixas não foram encontradas: reimporte os ficheiros marcados «a reimportar» para as ouvir.
+293	{n} faixa não foi encontrada: reimporte os ficheiros marcados «a reimportar» para a ouvir.
+294	Este navegador não sabe ler este formato: {t}
+295	Canais disponíveis na saída geral: {n}. {x}
+296	Canais disponíveis na saída geral: {n}.
+297	«{t}» está muda: o ficheiro tem de ser reimportado.
+298	O ficheiro de «{t}» já não está acessível: reimporte-o (botão «Importar faixas») para o ouvir.
+299	Pré-escuta impossível: {x}.
+300	Gravação impossível ({t}).
+301	Mixagem feita com TIMELINE DJ MIX, duração {t}
+302	{n} faixa(s) sem ficheiro serão substituídas por silêncio. Reimporte-as primeiro para uma mixagem completa.
+303	Duração da mixagem: {t}.
+304	A calcular a mixagem… {n} %
+305	Mixagem pronta: {n} MB.
+306	A exportação falhou: {t}
+307	{n} faixas colocadas, {t}…
+308	Estilo atual: {t}. Passar ao estilo seguinte
+309	{t} ligado.
+310	Ligação HID impossível: {t}
+311	Mapeamento «{t}» carregado.
+312	Mapeamento «{t}» carregado (ficheiros em falta: {u}).
+313	Controladores detetados: {t}.
+314	Mapeamento ativo: {t}, {n} comandos.
+315	Mapeamento ativo: {t} (USB HID, aparelho ligado).
+316	Mapeamento ativo: {t} (USB HID, clique em «Ligar por USB HID»).
+317	{t}: {n} faixas. A análise do andamento faz-se em segundo plano, aos poucos.
+318	{n} faixas adicionadas. Duração da mixagem: {t}.
+319	Via A: {x}
+320	Via B: {x}
+321	Efeito: {x}
+322	Nota {n}, canal {c}
+323	CC {n}, canal {c}
+324	Pitch bend, canal {c}
+325	{n} tempos
+326	Playlist
+327	Zoom
+328	Arrastar para cima / baixo, roda. Duplo clique: repor a zero
+329	O navegador pede acesso ao microfone para dar o nome das placas de som; nada é gravado
+330	: «Festa por estilos» constrói a mixagem por séries de estilos; «Auto DJ» adiciona sozinho a faixa seguinte durante a reprodução.
+331	Pré-escuta de {t}
+332	Adicionar {t} à playlist
+333	Remover {t} da biblioteca
+334	Pré-escutar {t}
+335	Remover {t} da mixagem
+336	Pré-escutar a transição para {t}
+337	Transição de entrada da faixa {n}
+338	Selecione uma faixa na linha temporal para regular a transição, o andamento, a grelha e as curvas.
+339	Mapeamento
+340	Manual de utilização completo

@@ -1,0 +1,157 @@
+{
+ "title": "Bedienungsanleitung",
+ "sub": "Der DJ-Mix auf einer Zeitleiste — freie Software",
+ "intro": "TIMELINE DJ MIX baut einen kompletten Mix auf einer Zeitleiste: Jeder Titel wird an das Tempo des vorherigen angeglichen, die Übergänge werden mit der Maus geformt, dann wird der ganze Abend als eine einzige Audiodatei exportiert. Die roten Nummern in den Bildern verweisen auf die Listen darunter.",
+ "toc": "Inhalt",
+ "back": "Zurück zur Website",
+ "pdf": "PDF herunterladen",
+ "ver": "Version 0.3.0",
+ "s": [
+  {
+   "t": "Installation",
+   "p": [
+    "<b>Windows</b>: Starten Sie <code>Timeline-DJ-Mix-Windows-Setup.exe</code>. Wenn Windows „Der Computer wurde durch Windows geschützt“ anzeigt, klicken Sie auf <i>Weitere Informationen</i> und dann auf <i>Trotzdem ausführen</i>.",
+    "<b>macOS</b>: Wählen Sie die Version für Apple Silicon (M1, M2…) oder Intel, entpacken Sie die .zip-Datei und ziehen Sie <b>TIMELINE DJ MIX</b> in den Ordner Programme. Öffnen Sie beim ersten Start <i>Systemeinstellungen › Datenschutz &amp; Sicherheit</i> und klicken Sie auf <i>Trotzdem öffnen</i>.",
+    "<b>Linux</b>: Installieren Sie <code>timeline-dj-mix_amd64.deb</code> (Debian, Ubuntu, Mint) per Doppelklick, oder machen Sie die AppImage ausführbar und starten Sie sie.",
+    "<b>Ohne Installation</b>: Die Datei <code>Timeline-DJ-Mix.html</code> öffnet sich in Chrome oder Edge. Sie kann alles, außer den Zugriff auf Ordner von einer Sitzung zur nächsten zu behalten."
+   ]
+  },
+  {
+   "t": "Der Bildschirm",
+   "p": [
+    "Oben die Bibliothek (links) und die Playlist (rechts). In der Mitte die Wiedergabeleiste, darunter die Einstellungen des ausgewählten Titels. Unten die Zeitleiste. Die Schaltfläche <b>Klang und Effekte</b> blendet das Mischpult ein oder aus. Die Grenzen zwischen den Bereichen lassen sich mit der Maus verschieben."
+   ],
+   "cap": "Das Fenster von TIMELINE DJ MIX",
+   "leg": [
+    "Importieren, neuer Mix, Projekt öffnen und speichern, exportieren",
+    "MIDI-Controller, Farben und Hilfe",
+    "Sprachwahl",
+    "Bibliothek: Ihre analysierten Titel",
+    "Playlist: Reihenfolge des Mixes und Übergänge",
+    "Wiedergabe, Vorhören, Zeit und Tempo des Mixes",
+    "Einstellungen des ausgewählten Titels",
+    "Die Zeitleiste"
+   ]
+  },
+  {
+   "t": "Titel importieren und analysieren",
+   "p": [
+    "Klicken Sie auf <b>Titel importieren</b> oder ziehen Sie Dateien auf die Bibliothek: MP3, WAV, FLAC, OGG, Opus, M4A/AAC und AIFF. Die Software berechnet <b>BPM</b>, <b>Beatgrid</b> und <b>Tonart</b>, angezeigt mit dem Code des Quintenzirkels (8A, 9B…).",
+    "Ein <b>grüner Punkt</b> zeigt eine Tonart, die zum in der Playlist ausgewählten Titel passt; eine <b>grüne BPM-Zahl</b> ein Tempo innerhalb von 6 %. Klicken Sie auf eine Spaltenüberschrift zum Sortieren, nutzen Sie die Suche zum Filtern.",
+    "Die Dateien bleiben auf Ihrem Computer; die Software behält eine Kopie, um sie beim nächsten Öffnen wiederzufinden."
+   ],
+   "cap": "Die Bibliothek"
+  },
+  {
+   "t": "Den Mix aufbauen",
+   "p": [
+    "Doppelklicken Sie auf einen Titel, klicken Sie auf <b>+</b> oder ziehen Sie ihn in die Playlist. Ziehen Sie Zeilen, um die Reihenfolge zu ändern; <b>Sortieren</b> ordnet die Titel nach passendem Tempo und passender Tonart.",
+    "Jeder Titel hat seinen <b>Eingangsübergang</b>: <b>synchronisierte Blende</b> (beide Titel im gleichen Tempo), <b>Bass-Tausch</b> (die Bässe wechseln in der Mitte von einem Titel zum anderen), <b>harter Einstieg</b>, <b>einfache Blende, ohne Synchronisierung</b> (automatisch gewählt, wenn die Tempi zu weit auseinanderliegen) oder <b>Schnitt</b>."
+   ],
+   "cap": "Die Playlist und die Übergänge"
+  },
+  {
+   "t": "Die Zeitleiste",
+   "p": [
+    "Die Titel wechseln sich auf zwei Kanälen ab, A (orange) und B (blau). Ziehen Sie einen Block, um die <b>Überlappung</b> zu verlängern oder zu verkürzen; ziehen Sie an seinen Rändern, um Anfang oder Ende abzuschneiden. Der <b>Magnet</b> rastet Verschiebungen auf Takt oder Schlag ein.",
+    "Klicken Sie auf das Lineal, um den Abspielkopf zu setzen. <b>Zoom</b> und <b>Alles zeigen</b> stellen den Maßstab ein; Strg + Mausrad zoomt an der Mausposition. Die orange Linie unten zeigt das Tempo des Mixes, das in den Übergängen von einem Titel zum nächsten gleitet."
+   ],
+   "cap": "Die Zeitleiste: zwei Kanäle, Überlappungen und Tempokurve"
+  },
+  {
+   "t": "Kurven für Lautstärke, Bässe und Höhen",
+   "p": [
+    "Wählen Sie die Kurve (<b>Lautstärke</b>, <b>Bässe</b> oder <b>Höhen</b>), wählen Sie einen Block aus und klicken Sie dann auf die Kurve, um einen Punkt zu setzen und ihn zu ziehen. Ein Doppelklick löscht einen Punkt. <b>Automatische Kurven wiederherstellen</b> löscht die von Hand gesetzten Punkte."
+   ],
+   "cap": "Basskurve bei einem Bass-Tausch"
+  },
+  {
+   "t": "Tempo und Raster des Titels",
+   "p": [
+    "In den Titeleinstellungen: die <b>Überlappung</b> in Schlägen, das <b>Tempo während des Übergangs</b> (gleitet vom einen zum anderen, behält das des auslaufenden Titels, übernimmt das des einlaufenden) und das <b>Tempo im Mix</b>.",
+    "Ist ein Titel schlecht ausgerichtet, korrigieren Sie seine <b>BPM</b> (÷2, ×2 oder genauer Wert), verschieben Sie das <b>Raster</b> um 10 ms oder den ersten Schlag des Takts um einen Schlag. Die Tonhöhe folgt dem Tempo, wie bei einem Plattenspieler."
+   ],
+   "cap": "Die Einstellungen des ausgewählten Titels"
+  },
+  {
+   "t": "Vorhören im Kopfhörer",
+   "p": [
+    "Die Taste ▶ jeder Zeile spielt den Titel im Kopfhörer, <b>ohne den Mix anzuhalten</b>, in der Bibliothek wie in der Playlist; mit einem Schieberegler springen Sie an jede Stelle des Titels. Die Taste ⇄ spielt den Übergang so, wie er klingen wird.",
+    "Die <b>grüne Linie</b> in der Zeitleiste zeigt, wo das Vorhören des Mixes steht. Setzen Sie sie mit einem Klick in den unteren Streifen, Umschalt + Klick oder Rechtsklick, dann starten Sie <b>Vorhören</b>.",
+    "Ausgänge: Standardmäßig 4-Kanal-Karte, Master auf 1-2 und Kopfhörer auf 3-4. Mit einer Stereokarte wählen Sie <b>Stereo</b> oder leiten den Kopfhörer auf eine andere Soundkarte."
+   ],
+   "cap": "Vorhören eines Bibliothekstitels und die grüne Linie",
+   "leg": [
+    "Taste Vorhören des Mixes",
+    "Titel im Kopfhörer und seine Position",
+    "Grüne Linie des Vorhörens"
+   ]
+  },
+  {
+   "t": "Klang und Effekte",
+   "p": [
+    "Für jeden Kanal: Lautstärke, Bässe, Mitten, Höhen, Filter und <b>Tempo ±8 %</b>. In der Mitte der Crossfader; rechts Echo (im Tempo), Flanger und Hall. Ein Doppelklick setzt einen Regler zurück.",
+    "Die <b>einfache Ansicht</b> ersetzt die Drehregler durch Schieberegler; ein <b>grüner Punkt</b> leuchtet, wenn der Regler in der Mitte steht. Aktivieren Sie <i>Diese Einstellungen auf den Export anwenden</i>, um sie in der exportierten Datei zu behalten."
+   ],
+   "cap": "Das Mischpult in der DJ-Controller-Ansicht",
+   "leg": [
+    "Kanal A",
+    "Crossfader",
+    "Kanal B",
+    "Effekte"
+   ],
+   "cap2": "Die einfache Ansicht mit dem grünen Mittelpunkt"
+  },
+  {
+   "t": "Auto-DJ und Party nach Stilen",
+   "p": [
+    "<b>Party nach Stilen</b>: Fügen Sie einen Stil pro Zeile hinzu, wählen Sie seinen Ordner und die Anzahl der Titel pro Serie. Der Auto-DJ spielt zum Beispiel 3 Salsas, 3 Bachatas, 3 Kizombas und beginnt dann von vorn. <b>Mix erstellen</b> fügt die gewünschte Dauer auf einmal hinzu.",
+    "<b>Auto-DJ an</b> fügt während der Wiedergabe den nächsten Titel vor dem Ende des Mixes hinzu; die Taste ⏭ wechselt zum nächsten Stil. Ohne Ordner wählt der Auto-DJ den in Tempo und Tonart nächsten Titel."
+   ],
+   "cap": "Auto-DJ und Party nach Stilen"
+  },
+  {
+   "t": "MIDI-Controller",
+   "p": [
+    "Wählen Sie Ihr Gerät und klicken Sie auf <b>Laden</b>: Die Mappings des Mixxx-Projekts werden unverändert gelesen (Pioneer DDJ, Numark, Hercules, Reloop, Allen &amp; Heath, Traktor Kontrol Z1…). Decks 1 und 3 steuern Kanal A, Decks 2 und 4 Kanal B, einschließlich des Tempo-Faders. <b>Mixxx-Mapping importieren</b> akzeptiert jede andere .xml-Datei mit ihren .js-Dateien.",
+    "Um einen Befehl hinzuzufügen: Klicken Sie in einer Zeile auf <b>Lernen</b> und bewegen Sie dann die Taste, den Drehregler oder den Fader. Ein gelernter Befehl hat Vorrang vor dem Mapping. MIDI funktioniert in den installierten Versionen und in Chrome oder Edge."
+   ],
+   "cap": "Mappings und MIDI-Lernen"
+  },
+  {
+   "t": "Den Mix exportieren",
+   "p": [
+    "<b>Mix exportieren</b> berechnet den ganzen Abend in eine Datei: MP3 mit 128, 192 oder 320 kbit/s, FLAC mit 16 oder 24 Bit, WAV mit 16 oder 24 Bit, AIFF. <b>Titelliste</b> speichert die Liste mit Zeitangaben, bereit zur Veröffentlichung mit dem Mix."
+   ],
+   "cap": "Die Exportformate"
+  },
+  {
+   "t": "Projekte",
+   "p": [
+    "<b>Projekt speichern</b> sichert Reihenfolge, Übergänge, Kurven und Tempokorrekturen in einer .json-Datei. <b>Projekt öffnen</b> lädt es wieder. Die Software merkt sich außerdem den letzten Mix von selbst.",
+    "<b>Rückgängig</b> (Strg + Z) geht einen Schritt zurück. Das Ändern eines wartenden Titels unterbricht nie den laufenden."
+   ]
+  },
+  {
+   "t": "Farben und Sprachen",
+   "p": [
+    "<b>Farben</b>: Hintergrundfarbe (Text und Bereiche passen sich an, auch auf hellem Hintergrund), Farbe der Schaltflächen und Farbe der Hauptschaltflächen.",
+    "Die <b>Sprache</b> wählen Sie oben rechts: Französisch, Englisch, Spanisch, Portugiesisch, Italienisch, Deutsch, Griechisch, Russisch, Chinesisch oder Japanisch. Der Wechsel erfolgt sofort und bleibt beim nächsten Mal erhalten. Die Titel Ihrer Musik werden nie übersetzt."
+   ],
+   "cap": "Die Farben der Software"
+  },
+  {
+   "t": "Tastenkürzel",
+   "p": [
+    "<b>Leertaste</b>: Wiedergabe / Pause · <b>Entf</b>: ausgewählten Titel aus dem Mix entfernen · <b>Strg + Z</b>: rückgängig · <b>Pos1</b>: zurück zum Anfang · <b>← →</b>: 5 Sekunden zurück oder vor · <b>Strg + Mausrad</b>: Zoom der Zeitleiste.",
+    "<b>F1</b>: öffnet diese Anleitung in der Sprache des Programms. Sie öffnet sich auch über <b>Hilfe</b> › <b>Vollständige Bedienungsanleitung</b>."
+   ]
+  },
+  {
+   "t": "Das Projekt unterstützen",
+   "p": [
+    "TIMELINE DJ MIX ist freie und kostenlose Software (GNU GPL v2 oder später), entwickelt von DJ LATIN JAZZ &amp; DJ CRISLATINO in Zusammenarbeit mit Claude.ai. Eine Spende über <a href=\"https://ko-fi.com/djlatinjazz\">ko-fi.com/djlatinjazz</a> hilft bei der Weiterentwicklung. Die Controller-Mappings stammen aus dem Mixxx-Projekt (GPL); die MP3-Kodierung nutzt lamejs (LGPL)."
+   ]
+  }
+ ]
+}

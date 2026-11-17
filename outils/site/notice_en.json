@@ -1,0 +1,157 @@
+{
+ "title": "User guide",
+ "sub": "The DJ mix built on a timeline — free software",
+ "intro": "TIMELINE DJ MIX builds a complete mix on a timeline: each track is matched to the tempo of the previous one, transitions are shaped with the mouse, then the whole night is exported as a single audio file. The red numbers on the screenshots refer to the lists below them.",
+ "toc": "Contents",
+ "back": "Back to the website",
+ "pdf": "Download the PDF",
+ "ver": "Version 0.3.0",
+ "s": [
+  {
+   "t": "Installation",
+   "p": [
+    "<b>Windows</b>: run <code>Timeline-DJ-Mix-Windows-Setup.exe</code>. If Windows shows \"Windows protected your PC\", click <i>More info</i>, then <i>Run anyway</i>.",
+    "<b>macOS</b>: choose the Apple Silicon (M1, M2…) or Intel version, unzip it and drag <b>TIMELINE DJ MIX</b> into Applications. On first launch, open <i>System Settings › Privacy &amp; Security</i> and click <i>Open Anyway</i>.",
+    "<b>Linux</b>: install <code>timeline-dj-mix_amd64.deb</code> (Debian, Ubuntu, Mint) with a double-click, or make the AppImage executable and run it.",
+    "<b>Without installing</b>: the file <code>Timeline-DJ-Mix.html</code> opens in Chrome or Edge. It does everything, except keep access to folders from one session to the next."
+   ]
+  },
+  {
+   "t": "The screen",
+   "p": [
+    "At the top, the library (left) and the playlist (right). In the middle, the playback bar, then the settings of the selected track. At the bottom, the timeline. The <b>Sound and effects</b> button shows or hides the mixer. The borders between areas can be moved with the mouse."
+   ],
+   "cap": "The TIMELINE DJ MIX window",
+   "leg": [
+    "Import, new mix, open and save a project, export",
+    "MIDI controller, colours and help",
+    "Language choice",
+    "Library: your analysed tracks",
+    "Playlist: mix order and transitions",
+    "Playback, preview, time and tempo of the mix",
+    "Settings of the selected track",
+    "The timeline"
+   ]
+  },
+  {
+   "t": "Importing and analysing tracks",
+   "p": [
+    "Click <b>Import tracks</b> or drop files onto the library: MP3, WAV, FLAC, OGG, Opus, M4A/AAC and AIFF. The software calculates the <b>BPM</b>, the <b>beat grid</b> and the <b>key</b>, shown with its harmonic wheel code (8A, 9B…).",
+    "A <b>green dot</b> marks a key compatible with the track selected in the playlist; a <b>green BPM</b>, a tempo within 6 %. Click a column header to sort, use the search box to filter.",
+    "Files stay on your computer; the software keeps a copy so it can find them next time."
+   ],
+   "cap": "The library"
+  },
+  {
+   "t": "Building the mix",
+   "p": [
+    "Double-click a track, click <b>+</b> or drag it into the playlist. Drag rows to change the order; <b>Sort</b> arranges the tracks by compatible tempo and key.",
+    "Each track has its <b>incoming transition</b>: <b>beat-matched fade</b> (both tracks at the same tempo), <b>bass swap</b> (the bass passes from one track to the other in the middle), <b>hard entry</b>, <b>simple fade, no beat-matching</b> (chosen automatically when the tempos are too far apart) or <b>cut</b>."
+   ],
+   "cap": "The playlist and transitions"
+  },
+  {
+   "t": "The timeline",
+   "p": [
+    "Tracks alternate on two channels, A (orange) and B (blue). Drag a block to lengthen or shorten the <b>overlap</b>; pull its edges to cut the start or the end. <b>Snap</b> aligns moves to the bar or to the beat.",
+    "Click the ruler to place the playhead. <b>Zoom</b> and <b>Show all</b> set the scale; Ctrl + wheel zooms where the mouse is. The orange line at the bottom shows the tempo of the mix, which glides from one track to the next during transitions."
+   ],
+   "cap": "The timeline: two channels, overlaps and tempo curve"
+  },
+  {
+   "t": "Volume, bass and treble curves",
+   "p": [
+    "Choose the curve (<b>Volume</b>, <b>Bass</b> or <b>Treble</b>), select a block, then click the curve to add a point and drag it. Double-click a point to delete it. <b>Restore the automatic curves</b> clears the points placed by hand."
+   ],
+   "cap": "Bass curve during a bass swap"
+  },
+  {
+   "t": "Track tempo and grid",
+   "p": [
+    "In the track settings: the <b>overlap</b> in beats, the <b>tempo during the transition</b> (glides from one to the other, keeps the outgoing one, takes the incoming one) and the <b>tempo in the mix</b>.",
+    "If a track is badly aligned, correct its <b>BPM</b> (÷2, ×2 or exact value), shift the <b>grid</b> by 10 ms, or move the first beat of the bar by one beat. Pitch follows tempo, as on a vinyl turntable."
+   ],
+   "cap": "Settings of the selected track"
+  },
+  {
+   "t": "Headphone preview",
+   "p": [
+    "The ▶ button on each row plays the track in the headphones <b>without stopping the mix</b>, in the library as in the playlist; a slider lets you go anywhere in the track. The ⇄ button plays the transition as it will sound.",
+    "The <b>green line</b> on the timeline shows where the mix preview is. Place it by clicking in the bottom strip, Shift + click or right-click, then start <b>Preview</b>.",
+    "Outputs: by default, 4-channel card, master on 1-2 and headphones on 3-4. With a stereo card, choose <b>Stereo</b> or send the headphones to another sound card."
+   ],
+   "cap": "Previewing a library track, and the green line",
+   "leg": [
+    "Mix preview button",
+    "Track in the headphones and its position",
+    "Green preview line"
+   ]
+  },
+  {
+   "t": "Sound and effects",
+   "p": [
+    "For each channel: volume, bass, mids, treble, filter and <b>tempo ±8 %</b>. In the centre, the crossfader; on the right, echo (synced to the tempo), flanger and reverb. Double-click a control to reset it.",
+    "<b>Simple view</b> replaces the knobs with sliders; a <b>green dot</b> lights up when the control is centred. Tick <i>Apply these settings to the export</i> to keep them in the exported file."
+   ],
+   "cap": "The mixer in DJ controller view",
+   "leg": [
+    "Channel A",
+    "Crossfader",
+    "Channel B",
+    "Effects"
+   ],
+   "cap2": "The simple view, with the green centre dot"
+  },
+  {
+   "t": "Auto DJ and party by styles",
+   "p": [
+    "<b>Party by styles</b>: add one style per row, choose its folder and the number of tracks per set. The Auto DJ plays, for example, 3 salsas, 3 bachatas, 3 kizombas, then starts again. <b>Build the mix</b> adds the chosen length in one go.",
+    "<b>Auto DJ on</b> adds the next track during playback, before the mix ends; the ⏭ button moves to the next style. Without folders, the Auto DJ picks the track closest in tempo and key."
+   ],
+   "cap": "Auto DJ and party by styles"
+  },
+  {
+   "t": "MIDI controllers",
+   "p": [
+    "Choose your device and click <b>Load</b>: mappings from the Mixxx project are read as they are (Pioneer DDJ, Numark, Hercules, Reloop, Allen &amp; Heath, Traktor Kontrol Z1…). Decks 1 and 3 control channel A, decks 2 and 4 channel B, including the tempo fader. <b>Import a Mixxx mapping</b> accepts any other .xml file with its .js files.",
+    "To add a command: click <b>Learn</b> on a row, then move the button, knob or fader. A learned command takes priority over the mapping. MIDI works in the installed versions and in Chrome or Edge."
+   ],
+   "cap": "Mappings and MIDI learn"
+  },
+  {
+   "t": "Exporting the mix",
+   "p": [
+    "<b>Export the mix</b> renders the whole night into one file: MP3 128, 192 or 320 kbit/s, FLAC 16 or 24-bit, WAV 16 or 24-bit, AIFF. <b>Track list</b> saves the timed list, ready to publish with the mix."
+   ],
+   "cap": "Export formats"
+  },
+  {
+   "t": "Projects",
+   "p": [
+    "<b>Save the project</b> keeps the order, transitions, curves and tempo corrections in a .json file. <b>Open a project</b> loads it again. The software also keeps the last mix automatically.",
+    "<b>Undo</b> (Ctrl + Z) goes back. Editing a waiting track never cuts the one that is playing."
+   ]
+  },
+  {
+   "t": "Colours and languages",
+   "p": [
+    "<b>Colours</b>: background colour (text and panels adapt, even on a light background), button colour and main button colour.",
+    "The <b>language</b> is chosen at the top right: French, English, Spanish, Portuguese, Italian, German, Greek, Russian, Chinese or Japanese. The change is immediate and kept for next time. Your track titles are never translated."
+   ],
+   "cap": "The software's colours"
+  },
+  {
+   "t": "Keyboard shortcuts",
+   "p": [
+    "<b>Space</b>: play / pause · <b>Del</b>: remove the selected track from the mix · <b>Ctrl + Z</b>: undo · <b>Home</b>: back to the start · <b>← →</b>: back or forward 5 seconds · <b>Ctrl + wheel</b>: timeline zoom.",
+    "<b>F1</b>: open this guide in the software's language. It also opens from <b>Help</b> › <b>Full user guide</b>."
+   ]
+  },
+  {
+   "t": "Supporting the project",
+   "p": [
+    "TIMELINE DJ MIX is free software (GNU GPL v2 or later), created by DJ LATIN JAZZ &amp; DJ CRISLATINO in collaboration with Claude.ai. A donation on <a href=\"https://ko-fi.com/djlatinjazz\">ko-fi.com/djlatinjazz</a> helps it grow. Controller mappings come from the Mixxx project (GPL); MP3 encoding uses lamejs (LGPL)."
+   ]
+  }
+ ]
+}

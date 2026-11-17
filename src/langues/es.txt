@@ -1,0 +1,341 @@
+0	por DJ LATIN JAZZ & DJ CRISLATINO
+1	Importar canciones
+2	Nueva mezcla
+3	Abrir un proyecto
+4	Guardar el proyecto
+5	Exportar la mezcla
+6	Controlador MIDI
+7	Colores
+8	Ayuda
+9	Biblioteca
+10	preescucha
+11	Título
+12	Artista
+13	Estilo
+14	Tonalidad
+15	Duración
+16	Importa archivos de audio o suéltalos aquí. El tempo y la tonalidad se analizan automáticamente.
+17	Auto DJ detenido
+18	Fiesta por estilos
+19	Ordenar
+20	Escucha
+21	Transición de entrada
+22	Inicio
+23	Haz doble clic en una canción de la biblioteca, o arrástrala aquí, para añadirla a la mezcla.
+24	▶ Preescucha
+25	Curva
+26	Volumen
+27	Graves
+28	Agudos
+29	Imán
+30	Compás
+31	Tiempo
+32	Ver todo
+33	Sonido y efectos
+34	Deshacer
+35	Listo
+36	TIMELINE DJ MIX 0.3, por DJ LATIN JAZZ & DJ CRISLATINO, en colaboración con Claude.ai. Software libre, GNU GPL v2 o posterior. Codificación MP3: lamejs (LGPL). Mapeos de controladores: proyecto Mixxx (GPL).
+37	FLAC, sin pérdida, 16 bits
+38	FLAC, sin pérdida, 24 bits
+39	WAV, 16 bits
+40	WAV, 24 bits
+41	AIFF, 16 bits
+42	Lista de canciones (.txt)
+43	Cerrar
+44	Exportar
+45	Auto DJ y fiesta por estilos
+46	El Auto DJ llena la playlist y encadena las canciones solo. Con una carpeta por estilo, toca series: por ejemplo 3 salsas, 3 bachatas, 3 kizombas, y vuelve a empezar. Sin carpetas, elige de la biblioteca la canción más cercana en tempo y tonalidad.
+47	Orden
+48	Activo
+49	Carpeta
+50	Canciones
+51	Por serie
+52	+ Añadir un estilo
+53	Orden aleatorio dentro de cada estilo
+54	Duración que añadir
+55	Construir la mezcla
+56	Auto DJ continuo: durante la reproducción, añade la siguiente canción antes del final de la mezcla
+57	Para el tango, pon 3 o 4 canciones por serie. El navegador no conserva el acceso a las carpetas: hay que elegirlas de nuevo cada vez que se abre.
+58	Cargar
+59	Importar un mapeo de Mixxx
+60	Conectar por USB HID
+61	Quitar
+62	Los mapeos son los del proyecto Mixxx, leídos tal cual. Los platos 1 y 3 controlan la vía A, los platos 2 y 4 la vía B: volumen, ecualizador, filtro, crossfader, reproducción, jog, navegación y carga. Un controlador conocido se reconoce al conectarlo.
+63	Para completar o sustituir un mando: haz clic en «Aprender» en una línea y mueve el botón, el potenciómetro o el fader. Una asignación aprendida tiene prioridad sobre el mapeo.
+64	Mando
+65	Tipo
+66	Asignación
+67	Color de fondo del programa. Los paneles, las líneas y el texto se adaptan solos, incluso sobre un fondo claro.
+68	Color personalizado
+69	Color de los botones
+70	Por defecto
+71	Color de los botones principales
+72	(Importar, Reproducir, Exportar, Cerrar)
+73	Cómo funciona
+74	Preescucha
+75	: el botón ▶ de cada línea, tanto en la biblioteca como en la playlist, reproduce la canción sin detener la mezcla. El botón ⇄ reproduce una transición tal como sonará. La
+76	línea verde
+77	de la línea de tiempo muestra dónde va la preescucha: colócala donde quieras con un clic en la franja inferior, Mayús+clic o clic derecho. Las salidas (auriculares en los canales 3-4 o en otra tarjeta de sonido) se ajustan en «Sonido y efectos».
+78	: volumen, ecualizador y filtro por vía, crossfader, eco, flanger y reverb. Modificar una canción en espera nunca corta la que suena.
+79	: importa tus archivos. Se calculan el BPM, la rejilla de tiempos y la tonalidad. El punto verde indica una tonalidad compatible con la canción seleccionada en la playlist, el BPM en verde un tempo a menos del 6 %.
+80	: doble clic o arrastrar y soltar para añadir, arrastrar las líneas para cambiar el orden. Cada canción se ajusta al tempo y se encadena automáticamente con la anterior.
+81	: arrastra un bloque para alargar o acortar el solapamiento, tira de sus bordes para cortar el principio o el final. Haz clic en la regla para colocar el cabezal.
+82	Curvas
+83	: selecciona un bloque, luego haz clic en la curva para poner un punto y arrástralo. Doble clic en un punto para borrarlo. Volumen, graves y agudos tienen cada uno su curva.
+84	Tempo
+85	: durante una transición, el tempo pasa de una canción a la otra y ambas siguen sincronizadas. El tono sigue al tempo, como en un tocadiscos de vinilo.
+86	Si una canción está desfasada
+87	: corrige su BPM (÷2, ×2 o valor exacto) y desplaza su rejilla en la franja de encima de la línea de tiempo.
+88	Atajos
+89	Espacio
+90	reproducir,
+91	Supr
+92	quitar la canción seleccionada,
+93	deshacer,
+94	+rueda zoom.
+95	Tus archivos de audio se quedan en tu ordenador. El proyecto guardado contiene los ajustes de la mezcla, no el audio: al volver a abrirlo, importa los mismos archivos y se vuelven a enlazar solos.
+96	Buscar
+97	Buscar en la biblioteca
+98	Posición de la preescucha
+99	Detener la preescucha
+100	Durante la reproducción, el Auto DJ añade solo la siguiente canción antes del final de la mezcla
+101	Pasar al estilo siguiente
+102	Reordena las canciones por tempo y tonalidad compatibles, a partir de la primera
+103	Volver al inicio (Inicio)
+104	Volver al inicio
+105	Reproducir / pausa (Espacio)
+106	Reproducir o pausar
+107	Preescucha de la mezcla en auriculares desde la línea verde. Para colocar la línea verde: clic en la franja inferior de la línea de tiempo, Mayús+clic o clic derecho en cualquier sitio.
+108	Mostrar u ocultar el panel Sonido y efectos
+109	Deshacer (Ctrl+Z)
+110	Arrastrar para ajustar la altura del panel
+111	Azul noche
+112	Negro
+113	Antracita
+114	Azul marino
+115	Burdeos
+116	Verde abeto
+117	Violeta
+118	Marrón
+119	Arena claro
+120	Gris claro
+121	Por defecto
+122	Color de botones por defecto
+123	Azul acero
+124	Grafito
+125	Rojo
+126	Verde
+127	Bronce
+128	Color de botones principales por defecto
+129	Verde vivo
+130	Rojo vivo
+131	Azul vivo
+132	Malva
+133	Amarillo
+134	Rosa
+135	Blanco
+136	Fundido sincronizado
+137	Intercambio de graves
+138	Entrada directa
+139	Fundido simple, sin sincronizar
+140	Corte
+141	El navegador ya no tiene espacio suficiente para guardar todos los archivos: algunos habrá que reimportarlos la próxima vez.
+142	El navegador no pudo guardar este archivo: habrá que reimportarlo la próxima vez.
+143	No se ha reconocido ningún archivo de audio nuevo.
+144	Esta canción todavía se está analizando.
+145	Este archivo no es un proyecto TIMELINE DJ MIX.
+146	Demo
+147	Pasa de uno a otro
+148	Mantiene el de la saliente
+149	Toma el de la entrante
+150	■ Detener
+151	⇄ Escuchar la transición
+152	General en 1-2, auriculares en 3-4.
+153	Auriculares en 1-2, general en 3-4.
+154	Hacen falta 4 para separar los auriculares: configura la tarjeta en «Cuadrafónico» en el sistema.
+155	La salida de auriculares elegida no está disponible: los auriculares vuelven a la salida de la mezcla.
+156	Auriculares enviados a la otra tarjeta de sonido.
+157	Auriculares oídos con la mezcla.
+158	Primero añade canciones a la playlist.
+159	El navegador se negó a iniciar el sonido.
+160	■ Preescucha
+161	archivo ilegible
+162	(archivo que reimportar)
+163	La línea de tiempo se llena a medida que añades canciones a la playlist.
+164	Guardado cancelado.
+165	Guardar archivos no está disponible en esta vista.
+166	La playlist está vacía.
+167	En esta página, el archivo de audio se entrega en un archivo .zip, con la lista de canciones.
+168	Guardar archivos no está disponible en esta vista. Usa la versión en archivo HTML del programa.
+169	Archivo entregado al navegador.
+170	Guardar el archivo
+171	Exportación cancelada.
+172	Auto DJ: no quedan canciones disponibles, se detiene.
+173	Auto DJ en marcha
+174	Auto DJ: todas las canciones de la biblioteca ya están en la mezcla. Importa otras o elige carpetas de estilos.
+175	Medios
+176	Filtro
+177	Eco
+178	Reverb
+179	Vía A
+180	Vía B
+181	Efectos
+182	Este navegador no permite elegir las salidas.
+183	Haz clic en «Listar las tarjetas de sonido» para ver sus nombres.
+184	Sin este permiso, el navegador no da la lista de tarjetas de sonido.
+185	El archivo XML del mapeo es ilegible.
+186	Este navegador no admite USB HID: usa Chrome o Edge, con la versión en archivo HTML.
+187	Mapeo demasiado grande para recordarlo: habrá que reimportarlo.
+188	No se pudo cargar este mapeo.
+189	Volver al inicio
+190	Transición anterior
+191	Transición siguiente
+192	Desplazarse por la mezcla (jog, codificador)
+193	Recorrer la biblioteca (codificador)
+194	Cargar la canción elegida en la mezcla (botón vía A)
+195	Cargar la canción elegida en la mezcla (botón vía B)
+196	Reproducir / pausa (botón vía B)
+197	Preescuchar la canción elegida (auriculares vía A)
+198	Preescuchar la canción elegida (auriculares vía B)
+199	Preescucha de la mezcla desde la línea verde
+200	Mover la línea verde (codificador)
+201	Preescuchar la próxima transición
+202	Auto DJ marcha / paro
+203	Estilo siguiente
+204	Volumen de escucha
+205	Volumen de preescucha
+206	Primero elige una canción en la biblioteca.
+207	Este navegador no ofrece MIDI. Usa Chrome o Edge.
+208	El acceso MIDI se ha denegado o no es posible en esta vista. Abre la versión en archivo HTML en Chrome o Edge.
+209	No se ha detectado ningún controlador. Conéctalo, ponlo en modo MIDI y vuelve a abrir esta ventana.
+210	Mesas de mezcla y superficies de faders
+211	Controladores
+212	Ningún mapeo cargado. Elige tu aparato o importa un mapeo de Mixxx: el archivo .xml con sus archivos .js.
+213	potenciómetro, fader
+214	Aprender
+215	Proyecto abierto. Reimporta los archivos de audio marcados «que reimportar».
+216	Proyecto ilegible.
+217	Haz clic otra vez en «Nueva mezcla» para vaciarlo todo.
+218	Hacen falta al menos tres canciones para reordenar.
+219	Curvas automáticas restablecidas para esta canción.
+220	Esta canción ya tiene sus curvas automáticas: nada que restablecer.
+221	La próxima canción añadida por el Auto DJ cambiará de estilo.
+222	Primero importa canciones o elige una carpeta por estilo.
+223	Ninguna canción disponible: ya están todas en la mezcla o no hay ninguna carpeta cargada.
+224	Esta salida no está disponible.
+225	Selecciona el archivo .xml del mapeo, con sus archivos .js.
+226	Añadir a la playlist
+227	Quitar de la biblioteca
+228	Preescuchar esta canción sin detener la mezcla
+229	Quitar de la mezcla
+230	Transición
+231	Solapamiento
+232	Tempo durante la transición
+233	Tempo en la mezcla
+234	Original
+235	Volver al tempo original de la canción
+236	BPM de la canción
+237	Rejilla
+238	Compás −1 tiempo
+239	+1 tiempo
+240	Adelantar la rejilla 10 ms
+241	Retrasar la rejilla 10 ms
+242	El primer tiempo del compás está un tiempo antes
+243	El primer tiempo del compás está un tiempo después
+244	Preescucha en auriculares, sin detener la mezcla
+245	Restablecer las curvas automáticas
+246	Borra los puntos puestos a mano en esta canción y restablece los fundidos automáticos
+247	Nombre del estilo
+248	Elegir la carpeta
+249	Canciones por serie
+250	Auriculares
+251	Salidas
+252	Salida general
+253	Reparto
+254	Estéreo
+255	Tarjeta de 4 canales: general 1-2, auriculares 3-4
+256	Tarjeta de 4 canales: auriculares 1-2, general 3-4
+257	Auriculares en otra tarjeta de sonido
+258	Desactivado
+259	Listar las tarjetas de sonido
+260	Aplicar estos ajustes a la exportación
+261	Ponerlo todo a cero
+262	Vista simple
+263	Cambiar entre la vista de controlador DJ y la vista simple original
+264	Borrar
+265	Preescuchar la transición de entrada sin detener la mezcla
+266	Doble clic: puesta a cero
+267	Vista de controlador DJ
+268	Arrastrar para ajustar la altura de las listas
+269	Arrastrar para ajustar la anchura
+270	Calculando la mezcla…
+271	Reproducir / pausa
+272	Añadir un estilo
+273	Tempo ±8 %
+274	analizando…
+275	en espera
+276	archivo que reimportar
+277	ilegible
+278	demo
+279	Apertura
+280	botón
+281	codificador
+282	tiempos
+283	10 ms
+284	Mueve el mando…
+285	Efecto
+286	Idioma
+287	Analizando: {t}…
+288	{n} canciones
+289	{n} canción
+290	{n} canciones, {t}
+291	{n} canción, {t}
+292	{n} canciones no se han podido encontrar: reimporta los archivos marcados «que reimportar» para escucharlas.
+293	{n} canción no se ha podido encontrar: reimporta los archivos marcados «que reimportar» para escucharla.
+294	Este navegador no sabe leer este formato: {t}
+295	Canales disponibles en la salida general: {n}. {x}
+296	Canales disponibles en la salida general: {n}.
+297	«{t}» está muda: hay que reimportar su archivo.
+298	El archivo de «{t}» ya no es accesible: reimpórtalo (botón «Importar canciones») para escucharlo.
+299	Preescucha imposible: {x}.
+300	Guardado imposible ({t}).
+301	Mezcla hecha con TIMELINE DJ MIX, duración {t}
+302	{n} canción(es) sin archivo se sustituirán por silencio. Reimpórtalas antes para una mezcla completa.
+303	Duración de la mezcla: {t}.
+304	Calculando la mezcla… {n} %
+305	Mezcla lista: {n} MB.
+306	La exportación ha fallado: {t}
+307	{n} canciones colocadas, {t}…
+308	Estilo actual: {t}. Pasar al estilo siguiente
+309	{t} conectado.
+310	Conexión HID imposible: {t}
+311	Mapeo «{t}» cargado.
+312	Mapeo «{t}» cargado (archivos que faltan: {u}).
+313	Controladores detectados: {t}.
+314	Mapeo activo: {t}, {n} mandos.
+315	Mapeo activo: {t} (USB HID, aparato conectado).
+316	Mapeo activo: {t} (USB HID, haz clic en «Conectar por USB HID»).
+317	{t}: {n} canciones. El análisis del tempo se hace en segundo plano, poco a poco.
+318	{n} canciones añadidas. Duración de la mezcla: {t}.
+319	Vía A: {x}
+320	Vía B: {x}
+321	Efecto: {x}
+322	Nota {n}, canal {c}
+323	CC {n}, canal {c}
+324	Pitch bend, canal {c}
+325	{n} tiempos
+326	Playlist
+327	Zoom
+328	Arrastrar arriba / abajo, rueda. Doble clic: puesta a cero
+329	El navegador pide acceso al micrófono para dar el nombre de las tarjetas de sonido; no se graba nada
+330	: «Fiesta por estilos» construye la mezcla por series de estilos; «Auto DJ» añade solo la siguiente canción durante la reproducción.
+331	Preescucha de {t}
+332	Añadir {t} a la playlist
+333	Quitar {t} de la biblioteca
+334	Preescuchar {t}
+335	Quitar {t} de la mezcla
+336	Preescuchar la transición hacia {t}
+337	Transición de entrada de la canción {n}
+338	Selecciona una canción en la línea de tiempo para ajustar su transición, su tempo, su rejilla y sus curvas.
+339	Mapeo
+340	Manual de uso completo

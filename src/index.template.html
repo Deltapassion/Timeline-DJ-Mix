@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TIMELINE DJ MIX</title>
+<link rel="icon" type="image/png" href="@@ICON96@@">
+<link rel="apple-touch-icon" href="@@ICON96@@">
+
+<style type="text/css">@@INCLUDE:styles/polices.css@@</style>
+<style>@@INCLUDE:styles/app.css@@</style>
+</head>
+<body>
+<header class="bar">
+  <div class="brand">
+    <img src="@@ICON96@@" width="30" height="30" alt="" style="border-radius:7px">
+    <b>TIMELINE DJ MIX</b><span>par DJ LATIN JAZZ &amp; DJ CRISLATINO</span>
+  </div>
+  <div class="actions">
+    <button id="btnImport" class="primary">Importer des morceaux</button>
+    <input id="fileIn" type="file" multiple accept="audio/*,video/mp4,video/webm,.mp3,.wav,.flac,.ogg,.oga,.opus,.m4a,.mp4,.aac,.aif,.aiff,.webm,.wma,.caf" hidden>
+    <button id="btnNew">Nouveau mix</button>
+    <button id="btnOpen">Ouvrir un projet</button>
+    <input id="projIn" type="file" accept=".json,application/json" hidden>
+    <button id="btnSave">Enregistrer le projet</button>
+    <button id="btnExport">Exporter le mix</button>
+    <button id="btnMidi">Contrôleur MIDI</button>
+    <button id="btnLook">Couleurs</button>
+    <button id="btnHelp">Aide</button>
+    <select id="langSel" aria-label="Langue" translate="no"></select>
+  </div>
+</header>
+
+<section id="top">
+  <div class="panel" id="libPanel">
+    <div class="head"><h2>Bibliothèque</h2><span class="sub" id="libCount"></span><input id="libSearch" type="search" placeholder="Chercher" aria-label="Chercher dans la bibliothèque"></div>
+    <div id="cueBar" hidden><span class="tag">pré-écoute</span><b id="cueName" translate="no"></b><input id="cueSeek" type="range" min="0" max="1000" value="0" aria-label="Position de la pré-écoute"><span id="cueTime" class="muted"></span><button id="cueStop" class="ico" aria-label="Arrêter la pré-écoute">■</button></div>
+    <div class="scroll" id="libScroll"><table><thead><tr>
+      <th></th><th class="sortable" data-k="title">Titre</th><th class="sortable" data-k="artist">Artiste</th><th class="sortable" data-k="style">Style</th><th class="sortable num" data-k="bpm">BPM</th><th class="sortable" data-k="key">Tonalité</th><th class="sortable num" data-k="dur">Durée</th><th></th>
+    </tr></thead><tbody id="libBody"></tbody></table><div class="empty" id="libEmpty" hidden>Importez des fichiers audio, ou déposez-les ici. Le tempo et la tonalité sont analysés automatiquement.</div></div>
+  </div>
+  <div class="panel" id="plPanel">
+    <div class="head"><h2>Playlist</h2><span class="sub" id="plCount"></span><button id="btnAuto" title="Pendant la lecture, l'Auto DJ ajoute tout seul le titre suivant avant la fin du mix">Auto DJ arrêté</button><button id="btnStyle" class="ico" title="Passer au style suivant" aria-label="Passer au style suivant">⏭</button><button id="btnParty">Soirée par styles</button><button id="btnOrder" title="Réordonne les morceaux par tempo et par tonalité compatibles, à partir du premier">Ordonner</button></div>
+    <div class="scroll" id="plScroll"><table><thead><tr>
+      <th>Écoute</th><th class="num">N°</th><th>Transition d'entrée</th><th>Titre</th><th>Artiste</th><th class="num">BPM</th><th>Tonalité</th><th class="num">Début</th><th></th>
+    </tr></thead><tbody id="plBody"></tbody></table><div class="empty" id="plEmpty" hidden>Double-cliquez sur un morceau de la bibliothèque, ou glissez-le ici, pour l'ajouter au mix.</div></div>
+  </div>
+</section>
+
+<section id="bottom">
+  <div class="tools">
+    <div class="grp">
+      <button id="btnHome" class="ico" title="Revenir au début (Début)" aria-label="Revenir au début">⏮</button>
+      <button id="btnPlay" class="primary" title="Lecture / pause (Espace)" aria-label="Lecture ou pause">▶</button>
+      <button id="btnCue" title="Pré-écoute du mix au casque à partir de la ligne verte. Pour placer la ligne verte : clic dans le bandeau du bas de la timeline, Maj+clic ou clic droit n'importe où.">▶ Pré-écoute</button>
+    </div>
+    <div id="clock">00:00.0 <small>/ 00:00</small></div>
+    <div id="bpmNow">— BPM</div>
+    <div class="grp"><span class="l">Courbe</span><div class="seg" id="segCurve"><button data-c="vol" class="on">Volume</button><button data-c="bass">Graves</button><button data-c="treble">Aigus</button></div></div>
+    <div class="grp"><span class="l">Aimant</span><div class="seg" id="segSnap"><button data-s="4" class="on">Mesure</button><button data-s="1">Temps</button></div></div>
+    <div class="grp"><label for="zoom">Zoom</label><input id="zoom" type="range" min="0" max="100" value="30" style="width:110px"><button id="btnFit">Tout voir</button></div>
+    <div class="grp"><label for="mvol">Écoute</label><input id="mvol" type="range" min="0" max="100" value="85" style="width:80px"></div>
+    <div class="grp"><button id="btnSnd" class="on" title="Afficher ou masquer le panneau Son et effets">Son et effets</button><button id="btnUndo" title="Annuler (Ctrl+Z)">Annuler</button></div>
+    <div id="insp"></div>
+  </div>
+  <div id="snd"></div><div class="split-h" id="splitSnd" title="Glisser pour régler la hauteur du panneau"></div>
+  <div id="tlWrap"><div id="tl"><canvas id="cv"></canvas><div id="tlSpacer"></div></div></div>
+</section>
+<footer><span id="status">Prêt</span><span>TIMELINE DJ MIX 0.3, par DJ LATIN JAZZ &amp; DJ CRISLATINO, en collaboration avec Claude.ai. Logiciel libre, GNU GPL v2 ou ultérieure. Encodage MP3 : lamejs (LGPL). Mappings de contrôleurs : projet Mixxx (GPL).</span></footer>
+
+<dialog id="dlgExport">
+  <div class="dh">Exporter le mix</div>
+  <div class="db">
+    <div class="radio" id="expFmt">
+      <label><input type="radio" name="fmt" id="fmtMp3a" value="mp3128"> MP3, 128 kbit/s</label>
+      <label><input type="radio" name="fmt" id="fmtMp3" value="mp3192" checked> MP3, 192 kbit/s</label>
+      <label><input type="radio" name="fmt" id="fmtMp3hq" value="mp3320"> MP3, 320 kbit/s</label>
+      <label><input type="radio" name="fmt" id="fmtFlac" value="flac"> FLAC, sans perte, 16 bits</label>
+      <label><input type="radio" name="fmt" id="fmtFlac24" value="flac24"> FLAC, sans perte, 24 bits</label>
+      <label><input type="radio" name="fmt" id="fmtWav" value="wav16"> WAV, 16 bits</label>
+      <label><input type="radio" name="fmt" id="fmtWav24" value="wav24"> WAV, 24 bits</label>
+      <label><input type="radio" name="fmt" id="fmtAiff" value="aiff"> AIFF, 16 bits</label>
+    </div>
+    <p class="muted" id="expNote"></p>
+    <progress id="expProg" value="0" max="1" hidden></progress>
+    <p id="expMsg"></p>
+  </div>
+  <div class="df"><button id="expList">Liste des titres (.txt)</button><span style="flex:1"></span><button id="expCancel">Fermer</button><button id="expGo" class="primary">Exporter</button></div>
+</dialog>
+
+<dialog id="dlgAuto" class="wide">
+  <div class="dh">Auto DJ et soirée par styles</div>
+  <div class="db">
+    <p>L'Auto DJ remplit la playlist et enchaîne les titres tout seul. Avec un dossier par style, il joue des séries : par exemple 3 salsas, 3 bachatas, 3 kizombas, puis il recommence. Sans dossier, il pioche dans la bibliothèque le titre le plus proche en tempo et en tonalité.</p>
+    <div class="scrollx"><table><thead><tr><th>Ordre</th><th>Actif</th><th>Style</th><th>Dossier</th><th class="num">Titres</th><th class="num">Par série</th><th></th></tr></thead><tbody id="ptList"></tbody></table></div>
+    <div class="grp"><button id="ptAdd">+ Ajouter un style</button><label><input type="checkbox" id="ptShuffle"> Ordre aléatoire dans chaque style</label></div>
+    <div class="grp"><label for="adMins">Durée à ajouter</label><input id="adMins" type="number" min="5" max="600" step="5" value="60"><span class="muted">minutes</span><button id="adBuild" class="primary">Construire le mix</button></div>
+    <label><input type="checkbox" id="adLive"> Auto DJ en continu : pendant la lecture, ajoute le titre suivant avant la fin du mix</label>
+    <p id="adMsg" class="muted"></p>
+    <p class="muted">Pour le tango, réglez 3 ou 4 titres par série. Le navigateur ne garde pas l'accès aux dossiers : il faut les choisir de nouveau à chaque ouverture.</p>
+    <input id="ptDir" type="file" webkitdirectory multiple hidden>
+  </div>
+  <div class="df"><button id="adClose" class="primary">Fermer</button></div>
+</dialog>
+
+<dialog id="dlgMidi" class="wide">
+  <div class="dh">Contrôleur MIDI</div>
+  <div class="db">
+    <p id="midiStatus"></p>
+    <div class="grp" style="flex-wrap:wrap"><label for="mxSel">Mapping</label><select id="mxSel"></select><button id="mxLoad" class="primary">Charger</button><button id="mxImport">Importer un mapping Mixxx</button><input id="mxFiles" type="file" multiple accept=".xml,.js" hidden><button id="mxHid" hidden>Connecter en USB HID</button><button id="mxRemove">Retirer</button></div>
+    <p id="mxStatus" class="muted"></p>
+    <p class="muted">Les mappings sont ceux du projet Mixxx, lus tels quels. Platines 1 et 3 pilotent la voie A, platines 2 et 4 la voie B : volume, égaliseur, filtre, crossfader, lecture, jog, navigation et chargement. Un contrôleur connu est reconnu au branchement.</p>
+    <p class="muted">Pour compléter ou remplacer une commande : cliquez « Apprendre » sur une ligne, puis bougez le bouton, le potentiomètre ou le fader. Une affectation apprise passe avant le mapping.</p>
+    <div class="scrollx"><table><thead><tr><th>Commande</th><th>Type</th><th>Affectation</th><th></th></tr></thead><tbody id="midiList"></tbody></table></div>
+  </div>
+  <div class="df"><button id="midiClose" class="primary">Fermer</button></div>
+</dialog>
+
+<dialog id="dlgLook">
+  <div class="dh">Couleurs</div>
+  <div class="db">
+    <p>Couleur de fond du logiciel. Les panneaux, les traits et le texte s'adaptent tout seuls, y compris sur un fond clair.</p>
+    <div id="bgSw" class="sw">
+      <button data-c="#12161d" style="background:#12161d" title="Nuit bleue" aria-label="Nuit bleue"></button><button data-c="#0a0a0c" style="background:#0a0a0c" title="Noir" aria-label="Noir"></button>
+      <button data-c="#1d1d20" style="background:#1d1d20" title="Anthracite" aria-label="Anthracite"></button><button data-c="#0c1c33" style="background:#0c1c33" title="Bleu marine" aria-label="Bleu marine"></button>
+      <button data-c="#26121b" style="background:#26121b" title="Bordeaux" aria-label="Bordeaux"></button><button data-c="#0f201a" style="background:#0f201a" title="Vert sapin" aria-label="Vert sapin"></button>
+      <button data-c="#1b1430" style="background:#1b1430" title="Violet" aria-label="Violet"></button><button data-c="#2a1d10" style="background:#2a1d10" title="Brun" aria-label="Brun"></button>
+      <button data-c="#e9e4d8" style="background:#e9e4d8" title="Sable clair" aria-label="Sable clair"></button><button data-c="#f2f4f7" style="background:#f2f4f7" title="Gris clair" aria-label="Gris clair"></button>
+    </div>
+    <div class="grp"><label for="bgPick">Couleur personnalisée</label><input id="bgPick" type="color" value="#12161d"></div>
+    <p><b>Couleur des boutons</b></p>
+    <div id="btnSw" class="sw">
+      <button data-c="" class="swd" title="Par défaut" aria-label="Couleur des boutons par défaut">Défaut</button><button data-c="#3b4a63" style="background:#3b4a63" title="Bleu acier" aria-label="Bleu acier"></button>
+      <button data-c="#2e2e33" style="background:#2e2e33" title="Graphite" aria-label="Graphite"></button><button data-c="#7a1f2b" style="background:#7a1f2b" title="Rouge" aria-label="Rouge"></button>
+      <button data-c="#1f5f46" style="background:#1f5f46" title="Vert" aria-label="Vert"></button><button data-c="#4d2a7a" style="background:#4d2a7a" title="Violet" aria-label="Violet"></button>
+      <button data-c="#8a5a12" style="background:#8a5a12" title="Bronze" aria-label="Bronze"></button><button data-c="#d9dde4" style="background:#d9dde4" title="Gris clair" aria-label="Gris clair"></button>
+    </div>
+    <div class="grp"><label for="btnPick">Couleur personnalisée</label><input id="btnPick" type="color" value="#3b4a63"></div>
+    <p><b>Couleur des boutons principaux</b> <span class="muted">(Importer, Lecture, Exporter, Fermer)</span></p>
+    <div id="btnpSw" class="sw">
+      <button data-c="" class="swd" title="Par défaut" aria-label="Couleur des boutons principaux par défaut">Défaut</button><button data-c="#3ddc84" style="background:#3ddc84" title="Vert vif" aria-label="Vert vif"></button>
+      <button data-c="#e8505b" style="background:#e8505b" title="Rouge vif" aria-label="Rouge vif"></button><button data-c="#4aa3ff" style="background:#4aa3ff" title="Bleu vif" aria-label="Bleu vif"></button>
+      <button data-c="#b57bff" style="background:#b57bff" title="Mauve" aria-label="Mauve"></button><button data-c="#ffd447" style="background:#ffd447" title="Jaune" aria-label="Jaune"></button>
+      <button data-c="#ff7ab8" style="background:#ff7ab8" title="Rose" aria-label="Rose"></button><button data-c="#f2f2f2" style="background:#f2f2f2" title="Blanc" aria-label="Blanc"></button>
+    </div>
+    <div class="grp"><label for="btnpPick">Couleur personnalisée</label><input id="btnpPick" type="color" value="#f0a742"></div>
+  </div>
+  <div class="df"><button id="lookClose" class="primary">Fermer</button></div>
+</dialog>
+
+<dialog id="dlgHelp">
+  <div class="dh">Comment ça marche</div>
+  <div class="db">
+    <ul>
+      <li><b>Pré-écoute</b> : le bouton ▶ de chaque ligne, dans la bibliothèque comme dans la playlist, fait écouter le morceau sans arrêter le mix. Le bouton ⇄ fait écouter une transition telle qu'elle sortira. La <b>ligne verte</b> de la timeline montre où en est la pré-écoute : placez-la où vous voulez par un clic dans le bandeau du bas, Maj+clic ou clic droit. Les sorties (casque sur les canaux 3-4 ou sur une autre carte son) se règlent dans « Son et effets ».</li>
+      <li><b>Auto DJ</b> : « Soirée par styles » construit le mix par séries de styles ; « Auto DJ » ajoute le titre suivant tout seul pendant la lecture.</li>
+      <li><b>Son et effets</b> : volume, égaliseur et filtre par voie, crossfader, écho, flanger et réverb. Modifier un morceau en attente ne coupe jamais celui qui joue.</li>
+      <li><b>Bibliothèque</b> : importez vos fichiers. Le BPM, la grille des temps et la tonalité sont calculés. La pastille verte signale une tonalité compatible avec le morceau sélectionné dans la playlist, le BPM en vert un tempo à moins de 6 %.</li>
+      <li><b>Playlist</b> : double-clic ou glisser-déposer pour ajouter, glisser les lignes pour changer l'ordre. Chaque morceau est calé au tempo et enchaîné automatiquement avec le précédent.</li>
+      <li><b>Timeline</b> : glissez un bloc pour allonger ou raccourcir le chevauchement, tirez ses bords pour couper le début ou la fin. Cliquez sur la règle pour placer la tête de lecture.</li>
+      <li><b>Courbes</b> : sélectionnez un bloc, puis cliquez sur la courbe pour poser un point et faites-le glisser. Double-clic sur un point pour le supprimer. Volume, graves et aigus ont chacun leur courbe.</li>
+      <li><b>Tempo</b> : pendant une transition, le tempo glisse d'un morceau à l'autre et les deux restent calés. La hauteur suit le tempo, comme sur une platine vinyle.</li>
+      <li><b>Si un morceau est décalé</b> : corrigez son BPM (÷2, ×2 ou valeur exacte) et décalez sa grille dans le bandeau au-dessus de la timeline.</li>
+      <li><b>Raccourcis</b> : <kbd>Espace</kbd> lecture, <kbd>Suppr</kbd> retirer le morceau sélectionné, <kbd>Ctrl</kbd>+<kbd>Z</kbd> annuler, <kbd>Ctrl</kbd>+molette zoom.</li>
+    </ul>
+    <p class="muted">Vos fichiers audio restent sur votre ordinateur. Le projet enregistré contient les réglages du mix, pas l'audio : à la réouverture, réimportez les mêmes fichiers et ils se relient tout seuls.</p>
+  </div>
+  <div class="df"><button id="helpNotice">Notice d'utilisation complète</button><button id="helpClose" class="primary">Fermer</button></div>
+</dialog>
+<div id="toast" role="status"></div>
+
+<script type="application/json" id="i18n-data">@@I18N@@</script>
+<script type="application/json" id="mx-data">@@MIXXX@@</script>
+<script>@@INCLUDE:vendor/lame.min.js@@</script>
+<script>@@INCLUDE:js/core.js@@</script>
+<script>@@INCLUDE:js/app.js@@</script>
+<style id="djctl-style">@@INCLUDE:styles/controleur.css@@</style>
+<script id="djctl-script">@@INCLUDE:js/potentiometres.js@@</script>
+
+<script id="djctl-script2">@@INCLUDE:js/disposition.js@@</script>
+</body>
+</html>
