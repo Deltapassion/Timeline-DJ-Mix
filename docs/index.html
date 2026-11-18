@@ -313,7 +313,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
       note.innerHTML = '<a href="#telecharger">' + D("allv") + '</a>';
     } else {
       card.classList.add("mine");
-      mainBtns.forEach(function(b){ b.href = BASE + card.dataset.asset; b.dataset.asset = card.dataset.asset; b.querySelector(".dltxt").textContent = D("dlFor") + NAMES[mine]; });
+      mainBtns.forEach(function(b){ b.href = card.href; b.dataset.asset = card.dataset.asset; b.querySelector(".dltxt").textContent = D("dlFor") + NAMES[mine]; });
       document.getElementById("mainAlt").textContent = D("ok");
       note.innerHTML = D("not").replace("{os}", NAMES[mine]) + ' <a href="#telecharger">' + D("allv") + '</a>';
     }
@@ -386,13 +386,18 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
       rel.forEach(function(r){ (r.assets || []).forEach(function(a){ if (/^Notice-/.test(a.name)) return; total += a.download_count; per[a.name] = (per[a.name] || 0) + a.download_count; }); });
       Object.keys(DEJA).forEach(function(k){ per[k] = (per[k] || 0) + DEJA[k]; total += DEJA[k]; });
       counts = {total: total, per: per};
-      if (pub[0]){
+      // lien direct vers le fichier de la version la plus récente qui le contient
+      // (pendant que GitHub fabrique une nouvelle version, on garde le fichier de la précédente)
+      var url = {};
+      pub.forEach(function(r){ (r.assets || []).forEach(function(a){ if (!url[a.name]) url[a.name] = a.browser_download_url; }); });
+      if (pub.length){
         document.querySelectorAll(".dlc[data-asset]").forEach(function(el){
-          if (!lt[el.dataset.asset] && el.dataset.alt && lt[el.dataset.alt]){ el.dataset.asset = el.dataset.alt; el.href = BASE + el.dataset.alt; }
-          if (!lt[el.dataset.asset]){ el.classList.add("soon"); el.href = "https://github.com/" + REPO + "/releases"; el.dataset.soon = "1"; }
+          if (!url[el.dataset.asset] && el.dataset.alt && url[el.dataset.alt]) el.dataset.asset = el.dataset.alt;
+          if (url[el.dataset.asset]) { el.href = url[el.dataset.asset]; el.classList.remove("soon"); delete el.dataset.soon; }
+          else { el.classList.add("soon"); el.href = "https://github.com/" + REPO + "/releases"; el.dataset.soon = "1"; }
         });
         var mc = mine && document.querySelector('.dlc[data-os="' + mine + '"]');
-        mineOk = !!(mc && lt[mc.dataset.asset]);
+        mineOk = !!(mc && url[mc.dataset.asset]);
       }
       render();
     }).catch(function(){});
