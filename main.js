@@ -54,7 +54,6 @@ app.whenReady().then(() => {
   });
   const view = { label: 'Affichage', submenu: [
     { role: 'togglefullscreen', label: 'Plein écran' },
-    { role: 'resetZoom', label: 'Taille normale' }, { role: 'zoomIn', label: 'Agrandir' }, { role: 'zoomOut', label: 'Réduire' },
     { type: 'separator' }, { role: 'reload', label: 'Recharger' }, { role: 'toggleDevTools', label: 'Outils de développement' }
   ] };
   Menu.setApplicationMenu(Menu.buildFromTemplate(process.platform === 'darwin' ? [

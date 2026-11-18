@@ -1,7 +1,7 @@
 {
   "name": "timeline-dj-mix",
   "productName": "TIMELINE DJ MIX",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Mix DJ monté sur timeline : enchaînements calés, Auto DJ par styles, effets, contrôleurs MIDI et mappings Mixxx",
   "author": {
     "name": "Jacques Branas",

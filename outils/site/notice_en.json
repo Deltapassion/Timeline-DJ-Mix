@@ -5,7 +5,7 @@
  "toc": "Contents",
  "back": "Back to the website",
  "pdf": "Download the PDF",
- "ver": "Version 0.3.0",
+ "ver": "Version 0.3.1",
  "s": [
   {
    "t": "Installation",
@@ -19,16 +19,19 @@
   {
    "t": "The screen",
    "p": [
-    "At the top, the library (left) and the playlist (right). In the middle, the playback bar, then the settings of the selected track. At the bottom, the timeline. The <b>Sound and effects</b> button shows or hides the mixer. The borders between areas can be moved with the mouse."
+    "At the top, the library (left) and the playlist (right). In the middle, the playback line with the sound outputs, then the settings of the selected track. At the bottom, the timeline. The <b>Sound and effects</b> button shows or hides the mixer. <b>Lists at the bottom</b> puts the lists below the timeline; <b>Lists at the top</b> puts them back above. The dividers between areas can be dragged with the mouse, and each area (lists, playback line, Sound and effects) has its own <b>−</b> and <b>+</b> buttons to set its size."
    ],
    "cap": "The TIMELINE DJ MIX window",
    "leg": [
+    "Undo and redo (Ctrl + Z, Ctrl + Y)",
+    "Lists above or below the timeline",
     "Import, new mix, open and save a project, export",
     "MIDI controller, colours and help",
-    "Language choice",
+    "Language and size of the whole display (A− A+)",
     "Library: your analysed tracks",
     "Playlist: mix order and transitions",
-    "Playback, preview, time and tempo of the mix",
+    "Playback, pre-listening, mix time and tempo",
+    "Sound outputs and the Restart sound card button",
     "Settings of the selected track",
     "The timeline"
    ]
@@ -78,20 +81,29 @@
    "p": [
     "The ▶ button on each row plays the track in the headphones <b>without stopping the mix</b>, in the library as in the playlist; a slider lets you go anywhere in the track. The ⇄ button plays the transition as it will sound.",
     "The <b>green line</b> on the timeline shows where the mix preview is. Place it by clicking in the bottom strip, Shift + click or right-click, then start <b>Preview</b>.",
-    "Outputs: by default, 4-channel card, master on 1-2 and headphones on 3-4. With a stereo card, choose <b>Stereo</b> or send the headphones to another sound card."
+    "Outputs are set in the playback line: <b>Output</b> (the mix sound card), the channel layout (<b>Stereo</b>, <b>Master 1-2, headphones 3-4</b> or <b>Headphones 1-2, master 3-4</b>) and <b>Headphones</b>, to send pre-listening to another sound card. 🔍 shows the card names, ⓘ shows the available channels. With a stereo card, choose <b>Stereo</b> or headphones on another card: otherwise pre-listening is muted so that it never reaches the master output. Changing these settings never interrupts the mix or the pre-listening.",
+    "<b>Controller plugged in after start-up</b>: the software detects it and reopens the sound outputs by itself. If the headphones stay silent, click <b>Restart sound card</b>: the audio outputs are reopened without reloading the software, tracks and project stay loaded, and both the mix and the pre-listening resume where they were."
    ],
    "cap": "Previewing a library track, and the green line",
    "leg": [
     "Mix preview button",
     "Track in the headphones and its position",
     "Green preview line"
+   ],
+   "cap2": "The sound outputs in the playback line",
+   "leg2": [
+    "Output: the mix sound card",
+    "Channel layout",
+    "Headphones on another sound card",
+    "Available channels (ⓘ)",
+    "Restart sound card"
    ]
   },
   {
    "t": "Sound and effects",
    "p": [
     "For each channel: volume, bass, mids, treble, filter and <b>tempo ±8 %</b>. In the centre, the crossfader; on the right, echo (synced to the tempo), flanger and reverb. Double-click a control to reset it.",
-    "<b>Simple view</b> replaces the knobs with sliders; a <b>green dot</b> lights up when the control is centred. Tick <i>Apply these settings to the export</i> to keep them in the exported file."
+    "<b>Simple view</b>, in the playback line, replaces the knobs with sliders; a <b>green dot</b> lights up when a control is centred. Tick <b>Export</b> to keep these settings in the exported file; ⟲ resets all controls."
    ],
    "cap": "The mixer in DJ controller view",
    "leg": [
@@ -129,7 +141,7 @@
    "t": "Projects",
    "p": [
     "<b>Save the project</b> keeps the order, transitions, curves and tempo corrections in a .json file. <b>Open a project</b> loads it again. The software also keeps the last mix automatically.",
-    "<b>Undo</b> (Ctrl + Z) goes back. Editing a waiting track never cuts the one that is playing."
+    "<b>↶</b> undoes (Ctrl + Z) and <b>↷</b> redoes (Ctrl + Y), top left, as in a word processor. Editing a waiting track never interrupts the one that is playing."
    ]
   },
   {
@@ -143,8 +155,10 @@
   {
    "t": "Keyboard shortcuts",
    "p": [
-    "<b>Space</b>: play / pause · <b>Del</b>: remove the selected track from the mix · <b>Ctrl + Z</b>: undo · <b>Home</b>: back to the start · <b>← →</b>: back or forward 5 seconds · <b>Ctrl + wheel</b>: timeline zoom.",
-    "<b>F1</b>: open this guide in the software's language. It also opens from <b>Help</b> › <b>Full user guide</b>."
+    "<b>Space</b>: play / pause · <b>Del</b>: remove the selected track from the mix · <b>Ctrl + Z</b>: undo · <b>Ctrl + Y</b>: redo · <b>Home</b>: back to the start · <b>← →</b>: back or forward 5 seconds · <b>Ctrl + wheel</b>: timeline zoom.",
+    "<b>F1</b>: open this guide in the software's language. It also opens from <b>Help</b> › <b>Full user guide</b>.",
+    "<b>Ctrl −</b> and <b>Ctrl +</b>: make the whole display smaller or larger, handy on small screens; <b>Ctrl 0</b> goes back to 100 %. The <b>A−</b> and <b>A+</b> buttons, top right, do the same.",
+    "<b>Ctrl + wheel</b> over the lists, the playback line or the mixer: size of that area only. Its <b>−</b> and <b>+</b> buttons do the same; a click on its percentage sets it back to 100 %."
    ]
   },
   {

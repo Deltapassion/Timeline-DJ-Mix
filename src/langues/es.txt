@@ -152,8 +152,8 @@
 151	⇄ Escuchar la transición
 152	General en 1-2, auriculares en 3-4.
 153	Auriculares en 1-2, general en 3-4.
-154	Hacen falta 4 para separar los auriculares: configura la tarjeta en «Cuadrafónico» en el sistema.
-155	La salida de auriculares elegida no está disponible: los auriculares vuelven a la salida de la mezcla.
+154	Hacen falta 4 para separar los auriculares: la preescucha se silencia para que no salga por la salida general. Configura la tarjeta en «Cuadrafónico» en el sistema o elige otra tarjeta de sonido para los auriculares.
+155	La salida de auriculares elegida no está disponible: la preescucha se silencia para que no salga por la salida general.
 156	Auriculares enviados a la otra tarjeta de sonido.
 157	Auriculares oídos con la mezcla.
 158	Primero añade canciones a la playlist.
@@ -339,3 +339,38 @@
 338	Selecciona una canción en la línea de tiempo para ajustar su transición, su tempo, su rejilla y sus curvas.
 339	Mapeo
 340	Manual de uso completo
+341	Reducir la pantalla (Ctrl −, o Ctrl + rueda)
+342	Ampliar la pantalla (Ctrl +, o Ctrl + rueda)
+343	Tamaño de la pantalla: clic para volver al 100 % (Ctrl 0)
+344	Reducir la pantalla
+345	Ampliar la pantalla
+346	La salida de auriculares elegida no está disponible.
+347	Tarjeta de sonido detectada: general en 1-2, auriculares en 3-4.
+348	Tarjeta de sonido detectada: auriculares en 1-2, general en 3-4.
+349	Rehacer
+350	Rehacer (Ctrl+Y)
+351	Listas abajo
+352	Listas arriba
+353	Poner las listas encima o debajo de la línea de tiempo
+354	Reducir esta zona (o Ctrl + rueda encima)
+355	Ampliar esta zona (o Ctrl + rueda encima)
+356	Reducir esta zona
+357	Ampliar esta zona
+358	Tamaño de esta zona: clic para volver al 100 %
+359	Salida
+360	Exportar
+361	General 1-2, auriculares 3-4
+362	Auriculares 1-2, general 3-4
+363	Tarjeta de sonido detectada: el sonido se reiniciará en cuanto se detengan la reproducción y la preescucha.
+364	Tarjeta de sonido tenida en cuenta: el sonido se ha reiniciado.
+365	Reabrir las salidas de audio sin recargar el programa. Las pistas y el proyecto siguen cargados.
+366	Tarjeta de sonido detectada: el sonido se reiniciará en cuanto se detenga la reproducción de la mezcla.
+367	Reiniciar la tarjeta de sonido
+368	Motor de audio reiniciado, pistas y proyecto conservados.
+369	Reconexión de audio incompleta: pulsa Reproducir o Preescucha. Tus pistas se conservan.
+370	No se pudo reiniciar el sonido. Revisa Sonido y efectos.
+371	Salida de auriculares no disponible. Vuelve a conectar la tarjeta o elige otra salida en Sonido y efectos.
+372	Pulsa Reproducir o Preescucha para permitir el sonido tras la reconexión.
+373	Salida de auriculares no disponible: revisa Sonido y efectos.
+374	Salida guardada
+375	{x} (desconectada)

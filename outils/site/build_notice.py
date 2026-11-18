@@ -1,18 +1,19 @@
 import json, os, html
+VERSION = json.load(open('../../package.json'))['version']
 from PIL import Image, ImageDraw, ImageFont
 LANGS = [('fr', '🇫🇷 Français'), ('en', '🇬🇧 English'), ('es', '🇪🇸 Español'), ('pt', '🇵🇹 Português'), ('it', '🇮🇹 Italiano'), ('de', '🇩🇪 Deutsch'), ('el', '🇬🇷 Ελληνικά'), ('ru', '🇷🇺 Русский'), ('zh', '🇨🇳 中文'), ('ja', '🇯🇵 日本語')]
 S = 1.2
-FONT = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 22)
+FONT = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 20)
 # figures : section → [(capture, zone à découper ou None, repères, clé de légende)]
-FIG = {1: [('01-ecran', None, ['import', 'midi', 'lang', 'lib', 'pl', 'transport', 'insp', 'tl'], 'cap')],
+FIG = {1: [('01-ecran', None, ['undo', 'lists', 'import', 'midi', 'lang', 'lib', 'pl', 'transport', 'restart', 'insp', 'tl'], 'cap')],
        2: [('01-ecran', 'lib', [], 'cap')], 3: [('01-ecran', 'pl', [], 'cap')], 4: [('01-ecran', 'tl', [], 'cap')],
        5: [('02-courbes', ('tools', 'tl'), [], 'cap')], 6: [('01-ecran', 'tools', [], 'cap')],
-       7: [('03-preecoute', None, ['btnCue', 'cuebar', 'GREEN'], 'cap')],
+       7: [('03-preecoute', None, ['btnCue', 'cuebar', 'GREEN'], 'cap'), ('01-ecran', 'tools', ['outmaster', 'outmode', 'outcue', 'outinfo', 'restart'], 'cap2', 'leg2')],
        8: [('04-son', 'snd', ['la', 'xf', 'lb', 'fx'], 'cap'), ('05-son-simple', 'snd', [], 'cap2')],
        9: [('06-autodj', 'dlg', [], 'cap')], 10: [('07-midi', 'dlg', [], 'cap')], 11: [('08-export', 'dlg', [], 'cap')], 13: [('09-couleurs', 'dlg', [], 'cap')]}
 
 def marker(d, x, y, n):
-    r = 17
+    r = 15
     d.ellipse([x - r - 2, y - r - 2, x + r + 2, y + r + 2], fill='white')
     d.ellipse([x - r, y - r, x + r, y + r], fill='#e53935')
     d.text((x, y + 1), str(n), font=FONT, fill='white', anchor='mm')
@@ -31,8 +32,8 @@ def make_img(lang, cap, zone, marks, out):
             elif k == 'tl': px, py = (x + w - 34) * S, (y + 62) * S
             elif k == 'cuebar': px, py = (x + w * 0.6) * S, (y + h / 2) * S
             elif k in ('la', 'lb', 'xf', 'fx'): px, py = (x + 10) * S, (y + 8) * S
-            else: px, py = (x + w) * S - 6, y * S + 6
-            px, py = min(max(px, 22), 1898), min(max(py, 22), 1058)
+            else: px, py = (x + w) * S + 4, y * S - 1   # coin haut-droit, à cheval : le texte du bouton reste lisible
+            px, py = min(max(px, 18), 1902), min(max(py, 18), 1062)
         marker(d, px, py, i + 1)
     if zone:
         ks = zone if isinstance(zone, tuple) else (zone,)
@@ -51,18 +52,19 @@ for lang, _ in LANGS:
     body = ''
     for i, s in enumerate(N['s']):
         body += f'<section id="{lang}-s{i+1}"><h2>{i+1}. {html.escape(s["t"])}</h2>' + ''.join(f'<p>{p}</p>' for p in s['p'])
-        for j, (cap, zone, marks, ck) in enumerate(FIG.get(i, [])):
+        for j, fig in enumerate(FIG.get(i, [])):
+            cap, zone, marks, ck = fig[:4]; lk = fig[4] if len(fig) > 4 else 'leg'
             name = f'{i+1:02d}-{j}.jpg'
             make_img(lang, cap, zone, marks, f'../../docs/notice/img/{lang}/{name}')
             leg = ''
-            if marks and s.get('leg'):
-                assert len(s['leg']) == len(marks), (lang, i)
-                leg = '<ol class="leg">' + ''.join(f'<li><b>{k+1}</b><span>{html.escape(t)}</span></li>' for k, t in enumerate(s['leg'])) + '</ol>'
+            if marks and s.get(lk):
+                assert len(s[lk]) == len(marks), (lang, i)
+                leg = '<ol class="leg">' + ''.join(f'<li><b>{k+1}</b><span>{html.escape(t)}</span></li>' for k, t in enumerate(s[lk])) + '</ol>'
             body += f'<figure><img src="img/{lang}/{name}" alt="{html.escape(s[ck])}" loading="lazy"><figcaption>{html.escape(s[ck])}</figcaption>{leg}</figure>'
         body += '</section>'
     arts.append(f'<article lang="{lang}" data-lang="{lang}" hidden><div class="head"><h1>{html.escape(N["title"])}</h1><div class="sub">{html.escape(N["sub"])} · {N["ver"]}</div></div>'
                 f'<p class="intro">{N["intro"]}</p><nav class="toc"><b>{N["toc"]}</b>{toc}</nav>{body}'
-                f'<footer>TIMELINE DJ MIX 0.3.0 · DJ LATIN JAZZ &amp; DJ CRISLATINO · Claude.ai · GNU GPL v2+ · https://deltapassion.github.io/Timeline-DJ-Mix/</footer></article>')
+                f'<footer>TIMELINE DJ MIX {VERSION} · DJ LATIN JAZZ &amp; DJ CRISLATINO · Claude.ai · GNU GPL v2+ · https://deltapassion.github.io/Timeline-DJ-Mix/</footer></article>')
 UI = {l: {k: json.load(open(f'notice_{l}.json'))[k] for k in ('back', 'pdf', 'title')} for l, _ in LANGS}
 page = '''<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>TIMELINE DJ MIX — Notice</title><meta name="description" content="Notice illustrée de TIMELINE DJ MIX en dix langues.">
@@ -98,7 +100,7 @@ footer{margin-top:22px;border-top:1px solid #c8d3df;padding-top:6px;font-size:8.
 @media print{.top{display:none} main{box-shadow:none;max-width:none;padding:0} body{background:#fff} nav.toc a{color:#14304f}}
 </style></head><body>
 <header class="top"><div class="in">
-  <a class="brand" href="../index.html"><img src="../assets/icon.png" alt="">TIMELINE DJ MIX <span style="font-weight:400;font-size:10pt;opacity:.75">0.3.0</span></a>
+  <a class="brand" href="../index.html"><img src="../assets/icon.png" alt="">TIMELINE DJ MIX <span style="font-weight:400;font-size:10pt;opacity:.75">__VERSION__</span></a>
   <a class="small" id="back" href="../index.html">Retour au site</a>
   <a class="pdf" id="pdf" href="notice-fr.pdf" download>⬇ <span>Télécharger le PDF</span></a>
   <select id="lang" aria-label="Langue / Language">__OPTS__</select>
@@ -123,6 +125,6 @@ footer{margin-top:22px;border-top:1px solid #c8d3df;padding-top:6px;font-size:8.
   set(pick());
 })();
 </script></body></html>'''
-page = page.replace('__OPTS__', ''.join(f'<option value="{l}">{n}</option>' for l, n in LANGS)).replace('__ARTS__', ''.join(arts)).replace('__UI__', json.dumps(UI, ensure_ascii=False))
+page = page.replace('__VERSION__', VERSION).replace('__OPTS__', ''.join(f'<option value="{l}">{n}</option>' for l, n in LANGS)).replace('__ARTS__', ''.join(arts)).replace('__UI__', json.dumps(UI, ensure_ascii=False))
 open('../../docs/notice/index.html', 'w').write(page)
 print(len(page))

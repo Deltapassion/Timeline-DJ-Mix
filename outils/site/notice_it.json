@@ -5,7 +5,7 @@
  "toc": "Indice",
  "back": "Torna al sito",
  "pdf": "Scarica il PDF",
- "ver": "Versione 0.3.0",
+ "ver": "Versione 0.3.1",
  "s": [
   {
    "t": "Installazione",
@@ -19,16 +19,19 @@
   {
    "t": "La schermata",
    "p": [
-    "In alto, la libreria (a sinistra) e la playlist (a destra). Al centro, la barra di riproduzione e poi le impostazioni del brano selezionato. In basso, la timeline. Il pulsante <b>Suono ed effetti</b> mostra o nasconde il mixer. I bordi tra le zone si spostano con il mouse."
+    "In alto, la libreria (a sinistra) e la playlist (a destra). Al centro, la riga di riproduzione con le uscite audio e, sotto, le impostazioni del brano selezionato. In basso, la timeline. Il pulsante <b>Suono ed effetti</b> mostra o nasconde il mixer. <b>Elenchi in basso</b> mette gli elenchi sotto la timeline; <b>Elenchi in alto</b> li rimette sopra. Le separazioni tra le zone si spostano con il mouse, e ogni zona (elenchi, riga di riproduzione, Suono ed effetti) ha i suoi pulsanti <b>−</b> e <b>+</b> per regolarne la dimensione."
    ],
    "cap": "La finestra di TIMELINE DJ MIX",
    "leg": [
+    "Annulla e ripeti (Ctrl + Z, Ctrl + Y)",
+    "Elenchi sopra o sotto la timeline",
     "Importa, nuovo mix, apri e salva un progetto, esporta",
     "Controller MIDI, colori e aiuto",
-    "Scelta della lingua",
+    "Lingua e dimensione di tutta la visualizzazione (A− A+)",
     "Libreria: i tuoi brani analizzati",
-    "Playlist: l'ordine del mix e le transizioni",
-    "Riproduzione, preascolto, tempo e velocità del mix",
+    "Playlist: ordine del mix e transizioni",
+    "Riproduzione, preascolto, tempo e BPM del mix",
+    "Uscite audio e pulsante Riavvia la scheda audio",
     "Impostazioni del brano selezionato",
     "La timeline"
    ]
@@ -78,20 +81,29 @@
    "p": [
     "Il pulsante ▶ di ogni riga fa ascoltare il brano in cuffia <b>senza fermare il mix</b>, nella libreria come nella playlist; un cursore permette di andare in qualsiasi punto del brano. Il pulsante ⇄ fa ascoltare la transizione così come suonerà.",
     "La <b>linea verde</b> della timeline mostra dove si trova il preascolto del mix. Posizionala con un clic nella fascia in basso, Maiusc + clic o clic destro, poi avvia <b>Preascolto</b>.",
-    "Uscite: per impostazione predefinita, scheda a 4 canali, uscita generale su 1-2 e cuffie su 3-4. Con una scheda stereo, scegli <b>Stereo</b> oppure invia le cuffie a un'altra scheda audio."
+    "Le uscite si regolano nella riga di riproduzione: <b>Uscita</b> (la scheda audio del mix), la ripartizione dei canali (<b>Stereo</b>, <b>Generale 1-2, cuffie 3-4</b> o <b>Cuffie 1-2, generale 3-4</b>) e <b>Cuffie</b>, per mandare il preascolto su un'altra scheda audio. 🔍 mostra il nome delle schede, ⓘ indica i canali disponibili. Con una scheda stereo, scegli <b>Stereo</b> o le cuffie su un'altra scheda: altrimenti il preascolto viene disattivato, per non finire mai sull'uscita generale. Cambiare queste impostazioni non interrompe né il mix né il preascolto.",
+    "<b>Controller collegato dopo l'avvio</b>: il programma lo rileva e riapre da solo le uscite audio. Se le cuffie restano mute, fai clic su <b>Riavvia la scheda audio</b>: le uscite audio vengono riaperte senza ricaricare il programma, i brani e il progetto restano caricati, e il mix e il preascolto riprendono da dove erano."
    ],
    "cap": "Preascolto di un brano della libreria e linea verde",
    "leg": [
     "Pulsante di preascolto del mix",
     "Brano in cuffia e sua posizione",
     "Linea verde del preascolto"
+   ],
+   "cap2": "Le uscite audio nella riga di riproduzione",
+   "leg2": [
+    "Uscita: la scheda audio del mix",
+    "Ripartizione dei canali",
+    "Cuffie su un'altra scheda audio",
+    "Canali disponibili (ⓘ)",
+    "Riavvia la scheda audio"
    ]
   },
   {
    "t": "Suono ed effetti",
    "p": [
     "Per ogni via: volume, bassi, medi, alti, filtro e <b>tempo ±8 %</b>. Al centro il crossfader; a destra l'eco (a tempo), il flanger e il riverbero. Un doppio clic azzera un controllo.",
-    "La <b>vista semplice</b> sostituisce le manopole con dei cursori; un <b>cerchio verde</b> si accende quando il controllo è al centro. Spunta <i>Applica queste impostazioni all'esportazione</i> per mantenerle nel file esportato."
+    "La <b>Vista semplice</b>, nella riga di riproduzione, sostituisce le manopole con cursori; un <b>punto verde</b> si accende quando la regolazione è al centro. Spunta <b>Esporta</b> per mantenere queste impostazioni nel file esportato; ⟲ azzera tutte le regolazioni."
    ],
    "cap": "Il mixer in vista controller DJ",
    "leg": [
@@ -129,7 +141,7 @@
    "t": "Progetti",
    "p": [
     "<b>Salva il progetto</b> conserva ordine, transizioni, curve e correzioni di tempo in un file .json. <b>Apri un progetto</b> lo ricarica. Il programma conserva anche da solo l'ultimo mix.",
-    "<b>Annulla</b> (Ctrl + Z) torna indietro. Modificare un brano in attesa non interrompe mai quello in riproduzione."
+    "<b>↶</b> annulla (Ctrl + Z) e <b>↷</b> ripete (Ctrl + Y), in alto a sinistra, come in un programma di videoscrittura. Modificare un brano in attesa non interrompe mai quello in riproduzione."
    ]
   },
   {
@@ -143,8 +155,10 @@
   {
    "t": "Scorciatoie da tastiera",
    "p": [
-    "<b>Spazio</b>: riproduci / pausa · <b>Canc</b>: rimuovi dal mix il brano selezionato · <b>Ctrl + Z</b>: annulla · <b>Home</b>: torna all'inizio · <b>← →</b>: indietro o avanti di 5 secondi · <b>Ctrl + rotella</b>: zoom della timeline.",
-    "<b>F1</b>: apre questo manuale nella lingua del programma. Si apre anche da <b>Aiuto</b> › <b>Manuale d'uso completo</b>."
+    "<b>Spazio</b>: riproduci / pausa · <b>Canc</b>: togli il brano selezionato dal mix · <b>Ctrl + Z</b>: annulla · <b>Ctrl + Y</b>: ripeti · <b>Home</b>: torna all'inizio · <b>← →</b>: indietro o avanti di 5 secondi · <b>Ctrl + rotella</b>: zoom della timeline.",
+    "<b>F1</b>: apre questo manuale nella lingua del programma. Si apre anche da <b>Aiuto</b> › <b>Manuale d'uso completo</b>.",
+    "<b>Ctrl −</b> e <b>Ctrl +</b>: rimpicciolire o ingrandire tutta la visualizzazione, utile sugli schermi piccoli; <b>Ctrl 0</b> torna al 100 %. I pulsanti <b>A−</b> e <b>A+</b>, in alto a destra, fanno lo stesso.",
+    "<b>Ctrl + rotella</b> sopra gli elenchi, la riga di riproduzione o il mixer: dimensione di quella zona soltanto. I suoi pulsanti <b>−</b> e <b>+</b> fanno lo stesso; un clic sulla percentuale la riporta al 100 %."
    ]
   },
   {

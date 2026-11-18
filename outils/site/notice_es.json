@@ -5,7 +5,7 @@
  "toc": "Índice",
  "back": "Volver al sitio",
  "pdf": "Descargar el PDF",
- "ver": "Versión 0.3.0",
+ "ver": "Versión 0.3.1",
  "s": [
   {
    "t": "Instalación",
@@ -19,17 +19,20 @@
   {
    "t": "La pantalla",
    "p": [
-    "Arriba, la biblioteca (a la izquierda) y la playlist (a la derecha). En el centro, la barra de reproducción y luego los ajustes de la canción seleccionada. Abajo, la línea de tiempo. El botón <b>Sonido y efectos</b> muestra u oculta la mesa de mezclas. Las separaciones entre zonas se mueven con el ratón."
+    "Arriba, la biblioteca (a la izquierda) y la playlist (a la derecha). En el centro, la línea de reproducción con las salidas de sonido y, debajo, los ajustes de la pista seleccionada. Abajo, la línea de tiempo. El botón <b>Sonido y efectos</b> muestra u oculta la mesa de mezclas. <b>Listas abajo</b> coloca las listas debajo de la línea de tiempo; <b>Listas arriba</b> las vuelve a poner encima. Las separaciones entre zonas se mueven con el ratón, y cada zona (listas, línea de reproducción, Sonido y efectos) tiene sus botones <b>−</b> y <b>+</b> para ajustar su tamaño."
    ],
    "cap": "La ventana de TIMELINE DJ MIX",
    "leg": [
+    "Deshacer y rehacer (Ctrl + Z, Ctrl + Y)",
+    "Listas encima o debajo de la línea de tiempo",
     "Importar, nueva mezcla, abrir y guardar un proyecto, exportar",
     "Controlador MIDI, colores y ayuda",
-    "Elección del idioma",
-    "Biblioteca: tus canciones analizadas",
-    "Playlist: el orden de la mezcla y las transiciones",
+    "Idioma y tamaño de toda la pantalla (A− A+)",
+    "Biblioteca: tus pistas analizadas",
+    "Playlist: orden de la mezcla y transiciones",
     "Reproducción, preescucha, tiempo y tempo de la mezcla",
-    "Ajustes de la canción seleccionada",
+    "Salidas de sonido y botón Reiniciar la tarjeta de sonido",
+    "Ajustes de la pista seleccionada",
     "La línea de tiempo"
    ]
   },
@@ -78,20 +81,29 @@
    "p": [
     "El botón ▶ de cada línea reproduce la canción en los auriculares <b>sin detener la mezcla</b>, tanto en la biblioteca como en la playlist; un cursor permite ir a cualquier punto de la canción. El botón ⇄ reproduce la transición tal como sonará.",
     "La <b>línea verde</b> de la línea de tiempo muestra dónde va la preescucha de la mezcla. Colócala con un clic en la franja inferior, Mayús + clic o clic derecho, y luego pulsa <b>Preescucha</b>.",
-    "Salidas: por defecto, tarjeta de 4 canales, salida general en 1-2 y auriculares en 3-4. Con una tarjeta estéreo, elige <b>Estéreo</b> o envía los auriculares a otra tarjeta de sonido."
+    "Las salidas se ajustan en la línea de reproducción: <b>Salida</b> (la tarjeta de sonido de la mezcla), el reparto de canales (<b>Estéreo</b>, <b>General 1-2, auriculares 3-4</b> o <b>Auriculares 1-2, general 3-4</b>) y <b>Auriculares</b>, para enviar la preescucha a otra tarjeta de sonido. 🔍 muestra el nombre de las tarjetas y ⓘ indica los canales disponibles. Con una tarjeta estéreo, elige <b>Estéreo</b> o unos auriculares en otra tarjeta: si no, la preescucha se silencia para que nunca salga por la salida general. Cambiar estos ajustes no corta ni la mezcla ni la preescucha.",
+    "<b>Controlador conectado después del arranque</b>: el programa lo detecta y vuelve a abrir las salidas de sonido por sí solo. Si los auriculares siguen mudos, pulsa <b>Reiniciar la tarjeta de sonido</b>: las salidas de audio se reabren sin recargar el programa, las pistas y el proyecto siguen cargados, y tanto la mezcla como la preescucha continúan donde estaban."
    ],
    "cap": "Preescucha de una canción de la biblioteca y línea verde",
    "leg": [
     "Botón de preescucha de la mezcla",
     "Canción en los auriculares y su posición",
     "Línea verde de la preescucha"
+   ],
+   "cap2": "Las salidas de sonido en la línea de reproducción",
+   "leg2": [
+    "Salida: la tarjeta de sonido de la mezcla",
+    "Reparto de canales",
+    "Auriculares en otra tarjeta de sonido",
+    "Canales disponibles (ⓘ)",
+    "Reiniciar la tarjeta de sonido"
    ]
   },
   {
    "t": "Sonido y efectos",
    "p": [
     "Para cada vía: volumen, graves, medios, agudos, filtro y <b>tempo ±8 %</b>. En el centro, el crossfader; a la derecha, el eco (sincronizado con el tempo), el flanger y la reverb. Un doble clic pone un ajuste a cero.",
-    "La <b>vista simple</b> sustituye los potenciómetros por cursores; un <b>círculo verde</b> se enciende cuando el ajuste está en el centro. Marca <i>Aplicar estos ajustes a la exportación</i> para conservarlos en el archivo exportado."
+    "<b>Vista simple</b>, en la línea de reproducción, sustituye los potenciómetros por deslizadores; un <b>punto verde</b> se enciende cuando el ajuste está en el centro. Marca <b>Exportar</b> para conservar estos ajustes en el archivo exportado; ⟲ pone todos los ajustes a cero."
    ],
    "cap": "La mesa de mezclas en vista de controlador DJ",
    "leg": [
@@ -129,7 +141,7 @@
    "t": "Proyectos",
    "p": [
     "<b>Guardar el proyecto</b> conserva el orden, las transiciones, las curvas y las correcciones de tempo en un archivo .json. <b>Abrir un proyecto</b> lo vuelve a cargar. El programa también guarda solo la última mezcla.",
-    "<b>Deshacer</b> (Ctrl + Z) vuelve atrás. Modificar una canción en espera nunca corta la que suena."
+    "<b>↶</b> deshace (Ctrl + Z) y <b>↷</b> rehace (Ctrl + Y), arriba a la izquierda, como en un procesador de textos. Modificar una pista en espera nunca corta la que está sonando."
    ]
   },
   {
@@ -143,8 +155,10 @@
   {
    "t": "Atajos de teclado",
    "p": [
-    "<b>Espacio</b>: reproducir / pausa · <b>Supr</b>: quitar de la mezcla la canción seleccionada · <b>Ctrl + Z</b>: deshacer · <b>Inicio</b>: volver al principio · <b>← →</b>: retroceder o avanzar 5 segundos · <b>Ctrl + rueda</b>: zoom de la línea de tiempo.",
-    "<b>F1</b>: abrir este manual en el idioma del programa. También se abre desde <b>Ayuda</b> › <b>Manual de uso completo</b>."
+    "<b>Espacio</b>: reproducir / pausa · <b>Supr</b>: quitar la pista seleccionada de la mezcla · <b>Ctrl + Z</b>: deshacer · <b>Ctrl + Y</b>: rehacer · <b>Inicio</b>: volver al principio · <b>← →</b>: retroceder o avanzar 5 segundos · <b>Ctrl + rueda</b>: zoom de la línea de tiempo.",
+    "<b>F1</b>: abrir este manual en el idioma del programa. También se abre desde <b>Ayuda</b> › <b>Manual de uso completo</b>.",
+    "<b>Ctrl −</b> y <b>Ctrl +</b>: reducir o ampliar toda la pantalla, útil en pantallas pequeñas; <b>Ctrl 0</b> vuelve al 100 %. Los botones <b>A−</b> y <b>A+</b>, arriba a la derecha, hacen lo mismo.",
+    "<b>Ctrl + rueda</b> encima de las listas, de la línea de reproducción o de la mesa de mezclas: tamaño de esa zona solamente. Sus botones <b>−</b> y <b>+</b> hacen lo mismo; un clic en su porcentaje la devuelve al 100 %."
    ]
   },
   {

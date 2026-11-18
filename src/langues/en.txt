@@ -152,8 +152,8 @@
 151	⇄ Listen to the transition
 152	Master on 1-2, headphones on 3-4.
 153	Headphones on 1-2, master on 3-4.
-154	4 are needed to separate the headphones: set the card to "Quadraphonic" in the system.
-155	The chosen headphone output is not available: headphones go back to the mix output.
+154	4 are needed to separate the headphones: pre-listening is muted so it does not go to the master output. Set the card to "Quadraphonic" in the system, or choose another sound card for the headphones.
+155	The chosen headphone output is not available: pre-listening is muted so it does not go to the master output.
 156	Headphones sent to the other sound card.
 157	Headphones heard with the mix.
 158	First add tracks to the playlist.
@@ -339,3 +339,38 @@
 338	Select a track in the timeline to set its transition, tempo, grid and curves.
 339	Mapping
 340	Full user guide
+341	Make the display smaller (Ctrl −, or Ctrl + mouse wheel)
+342	Make the display larger (Ctrl +, or Ctrl + mouse wheel)
+343	Display size: click to go back to 100 % (Ctrl 0)
+344	Make the display smaller
+345	Make the display larger
+346	The chosen headphone output is not available.
+347	Sound card detected: master on 1-2, headphones on 3-4.
+348	Sound card detected: headphones on 1-2, master on 3-4.
+349	Redo
+350	Redo (Ctrl+Y)
+351	Lists at the bottom
+352	Lists at the top
+353	Put the lists above or below the timeline
+354	Make this area smaller (or Ctrl + mouse wheel over it)
+355	Make this area larger (or Ctrl + mouse wheel over it)
+356	Make this area smaller
+357	Make this area larger
+358	Size of this area: click to go back to 100 %
+359	Output
+360	Export
+361	Master 1-2, headphones 3-4
+362	Headphones 1-2, master 3-4
+363	Sound card detected: sound will be reset as soon as playback and pre-listening are stopped.
+364	Sound card taken into account: sound has been reset.
+365	Reopen the audio outputs without reloading the software. Tracks and project stay loaded.
+366	Sound card detected: sound will be reset as soon as the mix playback is stopped.
+367	Restart sound card
+368	Audio engine reset, tracks and project kept.
+369	Audio reconnection incomplete: click Play or Pre-listen. Your tracks are kept.
+370	Could not reset the sound. Check Sound and effects.
+371	Headphone output unavailable. Plug the card back in or choose another output in Sound and effects.
+372	Click Play or Pre-listen to allow sound after reconnecting.
+373	Headphone output unavailable: check Sound and effects.
+374	Saved output
+375	{x} (disconnected)

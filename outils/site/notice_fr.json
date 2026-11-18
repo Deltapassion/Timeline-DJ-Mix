@@ -5,7 +5,7 @@
  "toc": "Sommaire",
  "back": "Retour au site",
  "pdf": "Télécharger le PDF",
- "ver": "Version 0.3.0",
+ "ver": "Version 0.3.1",
  "s": [
   {
    "t": "Installation",
@@ -19,16 +19,19 @@
   {
    "t": "L'écran",
    "p": [
-    "En haut, la bibliothèque (à gauche) et la playlist (à droite). Au milieu, la barre de lecture puis les réglages du morceau sélectionné. En bas, la timeline. Le bouton <b>Son et effets</b> affiche ou masque la table de mixage. Les séparations entre les zones se déplacent à la souris."
+    "En haut, la bibliothèque (à gauche) et la playlist (à droite). Au milieu, la ligne de lecture avec les sorties son, puis les réglages du morceau sélectionné. En bas, la timeline. Le bouton <b>Son et effets</b> affiche ou masque la table de mixage. <b>Listes en bas</b> place les listes sous la timeline ; <b>Listes en haut</b> les remet au-dessus. Les séparations entre les zones se déplacent à la souris, et chaque zone (listes, ligne de lecture, Son et effets) a ses boutons <b>−</b> et <b>+</b> pour régler sa taille."
    ],
    "cap": "La fenêtre de TIMELINE DJ MIX",
    "leg": [
+    "Annuler et rétablir (Ctrl + Z, Ctrl + Y)",
+    "Listes en haut ou en bas de la timeline",
     "Importer, nouveau mix, ouvrir et enregistrer un projet, exporter",
     "Contrôleur MIDI, couleurs et aide",
-    "Choix de la langue",
+    "Langue et taille de tout l'affichage (A− A+)",
     "Bibliothèque : vos morceaux analysés",
     "Playlist : l'ordre du mix et les transitions",
     "Lecture, pré-écoute, temps et tempo du mix",
+    "Sorties son et bouton Relancer la carte son",
     "Réglages du morceau sélectionné",
     "La timeline"
    ]
@@ -78,20 +81,29 @@
    "p": [
     "Le bouton ▶ de chaque ligne fait écouter le morceau au casque <b>sans arrêter le mix</b>, dans la bibliothèque comme dans la playlist ; un curseur permet d'aller où vous voulez dans le morceau. Le bouton ⇄ fait écouter la transition telle qu'elle sortira.",
     "La <b>ligne verte</b> de la timeline montre où en est la pré-écoute du mix. Placez-la par un clic dans le bandeau du bas, Maj + clic ou clic droit, puis lancez <b>Pré-écoute</b>.",
-    "Sorties : par défaut, carte 4 canaux, sortie générale sur 1-2 et casque sur 3-4. Avec une carte stéréo, choisissez <b>Stéréo</b> ou envoyez le casque sur une autre carte son."
+    "Les sorties se règlent dans la ligne de lecture : <b>Sortie</b> (la carte son du mix), la répartition (<b>Stéréo</b>, <b>Général 1-2, casque 3-4</b> ou <b>Casque 1-2, général 3-4</b>) et <b>Casque</b>, pour envoyer la pré-écoute sur une autre carte son. 🔍 affiche le nom des cartes, ⓘ indique les canaux disponibles. Avec une carte stéréo, choisissez <b>Stéréo</b> ou un casque sur une autre carte : sinon la pré-écoute est coupée, pour ne jamais passer dans la sortie générale. Changer ces réglages ne coupe ni le mix ni la pré-écoute.",
+    "<b>Contrôleur branché après le démarrage</b> : le logiciel le détecte et rouvre les sorties son tout seul. Si le casque reste muet, cliquez sur <b>Relancer la carte son</b> : les sorties audio sont rouvertes sans recharger le logiciel, les morceaux et le projet restent chargés, et le mix comme la pré-écoute reprennent là où ils en étaient."
    ],
    "cap": "Pré-écoute d'un morceau de la bibliothèque et ligne verte",
    "leg": [
     "Bouton Pré-écoute du mix",
     "Morceau écouté au casque et sa position",
     "Ligne verte de la pré-écoute"
+   ],
+   "cap2": "Les sorties son dans la ligne de lecture",
+   "leg2": [
+    "Sortie : la carte son du mix",
+    "Répartition des canaux",
+    "Casque sur une autre carte son",
+    "Canaux disponibles (ⓘ)",
+    "Relancer la carte son"
    ]
   },
   {
    "t": "Son et effets",
    "p": [
     "Pour chaque voie : volume, graves, médiums, aigus, filtre et <b>tempo ±8 %</b>. Au centre, le crossfader ; à droite, l'écho (calé sur le tempo), le flanger et la réverb. Un double-clic remet un réglage à zéro.",
-    "<b>Vue simple</b> remplace les potentiomètres par des curseurs ; un <b>rond vert</b> s'allume quand le réglage est au centre. Cochez <i>Appliquer ces réglages à l'export</i> pour les garder dans le fichier exporté."
+    "<b>Vue simple</b>, dans la ligne de lecture, remplace les potentiomètres par des curseurs ; un <b>rond vert</b> s'allume quand le réglage est au centre. Cochez <b>Export</b> pour garder ces réglages dans le fichier exporté ; ⟲ remet tous les réglages à zéro."
    ],
    "cap": "La table de mixage en vue contrôleur DJ",
    "leg": [
@@ -129,7 +141,7 @@
    "t": "Projets",
    "p": [
     "<b>Enregistrer le projet</b> garde l'ordre, les transitions, les courbes et les corrections de tempo dans un fichier .json. <b>Ouvrir un projet</b> le recharge. Le logiciel garde aussi le dernier mix tout seul.",
-    "<b>Annuler</b> (Ctrl + Z) revient en arrière. Modifier un morceau en attente ne coupe jamais celui qui joue."
+    "<b>↶</b> annule (Ctrl + Z) et <b>↷</b> rétablit (Ctrl + Y), en haut à gauche, comme dans un traitement de texte. Modifier un morceau en attente ne coupe jamais celui qui joue."
    ]
   },
   {
@@ -143,8 +155,10 @@
   {
    "t": "Raccourcis clavier",
    "p": [
-    "<b>Espace</b> : lecture / pause · <b>Suppr</b> : retirer le morceau sélectionné du mix · <b>Ctrl + Z</b> : annuler · <b>Début</b> : revenir au début · <b>← →</b> : reculer ou avancer de 5 secondes · <b>Ctrl + molette</b> : zoom de la timeline.",
-    "<b>F1</b> : ouvrir cette notice dans la langue du logiciel. Elle s'ouvre aussi depuis <b>Aide</b> › <b>Notice d'utilisation complète</b>."
+    "<b>Espace</b> : lecture / pause · <b>Suppr</b> : retirer le morceau sélectionné du mix · <b>Ctrl + Z</b> : annuler · <b>Ctrl + Y</b> : rétablir · <b>Début</b> : revenir au début · <b>← →</b> : reculer ou avancer de 5 secondes · <b>Ctrl + molette</b> : zoom de la timeline.",
+    "<b>F1</b> : ouvrir cette notice dans la langue du logiciel. Elle s'ouvre aussi depuis <b>Aide</b> › <b>Notice d'utilisation complète</b>.",
+    "<b>Ctrl −</b> et <b>Ctrl +</b> : réduire ou agrandir tout l'affichage, utile sur les petits écrans ; <b>Ctrl 0</b> revient à 100 %. Les boutons <b>A−</b> et <b>A+</b>, en haut à droite, font la même chose.",
+    "<b>Ctrl + molette</b> au-dessus des listes, de la ligne de lecture ou de la table de mixage : taille de cette zone seulement. Ses boutons <b>−</b> et <b>+</b> font la même chose ; un clic sur son pourcentage la remet à 100 %."
    ]
   },
   {

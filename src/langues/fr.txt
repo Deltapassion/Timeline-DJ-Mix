@@ -152,8 +152,8 @@
 151	⇄ Écouter la transition
 152	Général sur 1-2, casque sur 3-4.
 153	Casque sur 1-2, général sur 3-4.
-154	Il en faut 4 pour séparer le casque : réglez la carte en « Quadriphonique » dans le système.
-155	La sortie casque choisie n'est pas disponible : le casque repasse avec le mix.
+154	Il en faut 4 pour séparer le casque : la pré-écoute est coupée pour ne pas passer dans la sortie générale. Réglez la carte en « Quadriphonique » dans le système, ou choisissez une autre carte son pour le casque.
+155	La sortie casque choisie n'est pas disponible : la pré-écoute est coupée pour ne pas passer dans la sortie générale.
 156	Casque envoyé sur l'autre carte son.
 157	Casque entendu avec le mix.
 158	Ajoutez d'abord des morceaux à la playlist.
@@ -339,3 +339,38 @@
 338	Sélectionnez un morceau dans la timeline pour régler sa transition, son tempo, sa grille et ses courbes.
 339	Mapping
 340	Notice d'utilisation complète
+341	Réduire l'affichage (Ctrl −, ou Ctrl + molette)
+342	Agrandir l'affichage (Ctrl +, ou Ctrl + molette)
+343	Taille de l'affichage : clic pour revenir à 100 % (Ctrl 0)
+344	Réduire l'affichage
+345	Agrandir l'affichage
+346	La sortie casque choisie n'est pas disponible.
+347	Carte son détectée : général sur 1-2, casque sur 3-4.
+348	Carte son détectée : casque sur 1-2, général sur 3-4.
+349	Rétablir
+350	Rétablir (Ctrl+Y)
+351	Listes en bas
+352	Listes en haut
+353	Mettre les listes au-dessus ou au-dessous de la timeline
+354	Réduire cette zone (ou Ctrl + molette dessus)
+355	Agrandir cette zone (ou Ctrl + molette dessus)
+356	Réduire cette zone
+357	Agrandir cette zone
+358	Taille de cette zone : clic pour revenir à 100 %
+359	Sortie
+360	Export
+361	Général 1-2, casque 3-4
+362	Casque 1-2, général 3-4
+363	Carte son détectée : le son sera réinitialisé dès que la lecture et la pré-écoute seront arrêtées.
+364	Carte son prise en compte : le son a été réinitialisé.
+365	Réouvrir les sorties audio sans recharger le logiciel. Les morceaux et le projet restent chargés.
+366	Carte son détectée : le son sera réinitialisé dès que la lecture du mix sera arrêtée.
+367	Relancer la carte son
+368	Moteur audio réinitialisé, morceaux et projet conservés.
+369	Reconnexion audio incomplète : cliquez sur Lecture ou Pré-écoute. Vos morceaux sont conservés.
+370	Impossible de réinitialiser le son. Vérifiez Son et effets.
+371	Sortie casque indisponible. Rebranchez la carte ou choisissez une autre sortie dans Son et effets.
+372	Cliquez sur Lecture ou Pré-écoute pour autoriser le son après la reconnexion.
+373	Sortie casque indisponible : vérifiez Son et effets.
+374	Sortie mémorisée
+375	{x} (déconnectée)

@@ -152,8 +152,8 @@
 151	⇄ Übergang anhören
 152	Master auf 1-2, Kopfhörer auf 3-4.
 153	Kopfhörer auf 1-2, Master auf 3-4.
-154	Für getrennte Kopfhörer sind 4 nötig: Stellen Sie die Karte im System auf „Quadrofonie“.
-155	Der gewählte Kopfhörerausgang ist nicht verfügbar: Der Kopfhörer läuft wieder über den Mix-Ausgang.
+154	Für getrennte Kopfhörer sind 4 nötig: Das Vorhören ist stummgeschaltet, damit es nicht auf dem Hauptausgang landet. Stellen Sie die Karte im System auf „Quadrofonie“ oder wählen Sie eine andere Soundkarte für den Kopfhörer.
+155	Der gewählte Kopfhörerausgang ist nicht verfügbar: Das Vorhören ist stummgeschaltet, damit es nicht auf dem Hauptausgang landet.
 156	Kopfhörer auf die andere Soundkarte geleitet.
 157	Kopfhörer mit dem Mix zu hören.
 158	Fügen Sie zuerst Titel zur Playlist hinzu.
@@ -339,3 +339,38 @@
 338	Wählen Sie einen Titel in der Zeitleiste, um Übergang, Tempo, Raster und Kurven einzustellen.
 339	Mapping
 340	Vollständige Bedienungsanleitung
+341	Anzeige verkleinern (Strg −, oder Strg + Mausrad)
+342	Anzeige vergrößern (Strg +, oder Strg + Mausrad)
+343	Anzeigegröße: Klick setzt auf 100 % zurück (Strg 0)
+344	Anzeige verkleinern
+345	Anzeige vergrößern
+346	Der gewählte Kopfhörerausgang ist nicht verfügbar.
+347	Soundkarte erkannt: Hauptausgang auf 1-2, Kopfhörer auf 3-4.
+348	Soundkarte erkannt: Kopfhörer auf 1-2, Hauptausgang auf 3-4.
+349	Wiederherstellen
+350	Wiederherstellen (Strg+Y)
+351	Listen unten
+352	Listen oben
+353	Listen über oder unter die Zeitleiste setzen
+354	Diesen Bereich verkleinern (oder Strg + Mausrad darüber)
+355	Diesen Bereich vergrößern (oder Strg + Mausrad darüber)
+356	Diesen Bereich verkleinern
+357	Diesen Bereich vergrößern
+358	Größe dieses Bereichs: Klick setzt auf 100 % zurück
+359	Ausgang
+360	Export
+361	Master 1-2, Kopfhörer 3-4
+362	Kopfhörer 1-2, Master 3-4
+363	Soundkarte erkannt: Der Ton wird zurückgesetzt, sobald Wiedergabe und Vorhören gestoppt sind.
+364	Soundkarte übernommen: Der Ton wurde zurückgesetzt.
+365	Audioausgänge neu öffnen, ohne das Programm neu zu laden. Titel und Projekt bleiben geladen.
+366	Soundkarte erkannt: Der Ton wird zurückgesetzt, sobald die Wiedergabe des Mixes gestoppt ist.
+367	Soundkarte neu starten
+368	Audio-Engine zurückgesetzt, Titel und Projekt bleiben erhalten.
+369	Audio-Neuverbindung unvollständig: Klicken Sie auf Wiedergabe oder Vorhören. Ihre Titel bleiben erhalten.
+370	Ton konnte nicht zurückgesetzt werden. Prüfen Sie Ton und Effekte.
+371	Kopfhörerausgang nicht verfügbar. Schließen Sie die Karte wieder an oder wählen Sie einen anderen Ausgang unter Ton und Effekte.
+372	Klicken Sie auf Wiedergabe oder Vorhören, um den Ton nach der Neuverbindung zu erlauben.
+373	Kopfhörerausgang nicht verfügbar: Prüfen Sie Ton und Effekte.
+374	Gespeicherter Ausgang
+375	{x} (getrennt)

@@ -79,7 +79,7 @@ td select { padding: 2px 4px; font-size: 13px; max-width: 150px; }
 #bpmNow { font: 600 15px/1 var(--font-display); font-variant-numeric: tabular-nums; color: var(--amber); min-width: 86px; }
 #btnPlay { min-width: 44px; font-size: 15px; }
 #insp { display: flex; align-items: center; gap: 16px; padding: 6px 10px; background: var(--bg); border-bottom: 1px solid var(--line); flex-wrap: wrap; min-height: 40px; font-size: 13px; }
-.tools #insp { flex: 1 1 380px; min-height: 0; padding: 0 0 0 14px; border: 0; border-left: 1px solid var(--line); background: none; gap: 12px; }
+.tools #insp { flex: 1 1 100%; order: 99; min-height: 0; padding: 4px 0 0; border: 0; border-top: 1px solid var(--line); background: none; gap: 12px; }
 #insp b.t { font: 600 14px/1.1 var(--font-display); max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 #tl { flex: 1; min-height: 120px; position: relative; overflow-x: auto; overflow-y: hidden; }
 #tl canvas { position: sticky; left: 0; top: 0; display: block; touch-action: none; }
@@ -120,3 +120,72 @@ progress { width: 100%; height: 10px; accent-color: var(--amber); }
 #toast { position: fixed; left: 50%; bottom: 34px; transform: translateX(-50%); background: color-mix(in srgb, var(--text) 12%, var(--panel)); border: 1px solid var(--line); padding: 8px 14px; border-radius: 6px; display: none; z-index: 20; max-width: 80vw; }
 kbd { background: var(--bg); border: 1px solid var(--line); border-radius: 3px; padding: 0 5px; font: 12px var(--font-body); }
 @media (max-width: 760px) { #top { grid-template-columns: 1fr; flex-basis: 46%; } .brand span { display: none; } }
+
+/* la timeline garde toujours une hauteur utile ; le panneau Son et effets défile s'il manque de place */
+#tlWrap { min-height: 150px; }
+#snd { flex: 0 0 auto; max-height: 60vh; }
+#top { flex-shrink: 1; min-height: 120px; }
+.tools #insp:empty { display: none; }
+/* taille de l'affichage */
+#uiZoom { display: inline-flex; align-items: center; gap: 2px; }
+#uiZoom button { min-width: 30px; padding-left: 6px; padding-right: 6px; }
+#uiZoomVal { min-width: 46px; text-align: center; font-variant-numeric: tabular-nums; font-size: 12px; color: var(--muted); cursor: pointer; }
+
+/* panneau Son et effets : lignes centrées */
+#snd { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 8px; }
+.snd-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: flex-end; }
+.snd-row.snd-info { font-size: 12px; text-align: center; }
+.snd-row.snd-info:has(#outInfo:empty) { display: none; }
+/* vue simple : la première ligne (voies, effets, casque) tient sur un écran large */
+#snd.mini .snd-row { gap: 12px; }
+#snd.mini .strip { gap: 8px; }
+#snd.mini .snd-row .dj-knobwrap > input[type=range], #snd.mini .snd-row .strip input[type=range] { width: 64px !important; }
+/* sorties son dans la ligne de lecture */
+#outBar { flex-wrap: wrap; gap: 8px; }
+.tools .ob { display: inline-flex; align-items: center; gap: 6px; }
+#outBar select, .tools #outMode { max-width: 180px; }
+.tools #outMaster, .tools #outCue { max-width: 130px; }
+
+/* Relance audio : commande visible, distincte des autres boutons. */
+body #outRestart {
+  background-color: #ffb52e; color: #211400; border: 1px solid #ffd478;
+  font-size: 14px; font-weight: 700; padding: 6px 12px; min-height: 32px;
+  border-radius: 6px; flex: 0 0 auto; white-space: nowrap;
+}
+#outRestart::before { content: "↻"; font-size: 18px; line-height: 1; margin-right: 6px; vertical-align: -1px; }
+#outRestart:hover { border-color: #fff0b8; }
+#outRestart:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+
+
+/* taille de chaque zone (− 100 % +) */
+#top .head, #top #cueBar, #top .scroll > table, #top .empty { zoom: var(--zz-lists, 1); }
+#bottom > .tools { zoom: var(--zz-tools, 1); }
+#snd .snd-row { zoom: var(--zz-snd, 1); }
+.zz { display: inline-flex; align-items: center; gap: 2px; margin-left: auto; opacity: .75; }
+.zz:hover { opacity: 1; }
+.zz button.ico { min-width: 22px; height: 22px; padding: 0 3px; font-size: 14px; line-height: 1; }
+.zz [data-zz="0"] { min-width: 34px; text-align: center; font-size: 11px; color: var(--muted); cursor: pointer; font-variant-numeric: tabular-nums; }
+#snd .snd-row > .zz { align-self: center; }
+/* ligne de lecture : une seule ligne centrée tant qu'il y a la place */
+.tools { justify-content: center; }
+#outBar { display: contents; }
+.tools .zz { margin-left: 0; }
+#outInfo.info { min-width: 26px; padding: 0 6px; font-size: 15px; color: var(--muted); }
+#outInfo.info.warn { color: var(--amber); border-color: var(--amber); }
+/* annuler / rétablir en haut */
+.bar .undo { min-width: 34px; font-size: 18px; line-height: 1; padding: 4px 8px; }
+.bar .undo:disabled { opacity: .35; }
+/* listes sous la timeline */
+body.lists-down > header { order: 0; }
+body.lists-down > #bottom { order: 1; }
+body.lists-down > #splitTop { order: 2; }
+body.lists-down > #top { order: 3; border-bottom: 0; border-top: 1px solid var(--line); }
+body.lists-down > footer { order: 4; }
+header.bar { gap: 10px; }
+.actions { gap: 5px; }
+.actions > button { padding: 5px 9px; }
+.tools { gap: 10px; }
+.tools .zz { margin-left: 0; }
+.zz [data-zz="0"][hidden], #uiZoomVal[hidden] { display: none; }
+.actions > button { padding: 5px 8px; }
+#zoom { width: 90px !important; }

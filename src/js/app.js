@@ -112,7 +112,7 @@
 
   function status(m) { $('status').textContent = m; }
   let toastT = 0;
-  function toast(m) { const e = $('toast'); e.textContent = m; e.style.display = 'block'; clearTimeout(toastT); toastT = setTimeout(() => { e.style.display = 'none'; }, 4200); }
+  function toast(m) { const e = $('toast'); e.textContent = m; e.style.display = 'block'; clearTimeout(toastT); toastT = setTimeout(() => { e.style.display = 'none'; }, Math.max(4200, m.length * 55)); }
 
   /* ================= Morceaux de démonstration ================= */
   const DEMOS = [
@@ -401,16 +401,19 @@
   }
 
   /* ================= Annulation, sauvegarde ================= */
-  const undo = [];
-  function pushUndo() { undo.push(JSON.stringify({ pl: S.playlist, g: S.tracks.map(t => [t.id, t.bpm, t.grid0]) })); if (undo.length > 60) undo.shift(); }
-  function doUndo() {
-    const s = undo.pop(); if (!s) return;
+  const undo = [], redo = [];
+  const snapUndo = () => JSON.stringify({ pl: S.playlist, g: S.tracks.map(t => [t.id, t.bpm, t.grid0]) });
+  function undoBtns() { const u = $('btnUndo'), r = $('btnRedo'); if (u) u.disabled = !undo.length; if (r) r.disabled = !redo.length; }
+  function pushUndo() { undo.push(snapUndo()); if (undo.length > 60) undo.shift(); redo.length = 0; undoBtns(); }
+  function restoreUndo(s) {
     const o = JSON.parse(s);
     S.playlist = o.pl.filter(it => T(it.tid));
     for (const [id, bpm, g] of o.g) { const t = T(id); if (t) { t.bpm = bpm; t.grid0 = g; } }
     if (selIndex() < 0) S.sel = null;
-    changed();
+    changed(); undoBtns();
   }
+  function doUndo() { const s = undo.pop(); if (!s) return; redo.push(snapUndo()); restoreUndo(s); }
+  function doRedo() { const s = redo.pop(); if (!s) return; undo.push(snapUndo()); restoreUndo(s); }
   function projectData() {
     return { app: 'timeline-dj-mix', v: 1, tracks: S.tracks.filter(t => t.bpm != null).map(t => ({ id: t.id, name: t.name, size: t.size, title: t.title, artist: t.artist, dur: t.dur, bpm: t.bpm, grid0: t.grid0, tonic: t.tonic, minor: t.minor, aStart: t.aStart, aEnd: t.aEnd, demo: t.demo, style: t.style || '' })), playlist: S.playlist, ui: { pps: S.pps, snap: S.snap } };
   }
@@ -419,7 +422,7 @@
   function saveLocal() { clearTimeout(saveT); saveT = setTimeout(() => { try { localStorage.setItem(LSKEY, JSON.stringify(projectData())); } catch (e) { /* stockage indisponible */ } }, 600); }
   function loadProject(d) {
     if (!d || (d.app !== 'timeline-dj-mix' && d.app !== 'fondu-enchaine') || !Array.isArray(d.tracks)) { toast('Ce fichier n\'est pas un projet TIMELINE DJ MIX.'); return false; }
-    pause(); bufs.clear(); undo.length = 0;
+    pause(); bufs.clear(); undo.length = 0; redo.length = 0; undoBtns();
     const old = S.tracks;
     S.tracks = d.tracks.map(t => {
       const tr = Object.assign({}, t, { status: 'missing' });
@@ -440,7 +443,7 @@
     DEMOS.forEach((d, i) => {
       const tr = { id: 'demo' + i, demo: i, name: 'demo-' + i, size: 0, title: d.title, artist: 'Démo', status: 'wait' };
       S.tracks.push(tr);
-      queue.push({ tr, full: true, then: () => { if (--left === 0) { for (const t of S.tracks) if (t.demo != null) addToPlaylist(t.id); undo.length = 0; S.sel = S.playlist[1] ? S.playlist[1].id : null; changed(); fit(); } } });
+      queue.push({ tr, full: true, then: () => { if (--left === 0) { for (const t of S.tracks) if (t.demo != null) addToPlaylist(t.id); undo.length = 0; redo.length = 0; undoBtns(); S.sel = S.playlist[1] ? S.playlist[1].id : null; changed(); fit(); } } });
     });
     changed(); pump();
   }
@@ -500,7 +503,7 @@
   }
 
   /* ================= Moteur audio ================= */
-  let ac = null, live = null, mvol = null;
+  let ac = null, live = null, mvol = null, outReady = Promise.resolve();
   function impulse(ctx, dur) {
     const n = Math.floor(ctx.sampleRate * dur), b = ctx.createBuffer(2, n, ctx.sampleRate);
     let sd = 987654321;
@@ -546,7 +549,7 @@
       tempo(tp, tc) { const v = clamp(60 / (tp || 120) * 0.75, 0.05, 2.4); if (tc) dl.delayTime.setTargetAtTime(v, ctx.currentTime, 0.05); else dl.delayTime.value = v; }
     };
   }
-  let cueMix = null, cueGain = null, cueDest = null, cueEl = null, outNodes = [];
+  let cueMix = null, cueGain = null, cueDest = null, cueEl = null, outNodes = [], cueBlocked = false, routeVersion = 0;
   function AC() {
     if (!ac) {
       ac = new (window.AudioContext || window.webkitAudioContext)();
@@ -554,19 +557,40 @@
       mvol = ac.createGain(); mvol.gain.value = $('mvol').value / 100; live.out.connect(mvol);
       cueMix = buildMix(ac); cueMix.apply(SND0(), 120, 0);
       cueGain = ac.createGain(); cueGain.gain.value = $('cvol') ? $('cvol').value / 100 : 0.85; cueMix.out.connect(cueGain);
-      if (S.out.master && ac.setSinkId) ac.setSinkId(S.out.master).then(routeOut, routeOut);
-      routeOut();
+      const ctx = ac;
+      outReady = (async () => {
+        if (ctx.setSinkId) {
+          try { await ctx.setSinkId(S.out.master || ''); }
+          catch (e) {
+            try { await ctx.setSinkId(''); } catch (ignored) { /* sortie système indisponible */ }
+          }
+        }
+        if (ac === ctx) routeOut();
+      })();
     }
     return ac;
+  }
+  function setOutInfo(m) {
+    const e = $('outInfo'); if (!e) return;
+    e.title = m; e.setAttribute('aria-label', m); e.dataset.msg = m;
+    e.classList.toggle('warn', cueBlocked);
+    // diagnostic : nom de la carte réellement utilisée et canaux, affichés au clic sur ⓘ
+    if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) navigator.mediaDevices.enumerateDevices().then(d => {
+      const o = d.filter(x => x.kind === 'audiooutput'), id = S.out.master || 'default';
+      const cur = o.find(x => x.deviceId === id) || o.find(x => x.deviceId === 'default') || o[0];
+      const cue = S.out.cue ? o.find(x => x.deviceId === S.out.cue) : null;
+      e.dataset.dev = (cur && cur.label ? cur.label : '?') + ' · ' + (ac ? ac.destination.channelCount + '/' + ac.destination.maxChannelCount + ' ' + ac.destination.channelInterpretation : '') + ' · ' + (S.out.mode || 'stereo') + (cue ? ' · ' + cue.label : '');
+    }, () => {});
   }
   /* Sortie générale et casque : stéréo (casque avec le mix ou sur une autre carte), ou carte 4 canaux (1-2 / 3-4) */
   function routeOut() {
     if (!ac) return;
+    const version = ++routeVersion;
     const dest = ac.destination, max = dest.maxChannelCount || 2, mode = S.out.mode || 'stereo';
     for (const n of outNodes) { try { n.disconnect(); } catch (e) { /* déjà débranché */ } } outNodes = [];
     try { mvol.disconnect(); } catch (e) { /* idem */ } try { cueGain.disconnect(); } catch (e) { /* idem */ }
     if (cueEl) { try { cueEl.pause(); } catch (e) { /* idem */ } }
-    let msg = 'Canaux disponibles sur la sortie générale : ' + max + '.';
+    let msg = 'Canaux disponibles sur la sortie générale : ' + max + '.'; cueBlocked = false;
     if (mode !== 'stereo' && max >= 4) {
       dest.channelCount = 4; dest.channelInterpretation = 'discrete';
       const mg = ac.createChannelMerger(4), ms = ac.createChannelSplitter(2), cs = ac.createChannelSplitter(2), m0 = mode === 'quad' ? 0 : 2, c0 = mode === 'quad' ? 2 : 0;
@@ -575,16 +599,27 @@
     } else {
       try { dest.channelCount = 2; dest.channelInterpretation = 'speakers'; } catch (e) { /* valeur imposée */ }
       mvol.connect(dest);
-      if (mode !== 'stereo') msg += ' Il en faut 4 pour séparer le casque : réglez la carte en « Quadriphonique » dans le système.';
+      // la pré-écoute ne passe jamais dans la sortie générale, sauf en mode Stéréo choisi exprès
+      const toMaster = () => { if (mode === 'stereo') { try { cueGain.connect(dest); } catch (e) { /* idem */ } } };
       if (S.out.cue && window.HTMLMediaElement && 'setSinkId' in HTMLMediaElement.prototype) {
         if (!cueDest) cueDest = ac.createMediaStreamDestination();
         if (!cueEl) cueEl = new Audio();
         cueGain.connect(cueDest); cueEl.srcObject = cueDest.stream;
-        cueEl.setSinkId(S.out.cue).then(() => cueEl.play()).catch(() => { toast('La sortie casque choisie n\'est pas disponible : le casque repasse avec le mix.'); try { cueGain.connect(dest); } catch (e) { /* idem */ } });
+        const el = cueEl, gain = cueGain;
+        el.setSinkId(S.out.cue).then(() => {
+          if (version === routeVersion && cueEl === el) return el.play();
+        }).catch(e => {
+          if (version !== routeVersion || cueEl !== el) return;
+          try { gain.disconnect(); } catch (ignored) { /* déjà débranché */ }
+          toMaster(); cueBlocked = mode !== 'stereo';
+          setOutInfo('Sortie casque indisponible. Rebranchez la carte ou choisissez une autre sortie dans Son et effets.');
+          toast(e && e.name === 'NotAllowedError' ? 'Cliquez sur Lecture ou Pré-écoute pour autoriser le son après la reconnexion.' : 'Sortie casque indisponible : vérifiez Son et effets.');
+        });
         msg += ' Casque envoyé sur l\'autre carte son.';
-      } else { cueGain.connect(dest); if (mode === 'stereo') msg += ' Casque entendu avec le mix.'; }
+      } else if (mode === 'stereo') { toMaster(); msg += ' Casque entendu avec le mix.'; }
+      else { msg += ' Il en faut 4 pour séparer le casque : la pré-écoute est coupée pour ne pas passer dans la sortie générale. Réglez la carte en « Quadriphonique » dans le système, ou choisissez une autre carte son pour le casque.'; cueBlocked = true; }
     }
-    if ($('outInfo')) $('outInfo').textContent = msg;
+    setOutInfo(msg);
   }
   const eqDb = v => -30 * (1 - v);
   /* Position d'un morceau dans le mix, figée au moment du calcul */
@@ -681,7 +716,7 @@
   async function play() {
     if (!S.playlist.length && S.auto) await adAppend(2);
     if (!S.playlist.length) { toast('Ajoutez d\'abord des morceaux à la playlist.'); return; }
-    try { await AC().resume(); } catch (e) { toast('Le navigateur a refusé de démarrer le son.'); return; }
+    try { await AC().resume(); await outReady; } catch (e) { toast('Le navigateur a refusé de démarrer le son.'); return; }
     if (S.playhead >= lay.total - 0.1) S.playhead = 0;
     P.playing = true; P.t0 = S.playhead; P.when0 = ac.currentTime + 0.05; P.nodes.clear();
     $('btnPlay').textContent = '⏸'; mxState();
@@ -690,7 +725,7 @@
   function pause() {
     if (!P.playing) return;
     S.playhead = Math.min(mixNow(), lay.total);
-    P.playing = false; clearInterval(P.timer); stopNodes();
+    P.playing = false; clearInterval(P.timer); stopNodes(); restartIfPending();
     $('btnPlay').textContent = '▶'; mxState();
   }
   function restart(t) { stopNodes(); P.t0 = clamp(t, 0, lay.total); P.when0 = ac.currentTime + 0.03; tick(); }
@@ -719,6 +754,7 @@
   function cueRefresh() { renderLib(); renderPl(); renderInsp(); $('btnCue').textContent = Q.on && Q.kind === 'mix' ? '■ Pré-écoute' : '▶ Pré-écoute'; $('btnCue').classList.toggle('on', Q.on && Q.kind === 'mix'); $('cueBar').hidden = !(Q.on && Q.kind === 'track'); }
   function stopCue() {
     if (!Q.on && !Q.id) return;
+    setTimeout(restartIfPending, 0);
     if (Q.on && Q.kind === 'mix') S.cuePos = clamp(cueNow(), 0, lay.total);
     for (const n of Q.nodes.values()) killNode(n); Q.nodes.clear();
     if (Q.src) { const x = Q.src; Q.src = null; try { x.stop(); } catch (e) { /* fini */ } }
@@ -743,9 +779,12 @@
   }
   /* Pré-écoute du mix à partir de la ligne verte, sans toucher à la lecture en cours */
   async function cueStart(t, end, id) {
+    AC();
+    // au moment d'écouter au casque : si le casque n'est pas séparé, on revérifie la carte (rien ne joue, donc pas de coupure)
+    if (cueBlocked) toast('Il en faut 4 pour séparer le casque : la pré-écoute est coupée pour ne pas passer dans la sortie générale. Réglez la carte en « Quadriphonique » dans le système, ou choisissez une autre carte son pour le casque.');
     stopCue();
     if (!S.playlist.length) return;
-    try { await AC().resume(); } catch (e) { toast('Le navigateur a refusé de démarrer le son.'); return; }
+    try { await AC().resume(); await outReady; } catch (e) { toast('Le navigateur a refusé de démarrer le son.'); return; }
     S.cuePos = clamp(t, 0, lay.total);
     Q.on = true; Q.kind = 'mix'; Q.id = id || 'm'; Q.t0 = S.cuePos; Q.when0 = ac.currentTime + 0.05; Q.end = end == null ? Infinity : end;
     cueTick(); Q.timer = setInterval(cueTick, 200); cueRefresh(); requestAnimationFrame(frame);
@@ -782,7 +821,9 @@
     stopCue();
     if (!tr.file && tr.demo == null) { toast('Le fichier de « ' + tr.title + ' » n\'est plus accessible : réimportez-le (bouton « Importer des morceaux ») pour l\'écouter.'); return; }
     try {
-      await AC().resume(); Q.on = true; Q.kind = 'track'; Q.id = key; Q.trk = tr; Q.tids = [tr.id]; cueRefresh();
+      AC();
+      if (cueBlocked) toast('Il en faut 4 pour séparer le casque : la pré-écoute est coupée pour ne pas passer dans la sortie générale. Réglez la carte en « Quadriphonique » dans le système, ou choisissez une autre carte son pour le casque.');
+      await AC().resume(); await outReady; Q.on = true; Q.kind = 'track'; Q.id = key; Q.trk = tr; Q.tids = [tr.id]; cueRefresh();
       $('cueName').textContent = tr.title;
       const buf = await getBuffer(tr);
       if (Q.id !== key) return;
@@ -826,7 +867,7 @@
   const laneH = () => Math.max(30, (cv.clientHeight - RUL - TMP - 8) / 2);
   function clipRect(i) { const L = lay.items[i], h = laneH(); return { x0: X(lay.b2t(L.mb0)), x1: X(lay.b2t(L.mb1)), y: RUL + 3 + L.lane * (h + 3), h }; }
   function resize() {
-    dpr = window.devicePixelRatio || 1;
+    dpr = (window.devicePixelRatio || 1) * (parseFloat(document.documentElement.style.zoom) || 1);
     const w = tl.clientWidth, h = tl.clientHeight;
     cv.style.width = w + 'px'; cv.style.height = h + 'px'; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
     $('tlSpacer').style.width = Math.max(w, PADL + lay.total * S.pps + 80) + 'px';
@@ -953,7 +994,7 @@
     }
     return y > RUL + 2 * laneH() + 8 ? { kind: 'cue' } : null;
   }
-  const mpos = e => { const r = cv.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+  const mpos = e => { const r = cv.getBoundingClientRect(), k = (r.width / cv.clientWidth) || 1; return { x: (e.clientX - r.left) / k, y: (e.clientY - r.top) / k }; };
   function ensureCustom(i) { const it = S.playlist[i]; if (!it.cv[S.curve]) it.cv[S.curve] = curves(i, S.curve).map(p => ({ b: p.b, v: p.v })); return it.cv[S.curve]; }
   cv.addEventListener('pointerdown', e => {
     if (e.button !== 0) return;
@@ -1227,30 +1268,109 @@
     if (live) live.apply(S.snd, lay.total ? lay.tempoAt(Math.min(mixNow(), lay.total)) : 120, 0.015);
     clearTimeout(setT); setT = setTimeout(saveSettings, 500);
   }
+  const ZZ = z => `<span class="zz" data-z="${z}"><button class="ico" data-zz="-" title="Réduire cette zone (ou Ctrl + molette dessus)" aria-label="Réduire cette zone">−</button><span data-zz="0" title="Taille de cette zone : clic pour revenir à 100 %">100 %</span><button class="ico" data-zz="+" title="Agrandir cette zone (ou Ctrl + molette dessus)" aria-label="Agrandir cette zone">+</button></span>`;
   function buildSnd() {
     const grp = (title, cls, keys) => `<div class="strip ${cls}"><b>${title}</b>${keys.map(k => { const c = SNDCTL.find(x => x[0] === k); return `<label class="kn"><span>${c[1]}</span><input type="range" min="${c[2]}" max="${c[3]}" step="${c[3] - c[2] < 1 ? 0.001 : 0.01}" value="${sndGet(k)}" data-snd="${k}" id="snd-${k.replace('.', '-')}" title="Double-clic : remise à zéro"></label>`; }).join('')}</div>`;
-    $('snd').innerHTML = grp('Voie A', 'la', ['a.vol', 'a.lo', 'a.mid', 'a.hi', 'a.flt', 'a.tmp']) + grp('A ↔ B', 'xf', ['xf']) + grp('Voie B', 'lb', ['b.vol', 'b.lo', 'b.mid', 'b.hi', 'b.flt', 'b.tmp']) + grp('Effets', 'fx', ['echo', 'flg', 'rev']) +
-      `<div class="strip opt"><b>Casque</b><label class="kn"><span>Volume de pré-écoute</span><input type="range" id="cvol" min="0" max="100" value="85"></label></div>` +
-      `<div class="strip opt"><b>Sorties</b><label class="kn"><span>Sortie générale</span><select id="outMaster"><option value="">Par défaut</option></select></label>` +
-      `<label class="kn"><span>Répartition</span><select id="outMode"><option value="stereo">Stéréo</option><option value="quad">Carte 4 canaux : général 1-2, casque 3-4</option><option value="quadinv">Carte 4 canaux : casque 1-2, général 3-4</option></select></label>` +
-      `<label class="kn"><span>Casque sur une autre carte son</span><select id="outCue"><option value="">Désactivé</option></select></label>` +
-      `<button id="cueAsk" title="Le navigateur demande l'accès au micro pour donner le nom des cartes son ; rien n'est enregistré">Lister les cartes son</button><span class="muted" id="outInfo"></span></div>` +
-      `<div class="strip opt"><label><input type="checkbox" id="sndExp"${S.snd.exp ? ' checked' : ''}> Appliquer ces réglages à l'export</label><button id="sndReset">Tout remettre à zéro</button><button id="sndMini" title="Basculer entre la vue contrôleur DJ et la vue simple d'origine">Vue simple</button></div>`;
+    // ligne 1 : voies, crossfader, effets et casque — ligne 2 : sorties et options — ligne 3 : état des sorties
+    $('snd').innerHTML = '<div class="snd-row">' + grp('Voie A', 'la', ['a.vol', 'a.lo', 'a.mid', 'a.hi', 'a.flt', 'a.tmp']) + grp('A ↔ B', 'xf', ['xf']) + grp('Voie B', 'lb', ['b.vol', 'b.lo', 'b.mid', 'b.hi', 'b.flt', 'b.tmp']) + grp('Effets', 'fx', ['echo', 'flg', 'rev']) +
+      `<div class="strip opt"><b>Casque</b><label class="kn"><span>Volume de pré-écoute</span><input type="range" id="cvol" min="0" max="100" value="85"></label></div>` + ZZ('snd') + '</div>';
+    $('outBar').innerHTML = `<label class="ob" title="Sortie générale"><span class="l">Sortie</span><select id="outMaster"><option value="">Par défaut</option></select></label>` +
+      `<select id="outMode" title="Répartition" aria-label="Répartition"><option value="stereo">Stéréo</option><option value="quad">Général 1-2, casque 3-4</option><option value="quadinv">Casque 1-2, général 3-4</option></select>` +
+      `<label class="ob" title="Casque sur une autre carte son"><span class="l">Casque</span><select id="outCue"><option value="">Désactivé</option></select></label>` +
+      `<button id="cueAsk" class="ico" title="Lister les cartes son" aria-label="Lister les cartes son">🔍</button>` +
+      `<label class="ob" title="Appliquer ces réglages à l'export"><input type="checkbox" id="sndExp"${S.snd.exp ? ' checked' : ''}> Export</label>` +
+      `<button id="sndReset" class="ico" title="Tout remettre à zéro" aria-label="Tout remettre à zéro">⟲</button>` +
+      `<button id="sndMini" title="Basculer entre la vue contrôleur DJ et la vue simple d'origine">Vue simple</button><button id="outInfo" class="ico info" type="button">ⓘ</button><button id="outRestart" type="button" title="Réouvrir les sorties audio sans recharger le logiciel. Les morceaux et le projet restent chargés." aria-label="Relancer la carte son">Relancer la carte son</button>`;
     $('outMode').value = S.out.mode || 'stereo';
     listOutputs(false);
   }
   async function listOutputs(ask) {
-    if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) { $('outInfo').textContent = 'Ce navigateur ne permet pas de choisir les sorties.'; return; }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) { setOutInfo('Ce navigateur ne permet pas de choisir les sorties.'); return; }
     try {
       if (ask) { const st = await navigator.mediaDevices.getUserMedia({ audio: true }); st.getTracks().forEach(t => t.stop()); }
       const d = (await navigator.mediaDevices.enumerateDevices()).filter(x => x.kind === 'audiooutput' && x.deviceId !== 'default' && x.deviceId !== 'communications');
       const opts = d.map((x, i) => `<option value="${esc(x.deviceId)}">${esc(x.label || 'Sortie ' + (i + 1))}</option>`).join('');
       const m = $('outMaster'), c = $('outCue');
       m.innerHTML = '<option value="">Par défaut</option>' + opts; c.innerHTML = '<option value="">Désactivé</option>' + opts;
-      m.value = [...m.options].some(o => o.value === S.out.master) ? S.out.master : ''; c.value = [...c.options].some(o => o.value === S.out.cue) ? S.out.cue : '';
-      if (!d.length || !d.some(x => x.label)) $('outInfo').textContent = 'Cliquez « Lister les cartes son » pour voir leurs noms.';
+      let updated = false;
+      for (const [key, select] of [['master', m], ['cue', c]]) {
+        let device = d.find(x => x.deviceId === S.out[key]);
+        const label = S.out[key + 'Label'], group = S.out[key + 'Group'];
+        if (!device && S.out[key] && label) {
+          const candidates = d.filter(x => x.label === label && (!group || x.groupId === group));
+          if (candidates.length === 1) device = candidates[0];
+          else {
+            const byLabel = d.filter(x => x.label === label);
+            if (byLabel.length === 1) device = byLabel[0];
+          }
+        }
+        if (device) {
+          if (S.out[key] !== device.deviceId || S.out[key + 'Label'] !== device.label || S.out[key + 'Group'] !== device.groupId) updated = true;
+          S.out[key] = device.deviceId; S.out[key + 'Label'] = device.label; S.out[key + 'Group'] = device.groupId;
+        } else if (S.out[key]) {
+          const missing = document.createElement('option'); missing.value = S.out[key];
+          missing.textContent = (label || 'Sortie mémorisée') + ' (déconnectée)'; select.appendChild(missing);
+        }
+        select.value = S.out[key] || '';
+      }
+      if (updated) saveSettings();
       if (!(window.AudioContext && 'setSinkId' in AudioContext.prototype)) m.disabled = true;
     } catch (e) { if (ask) toast('Sans cette autorisation, le navigateur ne donne pas la liste des cartes son.'); }
+  }
+
+  /* Branchement à chaud : recréer AudioContext pour redécouvrir les canaux,
+     sans recharger la page (les File et les buffers restent en mémoire). */
+  let outSig = null, outTimer = 0, soundReset = null, soundResetAgain = false;
+  const outSignature = async () => (await navigator.mediaDevices.enumerateDevices())
+    .filter(x => x.kind === 'audiooutput')
+    .map(x => x.deviceId + ':' + x.groupId + ':' + x.label).sort().join('|');
+  function restartIfPending() { /* compatibilité avec pause() et stopCue() */ }
+  function restartSound(manual) {
+    if (soundReset) { soundResetAgain = true; return soundReset; }
+    soundReset = (async () => {
+      if ($('outMaster')) await listOutputs(false);
+      if (!ac) { if (manual) { AC(); await outReady; } return; }
+      const wasPlaying = P.playing;
+      const preview = Q.on ? { kind: Q.kind, tr: Q.trk, id: Q.id, end: Q.end,
+        pos: Q.kind === 'mix' ? cueNow() : Q.off + (ac.currentTime - Q.w0) } : null;
+      pause(); stopCue();
+      const old = ac;
+      ++routeVersion;
+      if (cueEl) { cueEl.pause(); cueEl.srcObject = null; }
+      ac = null; live = null; mvol = null;
+      cueMix = null; cueGain = null; cueDest = null; cueEl = null; outNodes = [];
+      try {
+        try { await old.close(); } catch (e) { /* déjà fermé */ }
+        AC(); await outReady;
+        if (wasPlaying || preview || manual) await ac.resume();
+        if (wasPlaying) await play();
+        if (preview && preview.kind === 'mix') await cueStart(preview.pos, preview.end, preview.id);
+        else if (preview && preview.tr) await cueTrack(preview.tr, preview.pos);
+        updateClock(); draw();
+        if (manual) toast('Moteur audio réinitialisé, morceaux et projet conservés.');
+      } catch (e) {
+        toast('Reconnexion audio incomplète : cliquez sur Lecture ou Pré-écoute. Vos morceaux sont conservés.');
+      }
+    })().catch(() => toast('Impossible de réinitialiser le son. Vérifiez Son et effets.')).finally(() => {
+      soundReset = null;
+      if (soundResetAgain) { soundResetAgain = false; scheduleOutputCheck(true); }
+    });
+    return soundReset;
+  }
+  function scheduleOutputCheck(force) {
+    clearTimeout(outTimer);
+    outTimer = setTimeout(async () => {
+      let v; try { v = await outSignature(); } catch (e) { return; }
+      const changedOut = v !== outSig;
+      outSig = v;
+      if (changedOut || force) await restartSound(false);
+    }, 1200);
+  }
+  if (navigator.mediaDevices && navigator.mediaDevices.addEventListener) {
+    outSignature().then(v => { if (outSig === null) outSig = v; }, () => {});
+    navigator.mediaDevices.addEventListener('devicechange', () => scheduleOutputCheck(true));
+    // Certaines versions ne publient devicechange qu'une fois la fenêtre réactivée.
+    window.addEventListener('focus', () => scheduleOutputCheck(false));
   }
 
   /* ================= Mappings Mixxx (moteur repris de Platine DUO) ================= */
@@ -1700,7 +1820,7 @@
   let newArm = 0;
   $('btnNew').onclick = () => {
     if (Date.now() - newArm > 4000) { newArm = Date.now(); toast('Cliquez encore une fois sur « Nouveau mix » pour tout vider.'); return; }
-    newArm = 0; pause(); stopCue(); FDB.clear(); S.tracks = []; S.playlist = []; S.sel = null; S.playhead = 0; bufs.clear(); undo.length = 0; changed();
+    newArm = 0; pause(); stopCue(); FDB.clear(); S.tracks = []; S.playlist = []; S.sel = null; S.playhead = 0; bufs.clear(); undo.length = 0; redo.length = 0; undoBtns(); changed();
   };
   $('btnExport').onclick = openExport;
   $('expGo').onclick = goExport;
@@ -1720,7 +1840,7 @@
   $('helpNotice').onclick = openNotice;
   $('btnPlay').onclick = () => (P.playing ? pause() : play());
   $('btnHome').onclick = () => { seek(0); tl.scrollLeft = 0; };
-  $('btnUndo').onclick = doUndo;
+  $('btnUndo').onclick = doUndo; $('btnRedo').onclick = doRedo; undoBtns();
   $('btnFit').onclick = fit;
   $('zoom').oninput = e => setPps(0.4 * Math.pow(1000, e.target.value / 100));
   $('mvol').oninput = e => { if (mvol) mvol.gain.value = e.target.value / 100; };
@@ -1735,7 +1855,7 @@
     const t = T(tr.dataset.id); if (!t) return;
     if (b.dataset.act === 'add') addToPlaylist(t.id);
     else if (b.dataset.act === 'prev') cueTrack(t);
-    else if (b.dataset.act === 'del') { pushUndo(); if (cueId() === 't:' + t.id) stopCue(); S.tracks = S.tracks.filter(x => x !== t); S.playlist = S.playlist.filter(it => it.tid !== t.id); bufs.delete(t.id); FDB.del(t.id); if (selIndex() < 0) S.sel = null; undo.length = 0; changed(); }
+    else if (b.dataset.act === 'del') { pushUndo(); if (cueId() === 't:' + t.id) stopCue(); S.tracks = S.tracks.filter(x => x !== t); S.playlist = S.playlist.filter(it => it.tid !== t.id); bufs.delete(t.id); FDB.del(t.id); if (selIndex() < 0) S.sel = null; undo.length = 0; redo.length = 0; undoBtns(); changed(); }
   });
   $('libBody').addEventListener('dblclick', e => { if (e.target.closest('button')) return; const tr = e.target.closest('tr'); if (tr) addToPlaylist(tr.dataset.id); });
   $('libBody').addEventListener('dragstart', e => { const tr = e.target.closest('tr'); if (tr) { e.dataTransfer.setData('text/plain', 'lib:' + tr.dataset.id); e.dataTransfer.effectAllowed = 'copyMove'; } });
@@ -1813,7 +1933,8 @@
     if (e.target.closest('input, select, textarea, dialog')) return;
     if (e.code === 'Space') { e.preventDefault(); P.playing ? pause() : play(); }
     else if ((e.key === 'Delete' || e.key === 'Backspace') && S.sel) { e.preventDefault(); removeItem(S.sel); }
-    else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); doUndo(); }
+    else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); if (e.shiftKey) doRedo(); else doUndo(); }
+    else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') { e.preventDefault(); doRedo(); }
     else if (e.key === 'Home') seek(0);
     else if (e.key === 'ArrowLeft') seek(mixNow() - 5);
     else if (e.key === 'ArrowRight') seek(mixNow() + 5);
@@ -1877,12 +1998,28 @@
     if (t.dataset.snd) sndSet(t.dataset.snd, t.value, true);
     else if (t.id === 'cvol') { if (cueGain) cueGain.gain.value = t.value / 100; }
   });
+  // changer une sortie ne coupe ni le mix ni la pré-écoute : on ne fait que réaiguiller le son.
+  // La sortie n'est refaite à neuf (petite coupure) que si rien ne joue.
+  const idle = () => !P.playing && !Q.on;
+  $('outBar').addEventListener('change', e => {
+    const id = e.target.id;
+    if (id === 'outMaster') { S.out.master = e.target.value; delete S.out.masterLabel; delete S.out.masterGroup; saveSettings(); listOutputs(false); if (ac && ac.setSinkId) ac.setSinkId(S.out.master).then(routeOut).catch(() => toast('Cette sortie n\'est pas disponible.')); }
+    else if (id === 'outMode') { S.out.mode = e.target.value; saveSettings(); AC(); routeOut(); }
+    else if (id === 'outCue') { S.out.cue = e.target.value; delete S.out.cueLabel; delete S.out.cueGroup; saveSettings(); listOutputs(false); AC(); routeOut(); }
+    else if (id === 'sndExp') { S.snd.exp = e.target.checked; saveSettings(); }
+  });
+  $('outBar').addEventListener('click', e => {
+    if (e.target.id === 'cueAsk') listOutputs(true).then(() => { if (ac) routeOut(); });
+    else if (e.target.id === 'outRestart') restartSound(true);
+    else if (e.target.id === 'outInfo') toast(e.target.title + (e.target.dataset.dev ? '  [' + e.target.dataset.dev + ']' : ''));
+    else if (e.target.id === 'sndReset') { const ex = S.snd.exp; S.snd = SND0(); S.snd.exp = ex; for (const c of SNDCTL) sndSet(c[0], c[4]); }
+  });
   $('snd').addEventListener('dblclick', e => { const k = e.target.dataset && e.target.dataset.snd; if (k) sndSet(k, SNDCTL.find(x => x[0] === k)[4]); });
   $('snd').addEventListener('change', e => {
     if (e.target.id === 'sndExp') { S.snd.exp = e.target.checked; saveSettings(); }
-    else if (e.target.id === 'outMaster') { S.out.master = e.target.value; saveSettings(); if (ac && ac.setSinkId) ac.setSinkId(S.out.master).then(routeOut).catch(() => toast('Cette sortie n\'est pas disponible.')); }
+    else if (e.target.id === 'outMaster') { S.out.master = e.target.value; delete S.out.masterLabel; delete S.out.masterGroup; saveSettings(); listOutputs(false); if (ac && ac.setSinkId) ac.setSinkId(S.out.master).then(routeOut).catch(() => toast('Cette sortie n\'est pas disponible.')); }
     else if (e.target.id === 'outMode') { S.out.mode = e.target.value; saveSettings(); AC(); routeOut(); }
-    else if (e.target.id === 'outCue') { S.out.cue = e.target.value; saveSettings(); AC(); routeOut(); }
+    else if (e.target.id === 'outCue') { S.out.cue = e.target.value; delete S.out.cueLabel; delete S.out.cueGroup; saveSettings(); listOutputs(false); AC(); routeOut(); }
   });
   $('snd').addEventListener('click', e => {
     if (e.target.id === 'sndReset') { const ex = S.snd.exp; S.snd = SND0(); S.snd.exp = ex; for (const c of SNDCTL) sndSet(c[0], c[4]); }
@@ -1928,6 +2065,7 @@
   if (Object.keys(S.midi).length || S.mx) midiInit();
   applyTheme(S.bg); resize(); changed(true);
   let saved = null;
+  try { const t = +localStorage.getItem('timeline-dj-mix-redemarrage'); localStorage.removeItem('timeline-dj-mix-redemarrage'); if (t && Date.now() - t < 60000) setTimeout(() => toast('Carte son prise en compte : le son a été réinitialisé.'), 1500); } catch (e) { /* idem */ }
   try { saved = JSON.parse(localStorage.getItem(LSKEY) || localStorage.getItem(LSOLD) || 'null'); } catch (e) { saved = null; }
   if (!(saved && saved.tracks && saved.tracks.length && loadProject(saved))) initDemo();
   window.__fe = { S, P, T, lay: () => lay, renderMix, play, pause, seek, Core, getBuffer, importFiles, adAppend, cueTransition, cueTrack, Q, cueStart, cueSeek, onMidi, sndSet, changed, Mx, CO, MXD, i18n, setLang, L10N };

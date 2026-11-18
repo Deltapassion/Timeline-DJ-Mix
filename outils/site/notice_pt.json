@@ -5,7 +5,7 @@
  "toc": "Índice",
  "back": "Voltar ao site",
  "pdf": "Descarregar o PDF",
- "ver": "Versão 0.3.0",
+ "ver": "Versão 0.3.1",
  "s": [
   {
    "t": "Instalação",
@@ -19,18 +19,21 @@
   {
    "t": "O ecrã",
    "p": [
-    "Em cima, a biblioteca (à esquerda) e a playlist (à direita). Ao meio, a barra de reprodução e depois as definições da faixa selecionada. Em baixo, a linha temporal. O botão <b>Som e efeitos</b> mostra ou esconde a mesa de mistura. As separações entre as zonas movem-se com o rato."
+    "Em cima, a biblioteca (à esquerda) e a playlist (à direita). No meio, a linha de reprodução com as saídas de som e, por baixo, as definições da faixa selecionada. Em baixo, a linha do tempo. O botão <b>Som e efeitos</b> mostra ou esconde a mesa de mistura. <b>Listas em baixo</b> coloca as listas por baixo da linha do tempo; <b>Listas em cima</b> volta a pô-las por cima. As separações entre as zonas deslocam-se com o rato, e cada zona (listas, linha de reprodução, Som e efeitos) tem os seus botões <b>−</b> e <b>+</b> para ajustar o tamanho."
    ],
    "cap": "A janela do TIMELINE DJ MIX",
    "leg": [
-    "Importar, nova mixagem, abrir e guardar um projeto, exportar",
+    "Anular e refazer (Ctrl + Z, Ctrl + Y)",
+    "Listas por cima ou por baixo da linha do tempo",
+    "Importar, nova mistura, abrir e guardar um projeto, exportar",
     "Controlador MIDI, cores e ajuda",
-    "Escolha do idioma",
+    "Idioma e tamanho de toda a apresentação (A− A+)",
     "Biblioteca: as suas faixas analisadas",
-    "Playlist: a ordem da mixagem e as transições",
-    "Reprodução, pré-escuta, tempo e andamento da mixagem",
+    "Playlist: ordem da mistura e transições",
+    "Reprodução, pré-escuta, tempo decorrido e andamento",
+    "Saídas de som e botão Reiniciar a placa de som",
     "Definições da faixa selecionada",
-    "A linha temporal"
+    "A linha do tempo"
    ]
   },
   {
@@ -78,20 +81,29 @@
    "p": [
     "O botão ▶ de cada linha toca a faixa nos auscultadores <b>sem parar a mixagem</b>, na biblioteca como na playlist; um cursor permite ir a qualquer ponto da faixa. O botão ⇄ toca a transição tal como vai soar.",
     "A <b>linha verde</b> da linha temporal mostra onde vai a pré-escuta da mixagem. Coloque-a com um clique na faixa de baixo, Shift + clique ou clique direito, e depois carregue em <b>Pré-escuta</b>.",
-    "Saídas: por predefinição, placa de 4 canais, saída geral em 1-2 e auscultadores em 3-4. Com uma placa estéreo, escolha <b>Estéreo</b> ou envie os auscultadores para outra placa de som."
+    "As saídas definem-se na linha de reprodução: <b>Saída</b> (a placa de som da mistura), a distribuição dos canais (<b>Estéreo</b>, <b>Geral 1-2, auscultadores 3-4</b> ou <b>Auscultadores 1-2, geral 3-4</b>) e <b>Auscultadores</b>, para enviar a pré-escuta para outra placa de som. 🔍 mostra o nome das placas e ⓘ indica os canais disponíveis. Com uma placa estéreo, escolha <b>Estéreo</b> ou auscultadores noutra placa: caso contrário, a pré-escuta é cortada para nunca passar na saída geral. Alterar estas definições não corta a mistura nem a pré-escuta.",
+    "<b>Controlador ligado depois do arranque</b>: o programa deteta-o e reabre sozinho as saídas de som. Se os auscultadores continuarem mudos, clique em <b>Reiniciar a placa de som</b>: as saídas de áudio são reabertas sem recarregar o programa, as faixas e o projeto continuam carregados, e a mistura e a pré-escuta retomam onde estavam."
    ],
    "cap": "Pré-escuta de uma faixa da biblioteca e linha verde",
    "leg": [
     "Botão de pré-escuta da mixagem",
     "Faixa nos auscultadores e a sua posição",
     "Linha verde da pré-escuta"
+   ],
+   "cap2": "As saídas de som na linha de reprodução",
+   "leg2": [
+    "Saída: a placa de som da mistura",
+    "Distribuição dos canais",
+    "Auscultadores noutra placa de som",
+    "Canais disponíveis (ⓘ)",
+    "Reiniciar a placa de som"
    ]
   },
   {
    "t": "Som e efeitos",
    "p": [
     "Para cada via: volume, graves, médios, agudos, filtro e <b>andamento ±8 %</b>. Ao centro, o crossfader; à direita, o eco (acertado no andamento), o flanger e o reverb. Um duplo clique repõe um controlo a zero.",
-    "A <b>vista simples</b> substitui os potenciómetros por cursores; um <b>círculo verde</b> acende-se quando o controlo está ao centro. Marque <i>Aplicar estas definições à exportação</i> para as manter no ficheiro exportado."
+    "A <b>Vista simples</b>, na linha de reprodução, substitui os potenciómetros por cursores; um <b>ponto verde</b> acende-se quando a definição está ao centro. Marque <b>Exportar</b> para manter estas definições no ficheiro exportado; ⟲ repõe todas as definições a zero."
    ],
    "cap": "A mesa de mistura em vista de controlador DJ",
    "leg": [
@@ -129,7 +141,7 @@
    "t": "Projetos",
    "p": [
     "<b>Guardar o projeto</b> mantém a ordem, as transições, as curvas e as correções de andamento num ficheiro .json. <b>Abrir um projeto</b> volta a carregá-lo. O programa também guarda sozinho a última mixagem.",
-    "<b>Anular</b> (Ctrl + Z) volta atrás. Alterar uma faixa em espera nunca corta a que está a tocar."
+    "<b>↶</b> anula (Ctrl + Z) e <b>↷</b> refaz (Ctrl + Y), em cima à esquerda, como num processador de texto. Alterar uma faixa em espera nunca corta a que está a tocar."
    ]
   },
   {
@@ -143,8 +155,10 @@
   {
    "t": "Atalhos de teclado",
    "p": [
-    "<b>Espaço</b>: reproduzir / pausa · <b>Del</b>: remover da mixagem a faixa selecionada · <b>Ctrl + Z</b>: anular · <b>Home</b>: voltar ao início · <b>← →</b>: recuar ou avançar 5 segundos · <b>Ctrl + roda</b>: zoom da linha temporal.",
-    "<b>F1</b>: abrir este manual no idioma do programa. Também abre a partir de <b>Ajuda</b> › <b>Manual de utilização completo</b>."
+    "<b>Espaço</b>: reproduzir / pausa · <b>Del</b>: retirar a faixa selecionada da mistura · <b>Ctrl + Z</b>: anular · <b>Ctrl + Y</b>: refazer · <b>Home</b>: voltar ao início · <b>← →</b>: recuar ou avançar 5 segundos · <b>Ctrl + roda</b>: zoom da linha do tempo.",
+    "<b>F1</b>: abrir este manual no idioma do programa. Também abre a partir de <b>Ajuda</b> › <b>Manual de utilização completo</b>.",
+    "<b>Ctrl −</b> e <b>Ctrl +</b>: reduzir ou ampliar toda a apresentação, útil em ecrãs pequenos; <b>Ctrl 0</b> volta a 100 %. Os botões <b>A−</b> e <b>A+</b>, em cima à direita, fazem o mesmo.",
+    "<b>Ctrl + roda</b> por cima das listas, da linha de reprodução ou da mesa de mistura: tamanho dessa zona apenas. Os seus botões <b>−</b> e <b>+</b> fazem o mesmo; um clique na percentagem volta a pô-la a 100 %."
    ]
   },
   {

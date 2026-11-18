@@ -152,8 +152,8 @@
 151	⇄ Ascolta la transizione
 152	Generale su 1-2, cuffie su 3-4.
 153	Cuffie su 1-2, generale su 3-4.
-154	Ne servono 4 per separare le cuffie: imposta la scheda su «Quadrifonico» nel sistema.
-155	L'uscita cuffie scelta non è disponibile: le cuffie tornano sull'uscita del mix.
+154	Ne servono 4 per separare le cuffie: il preascolto è disattivato per non finire sull'uscita generale. Imposta la scheda su «Quadrifonico» nel sistema o scegli un'altra scheda audio per le cuffie.
+155	L'uscita cuffie scelta non è disponibile: il preascolto è disattivato per non finire sull'uscita generale.
 156	Cuffie inviate all'altra scheda audio.
 157	Cuffie ascoltate insieme al mix.
 158	Aggiungi prima dei brani alla playlist.
@@ -339,3 +339,38 @@
 338	Seleziona un brano nella timeline per regolarne transizione, tempo, griglia e curve.
 339	Mappatura
 340	Manuale d'uso completo
+341	Rimpicciolire la visualizzazione (Ctrl −, o Ctrl + rotella)
+342	Ingrandire la visualizzazione (Ctrl +, o Ctrl + rotella)
+343	Dimensione della visualizzazione: clic per tornare al 100 % (Ctrl 0)
+344	Rimpicciolire la visualizzazione
+345	Ingrandire la visualizzazione
+346	L'uscita cuffie scelta non è disponibile.
+347	Scheda audio rilevata: generale su 1-2, cuffie su 3-4.
+348	Scheda audio rilevata: cuffie su 1-2, generale su 3-4.
+349	Ripeti
+350	Ripeti (Ctrl+Y)
+351	Elenchi in basso
+352	Elenchi in alto
+353	Mettere gli elenchi sopra o sotto la timeline
+354	Rimpicciolire questa zona (o Ctrl + rotella sopra)
+355	Ingrandire questa zona (o Ctrl + rotella sopra)
+356	Rimpicciolire questa zona
+357	Ingrandire questa zona
+358	Dimensione di questa zona: clic per tornare al 100 %
+359	Uscita
+360	Esporta
+361	Generale 1-2, cuffie 3-4
+362	Cuffie 1-2, generale 3-4
+363	Scheda audio rilevata: l'audio verrà reimpostato appena riproduzione e preascolto saranno fermi.
+364	Scheda audio presa in carico: l'audio è stato reimpostato.
+365	Riapre le uscite audio senza ricaricare il programma. I brani e il progetto restano caricati.
+366	Scheda audio rilevata: l'audio verrà reimpostato appena la riproduzione del mix sarà ferma.
+367	Riavvia la scheda audio
+368	Motore audio reimpostato, brani e progetto conservati.
+369	Riconnessione audio incompleta: fai clic su Riproduci o Preascolto. I tuoi brani sono conservati.
+370	Impossibile reimpostare l'audio. Controlla Suono ed effetti.
+371	Uscita cuffie non disponibile. Ricollega la scheda o scegli un'altra uscita in Suono ed effetti.
+372	Fai clic su Riproduci o Preascolto per consentire l'audio dopo la riconnessione.
+373	Uscita cuffie non disponibile: controlla Suono ed effetti.
+374	Uscita memorizzata
+375	{x} (scollegata)

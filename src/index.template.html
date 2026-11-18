@@ -17,6 +17,8 @@
     <b>TIMELINE DJ MIX</b><span>par DJ LATIN JAZZ &amp; DJ CRISLATINO</span>
   </div>
   <div class="actions">
+    <button id="btnUndo" class="ico undo" title="Annuler (Ctrl+Z)" aria-label="Annuler">↶</button><button id="btnRedo" class="ico undo" title="Rétablir (Ctrl+Y)" aria-label="Rétablir">↷</button>
+    <button id="btnLists" title="Mettre les listes au-dessus ou au-dessous de la timeline">Listes en bas</button>
     <button id="btnImport" class="primary">Importer des morceaux</button>
     <input id="fileIn" type="file" multiple accept="audio/*,video/mp4,video/webm,.mp3,.wav,.flac,.ogg,.oga,.opus,.m4a,.mp4,.aac,.aif,.aiff,.webm,.wma,.caf" hidden>
     <button id="btnNew">Nouveau mix</button>
@@ -27,7 +29,7 @@
     <button id="btnMidi">Contrôleur MIDI</button>
     <button id="btnLook">Couleurs</button>
     <button id="btnHelp">Aide</button>
-    <select id="langSel" aria-label="Langue" translate="no"></select>
+    <select id="langSel" aria-label="Langue" translate="no"></select><span id="uiZoom"><button id="uiZoomOut" title="Réduire l'affichage (Ctrl −, ou Ctrl + molette)" aria-label="Réduire l'affichage">A−</button><span id="uiZoomVal" title="Taille de l'affichage : clic pour revenir à 100 % (Ctrl 0)">100 %</span><button id="uiZoomIn" title="Agrandir l'affichage (Ctrl +, ou Ctrl + molette)" aria-label="Agrandir l'affichage">A+</button></span>
   </div>
 </header>
 
@@ -40,7 +42,7 @@
     </tr></thead><tbody id="libBody"></tbody></table><div class="empty" id="libEmpty" hidden>Importez des fichiers audio, ou déposez-les ici. Le tempo et la tonalité sont analysés automatiquement.</div></div>
   </div>
   <div class="panel" id="plPanel">
-    <div class="head"><h2>Playlist</h2><span class="sub" id="plCount"></span><button id="btnAuto" title="Pendant la lecture, l'Auto DJ ajoute tout seul le titre suivant avant la fin du mix">Auto DJ arrêté</button><button id="btnStyle" class="ico" title="Passer au style suivant" aria-label="Passer au style suivant">⏭</button><button id="btnParty">Soirée par styles</button><button id="btnOrder" title="Réordonne les morceaux par tempo et par tonalité compatibles, à partir du premier">Ordonner</button></div>
+    <div class="head"><h2>Playlist</h2><span class="sub" id="plCount"></span><button id="btnAuto" title="Pendant la lecture, l'Auto DJ ajoute tout seul le titre suivant avant la fin du mix">Auto DJ arrêté</button><button id="btnStyle" class="ico" title="Passer au style suivant" aria-label="Passer au style suivant">⏭</button><button id="btnParty">Soirée par styles</button><button id="btnOrder" title="Réordonne les morceaux par tempo et par tonalité compatibles, à partir du premier">Ordonner</button><span class="zz" data-z="lists"><button class="ico" data-zz="-" title="Réduire cette zone (ou Ctrl + molette dessus)" aria-label="Réduire cette zone">−</button><span data-zz="0" title="Taille de cette zone : clic pour revenir à 100 %">100 %</span><button class="ico" data-zz="+" title="Agrandir cette zone (ou Ctrl + molette dessus)" aria-label="Agrandir cette zone">+</button></span></div>
     <div class="scroll" id="plScroll"><table><thead><tr>
       <th>Écoute</th><th class="num">N°</th><th>Transition d'entrée</th><th>Titre</th><th>Artiste</th><th class="num">BPM</th><th>Tonalité</th><th class="num">Début</th><th></th>
     </tr></thead><tbody id="plBody"></tbody></table><div class="empty" id="plEmpty" hidden>Double-cliquez sur un morceau de la bibliothèque, ou glissez-le ici, pour l'ajouter au mix.</div></div>
@@ -60,7 +62,9 @@
     <div class="grp"><span class="l">Aimant</span><div class="seg" id="segSnap"><button data-s="4" class="on">Mesure</button><button data-s="1">Temps</button></div></div>
     <div class="grp"><label for="zoom">Zoom</label><input id="zoom" type="range" min="0" max="100" value="30" style="width:110px"><button id="btnFit">Tout voir</button></div>
     <div class="grp"><label for="mvol">Écoute</label><input id="mvol" type="range" min="0" max="100" value="85" style="width:80px"></div>
-    <div class="grp"><button id="btnSnd" class="on" title="Afficher ou masquer le panneau Son et effets">Son et effets</button><button id="btnUndo" title="Annuler (Ctrl+Z)">Annuler</button></div>
+    <div class="grp"><button id="btnSnd" class="on" title="Afficher ou masquer le panneau Son et effets">Son et effets</button></div>
+    <div class="grp" id="outBar"></div>
+    <span class="zz" data-z="tools"><button class="ico" data-zz="-" title="Réduire cette zone (ou Ctrl + molette dessus)" aria-label="Réduire cette zone">−</button><span data-zz="0" title="Taille de cette zone : clic pour revenir à 100 %">100 %</span><button class="ico" data-zz="+" title="Agrandir cette zone (ou Ctrl + molette dessus)" aria-label="Agrandir cette zone">+</button></span>
     <div id="insp"></div>
   </div>
   <div id="snd"></div><div class="split-h" id="splitSnd" title="Glisser pour régler la hauteur du panneau"></div>

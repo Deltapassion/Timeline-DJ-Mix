@@ -5,7 +5,7 @@
  "toc": "Inhalt",
  "back": "Zurück zur Website",
  "pdf": "PDF herunterladen",
- "ver": "Version 0.3.0",
+ "ver": "Version 0.3.1",
  "s": [
   {
    "t": "Installation",
@@ -19,16 +19,19 @@
   {
    "t": "Der Bildschirm",
    "p": [
-    "Oben die Bibliothek (links) und die Playlist (rechts). In der Mitte die Wiedergabeleiste, darunter die Einstellungen des ausgewählten Titels. Unten die Zeitleiste. Die Schaltfläche <b>Klang und Effekte</b> blendet das Mischpult ein oder aus. Die Grenzen zwischen den Bereichen lassen sich mit der Maus verschieben."
+    "Oben die Bibliothek (links) und die Playlist (rechts). In der Mitte die Wiedergabezeile mit den Tonausgängen, darunter die Einstellungen des ausgewählten Titels. Unten die Zeitleiste. Die Schaltfläche <b>Klang und Effekte</b> blendet das Mischpult ein oder aus. <b>Listen unten</b> setzt die Listen unter die Zeitleiste; <b>Listen oben</b> setzt sie wieder darüber. Die Trennlinien zwischen den Bereichen lassen sich mit der Maus verschieben, und jeder Bereich (Listen, Wiedergabezeile, Klang und Effekte) hat eigene Tasten <b>−</b> und <b>+</b> für seine Größe."
    ],
    "cap": "Das Fenster von TIMELINE DJ MIX",
    "leg": [
+    "Rückgängig und wiederherstellen (Strg + Z, Strg + Y)",
+    "Listen über oder unter der Zeitleiste",
     "Importieren, neuer Mix, Projekt öffnen und speichern, exportieren",
     "MIDI-Controller, Farben und Hilfe",
-    "Sprachwahl",
+    "Sprache und Größe der ganzen Anzeige (A− A+)",
     "Bibliothek: Ihre analysierten Titel",
     "Playlist: Reihenfolge des Mixes und Übergänge",
     "Wiedergabe, Vorhören, Zeit und Tempo des Mixes",
+    "Tonausgänge und Taste Soundkarte neu starten",
     "Einstellungen des ausgewählten Titels",
     "Die Zeitleiste"
    ]
@@ -78,20 +81,29 @@
    "p": [
     "Die Taste ▶ jeder Zeile spielt den Titel im Kopfhörer, <b>ohne den Mix anzuhalten</b>, in der Bibliothek wie in der Playlist; mit einem Schieberegler springen Sie an jede Stelle des Titels. Die Taste ⇄ spielt den Übergang so, wie er klingen wird.",
     "Die <b>grüne Linie</b> in der Zeitleiste zeigt, wo das Vorhören des Mixes steht. Setzen Sie sie mit einem Klick in den unteren Streifen, Umschalt + Klick oder Rechtsklick, dann starten Sie <b>Vorhören</b>.",
-    "Ausgänge: Standardmäßig 4-Kanal-Karte, Master auf 1-2 und Kopfhörer auf 3-4. Mit einer Stereokarte wählen Sie <b>Stereo</b> oder leiten den Kopfhörer auf eine andere Soundkarte."
+    "Die Ausgänge werden in der Wiedergabezeile eingestellt: <b>Ausgang</b> (die Soundkarte des Mixes), die Kanalaufteilung (<b>Stereo</b>, <b>Master 1-2, Kopfhörer 3-4</b> oder <b>Kopfhörer 1-2, Master 3-4</b>) und <b>Kopfhörer</b>, um das Vorhören auf eine andere Soundkarte zu schicken. 🔍 zeigt die Namen der Karten, ⓘ die verfügbaren Kanäle. Mit einer Stereokarte wählen Sie <b>Stereo</b> oder einen Kopfhörer auf einer anderen Karte: Sonst wird das Vorhören stummgeschaltet, damit es nie auf dem Hauptausgang landet. Das Ändern dieser Einstellungen unterbricht weder den Mix noch das Vorhören.",
+    "<b>Controller nach dem Start angeschlossen</b>: Das Programm erkennt ihn und öffnet die Tonausgänge von selbst neu. Bleibt der Kopfhörer stumm, klicken Sie auf <b>Soundkarte neu starten</b>: Die Audioausgänge werden neu geöffnet, ohne das Programm neu zu laden; Titel und Projekt bleiben geladen, und Mix wie Vorhören laufen dort weiter, wo sie waren."
    ],
    "cap": "Vorhören eines Bibliothekstitels und die grüne Linie",
    "leg": [
     "Taste Vorhören des Mixes",
     "Titel im Kopfhörer und seine Position",
     "Grüne Linie des Vorhörens"
+   ],
+   "cap2": "Die Tonausgänge in der Wiedergabezeile",
+   "leg2": [
+    "Ausgang: die Soundkarte des Mixes",
+    "Kanalaufteilung",
+    "Kopfhörer auf einer anderen Soundkarte",
+    "Verfügbare Kanäle (ⓘ)",
+    "Soundkarte neu starten"
    ]
   },
   {
    "t": "Klang und Effekte",
    "p": [
     "Für jeden Kanal: Lautstärke, Bässe, Mitten, Höhen, Filter und <b>Tempo ±8 %</b>. In der Mitte der Crossfader; rechts Echo (im Tempo), Flanger und Hall. Ein Doppelklick setzt einen Regler zurück.",
-    "Die <b>einfache Ansicht</b> ersetzt die Drehregler durch Schieberegler; ein <b>grüner Punkt</b> leuchtet, wenn der Regler in der Mitte steht. Aktivieren Sie <i>Diese Einstellungen auf den Export anwenden</i>, um sie in der exportierten Datei zu behalten."
+    "Die <b>Einfache Ansicht</b> in der Wiedergabezeile ersetzt die Drehregler durch Schieberegler; ein <b>grüner Punkt</b> leuchtet, wenn ein Regler in der Mitte steht. Haken Sie <b>Export</b> an, um diese Einstellungen in der exportierten Datei zu behalten; ⟲ setzt alle Regler zurück."
    ],
    "cap": "Das Mischpult in der DJ-Controller-Ansicht",
    "leg": [
@@ -129,7 +141,7 @@
    "t": "Projekte",
    "p": [
     "<b>Projekt speichern</b> sichert Reihenfolge, Übergänge, Kurven und Tempokorrekturen in einer .json-Datei. <b>Projekt öffnen</b> lädt es wieder. Die Software merkt sich außerdem den letzten Mix von selbst.",
-    "<b>Rückgängig</b> (Strg + Z) geht einen Schritt zurück. Das Ändern eines wartenden Titels unterbricht nie den laufenden."
+    "<b>↶</b> macht rückgängig (Strg + Z) und <b>↷</b> stellt wieder her (Strg + Y), oben links, wie in einer Textverarbeitung. Das Bearbeiten eines wartenden Titels unterbricht nie den laufenden."
    ]
   },
   {
@@ -143,8 +155,10 @@
   {
    "t": "Tastenkürzel",
    "p": [
-    "<b>Leertaste</b>: Wiedergabe / Pause · <b>Entf</b>: ausgewählten Titel aus dem Mix entfernen · <b>Strg + Z</b>: rückgängig · <b>Pos1</b>: zurück zum Anfang · <b>← →</b>: 5 Sekunden zurück oder vor · <b>Strg + Mausrad</b>: Zoom der Zeitleiste.",
-    "<b>F1</b>: öffnet diese Anleitung in der Sprache des Programms. Sie öffnet sich auch über <b>Hilfe</b> › <b>Vollständige Bedienungsanleitung</b>."
+    "<b>Leertaste</b>: Wiedergabe / Pause · <b>Entf</b>: ausgewählten Titel aus dem Mix entfernen · <b>Strg + Z</b>: rückgängig · <b>Strg + Y</b>: wiederherstellen · <b>Pos1</b>: zurück zum Anfang · <b>← →</b>: 5 Sekunden zurück oder vor · <b>Strg + Mausrad</b>: Zoom der Zeitleiste.",
+    "<b>F1</b>: öffnet diese Anleitung in der Sprache des Programms. Sie öffnet sich auch über <b>Hilfe</b> › <b>Vollständige Bedienungsanleitung</b>.",
+    "<b>Strg −</b> und <b>Strg +</b>: die ganze Anzeige verkleinern oder vergrößern, praktisch auf kleinen Bildschirmen; <b>Strg 0</b> setzt auf 100 % zurück. Die Tasten <b>A−</b> und <b>A+</b> oben rechts tun dasselbe.",
+    "<b>Strg + Mausrad</b> über den Listen, der Wiedergabezeile oder dem Mischpult: nur die Größe dieses Bereichs. Seine Tasten <b>−</b> und <b>+</b> tun dasselbe; ein Klick auf seinen Prozentwert setzt ihn auf 100 % zurück."
    ]
   },
   {

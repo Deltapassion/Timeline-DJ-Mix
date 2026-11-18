@@ -152,8 +152,8 @@
 151	⇄ Ouvir a transição
 152	Geral em 1-2, auscultadores em 3-4.
 153	Auscultadores em 1-2, geral em 3-4.
-154	São precisos 4 para separar os auscultadores: configure a placa em «Quadrifónico» no sistema.
-155	A saída de auscultadores escolhida não está disponível: os auscultadores voltam à saída da mixagem.
+154	São precisos 4 para separar os auscultadores: a pré-escuta é cortada para não passar na saída geral. Configure a placa em «Quadrifónico» no sistema ou escolha outra placa de som para os auscultadores.
+155	A saída de auscultadores escolhida não está disponível: a pré-escuta é cortada para não passar na saída geral.
 156	Auscultadores enviados para a outra placa de som.
 157	Auscultadores ouvidos com a mixagem.
 158	Primeiro adicione faixas à playlist.
@@ -339,3 +339,38 @@
 338	Selecione uma faixa na linha temporal para regular a transição, o andamento, a grelha e as curvas.
 339	Mapeamento
 340	Manual de utilização completo
+341	Reduzir a apresentação (Ctrl −, ou Ctrl + roda do rato)
+342	Ampliar a apresentação (Ctrl +, ou Ctrl + roda do rato)
+343	Tamanho da apresentação: clique para voltar a 100 % (Ctrl 0)
+344	Reduzir a apresentação
+345	Ampliar a apresentação
+346	A saída de auscultadores escolhida não está disponível.
+347	Placa de som detetada: geral em 1-2, auscultadores em 3-4.
+348	Placa de som detetada: auscultadores em 1-2, geral em 3-4.
+349	Refazer
+350	Refazer (Ctrl+Y)
+351	Listas em baixo
+352	Listas em cima
+353	Colocar as listas acima ou abaixo da linha do tempo
+354	Reduzir esta zona (ou Ctrl + roda do rato por cima)
+355	Ampliar esta zona (ou Ctrl + roda do rato por cima)
+356	Reduzir esta zona
+357	Ampliar esta zona
+358	Tamanho desta zona: clique para voltar a 100 %
+359	Saída
+360	Exportar
+361	Geral 1-2, auscultadores 3-4
+362	Auscultadores 1-2, geral 3-4
+363	Placa de som detetada: o som será reiniciado assim que a reprodução e a pré-escuta pararem.
+364	Placa de som tida em conta: o som foi reiniciado.
+365	Reabrir as saídas de áudio sem recarregar o programa. As faixas e o projeto continuam carregados.
+366	Placa de som detetada: o som será reiniciado assim que a reprodução da mistura parar.
+367	Reiniciar a placa de som
+368	Motor de áudio reiniciado, faixas e projeto mantidos.
+369	Religação de áudio incompleta: clique em Reproduzir ou Pré-escuta. As suas faixas são mantidas.
+370	Não foi possível reiniciar o som. Verifique Som e efeitos.
+371	Saída de auscultadores indisponível. Volte a ligar a placa ou escolha outra saída em Som e efeitos.
+372	Clique em Reproduzir ou Pré-escuta para permitir o som após a religação.
+373	Saída de auscultadores indisponível: verifique Som e efeitos.
+374	Saída memorizada
+375	{x} (desligada)

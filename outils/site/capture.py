@@ -47,7 +47,9 @@ async def run(lang):
         await pg.wait_for_timeout(400)
         sels = {'top': 'header.bar .actions', 'import': '#btnImport', 'lang': '#langSel', 'lib': '#libPanel', 'pl': '#plPanel', 'tools': '#bottom .tools', 'transport': '#btnPlay', 'cue': '#btnCue',
                 'curve': '#segCurve', 'insp': '#insp', 'snd': '#snd', 'tl': '#tl', 'auto': '#btnAuto', 'party': '#btnParty', 'midi': '#btnMidi', 'look': '#btnLook', 'export': '#btnExport',
-                'search': '#libSearch', 'order': '#btnOrder', 'zoom': '#zoom', 'undo': '#btnUndo', 'sndbtn': '#btnSnd', 'help': '#btnHelp', 'open': '#btnOpen', 'save': '#btnSave', 'new': '#btnNew'}
+                'search': '#libSearch', 'order': '#btnOrder', 'zoom': '#zoom', 'undo': '#btnUndo', 'sndbtn': '#btnSnd', 'help': '#btnHelp', 'open': '#btnOpen', 'save': '#btnSave', 'new': '#btnNew',
+                'lists': '#btnLists', 'uizoom': '#uiZoom', 'outmaster': '.tools label.ob:has(#outMaster)', 'outmode': '#outMode', 'outcue': '.tools label.ob:has(#outCue)',
+                'outinfo': '#outInfo', 'restart': '#outRestart', 'zzlists': '.zz[data-z="lists"]', 'zztools': '.zz[data-z="tools"]'}
         boxes['01-ecran'] = await shoot(pg, f'{out}/01-ecran.jpg', sels)
         # le choix de la transition (liste déroulante remplacée par l'inspecteur)
         await pg.evaluate("() => { const fe = __fe; fe.S.playlist[1].type = 'bass'; fe.S.curve = 'bass'; for (const x of document.getElementById('segCurve').children) x.classList.toggle('on', x.dataset.c === 'bass'); fe.changed(); }")
